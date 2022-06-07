@@ -1,7 +1,9 @@
-<% @books.each do |book| %>
+<% books.each do |book| %>
   <div>
     <%= link_to (image_tag(book.medium_image_url)), book.item_url %>
-    <%= book.title %>
-    <%= book.isbn %>
+      <%= book.title %>
+      <%= book.isbn %>
+      
+      <%= link_to '詳細へ', search_path(isbn: book.isbn) %>
   </div>
 <% end %>
