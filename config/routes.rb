@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  # Devise routes
 
   # 顧客用 URL /users/sign_in ...
   devise_for :users,skip: [:passwords], controllers: {
@@ -13,12 +14,13 @@ Rails.application.routes.draw do
   }
 
 
+  # 共通routes
   root to: "homes#top"
   get "/about" => "homes#about"
   get "/search" => "searchs#show"
-
   resources :searchs, only: [:index]
 
+  # user routes
   scope module: 'user' do
     resources :users, only: [:show, :edit, :update] do
       get 'followings' => 'follow_relationships#followings', as: 'followings'
@@ -26,5 +28,15 @@ Rails.application.routes.draw do
       resource :follow_relationships, only: [:create, :destroy,]
     end
   end
+
+  # Admin routes
+  namespace :admin do
+    get '/top' => 'homes#top'
+    resources :types, only: [:edit, :create, :update, :delete]
+    resources :lobgs, only: [:edit, :create, :update, :delete]
+    resources :mysteries, only: [:edit, :create, :update, :delete]
+    resources :difficulties, only: [:edit, :create, :update, :delete]
+  end
+
 
 end

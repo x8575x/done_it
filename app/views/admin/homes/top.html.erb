@@ -1,0 +1,21 @@
+<h1>Admin::Homes#top</h1>
+<p>Find me in app/views/admin/homes/top.html.erb</p>
+
+
+<div class="container">
+  <%= form_with model: @difficulty, url: admin_difficulties_path, method: :post do |f| %>
+    <div class="form-grop row offset-1 mt-5">
+      <%= f.label :name,"読みやすさ", class: "col-lg-2 mr-5" %>
+      <%= f.text_field :name, class: "col-lg-6", autofocus: true %>
+      <div class="col-lg-2">
+        <%= f.submit "変更を保存", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <%= @difficulties.each do |difficulty| %>
+      <% name%>
+    <% end %>
+  </div>
+</div>
