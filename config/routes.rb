@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :searchs, only: [:index]
 
   scope module: 'user' do
-    resources :user, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update]
   end
 
 end
