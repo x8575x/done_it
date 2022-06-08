@@ -25,17 +25,17 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update] do
       get 'followings' => 'follow_relationships#followings', as: 'followings'
       get 'followers' => 'follow_relationships#followers', as: 'followers'
-      resource :follow_relationships, only: [:create, :destroy,]
+      resource :follow_relationships, only: [:create, :destroy]
     end
   end
 
   # Admin routes
   namespace :admin do
     get '/top' => 'homes#top'
-    resources :types, only: [:edit, :create, :update, :delete]
-    resources :lobgs, only: [:edit, :create, :update, :delete]
-    resources :mysteries, only: [:edit, :create, :update, :delete]
-    resources :difficulties, only: [:edit, :create, :update, :delete]
+    resources :types, only: [:edit, :create, :update, :destroy]
+    resources :longs, only: [:edit, :create, :update, :destroy]
+    resources :mysteries, only: [:edit, :create, :update, :destroy]
+    resources :difficulties, only: [:edit, :create, :update, :destroy]
   end
 
 

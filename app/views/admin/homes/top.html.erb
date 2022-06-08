@@ -1,21 +1,42 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
-
 
 <div class="container">
+
+
   <%= form_with model: @difficulty, url: admin_difficulties_path, method: :post do |f| %>
     <div class="form-grop row offset-1 mt-5">
       <%= f.label :name,"読みやすさ", class: "col-lg-2 mr-5" %>
       <%= f.text_field :name, class: "col-lg-6", autofocus: true %>
       <div class="col-lg-2">
-        <%= f.submit "変更を保存", class: "btn btn-primary" %>
+        <%= f.submit "保存", class: "btn btn-primary" %>
       </div>
     </div>
   <% end %>
 
-  <div class="row">
-    <%= @difficulties.each do |difficulty| %>
-      <% name%>
+  <div class="row mt-3 offset-1">
+    <% @difficulties.each do |difficulty| %>
+      <div class="col-lg-3"><%= difficulty.name %></div>
+      <%= link_to "編集",edit_admin_difficulty_path(difficulty.id), class: "col-lg-3" %>
+      <%= link_to "削除",admin_difficulty_path(difficulty.id), method: :delete, class: "col-lg-3" %>
     <% end %>
   </div>
+
+
+  <%= form_with model: @long, url: admin_longs_path, method: :post do |f| %>
+    <div class="form-grop row offset-1 mt-5">
+      <%= f.label :name,"長さ", class: "col-lg-2 mr-5" %>
+      <%= f.text_field :name, class: "col-lg-6", autofocus: true %>
+      <div class="col-lg-2">
+        <%= f.submit "保存", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row mt-3 offset-1">
+    <% @longs.each do |long| %>
+      <div class="col-lg-3"><%= long.name %></div>
+      <%= link_to "編集",edit_admin_long_path(long.id), class: "col-lg-3" %>
+      <%= link_to "削除",admin_long_path(long.id), method: :delete, class: "col-lg-3" %>
+    <% end %>
+  </div>
+
 </div>

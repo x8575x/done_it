@@ -4,6 +4,7 @@ class Admin::DifficultiesController < ApplicationController
   def create
     @difficulty = Difficulty.new(difficulty_params)
     @difficulty.save
+    redirect_to admin_top_path
   end
 
   def edit
@@ -12,12 +13,14 @@ class Admin::DifficultiesController < ApplicationController
 
   def update
     @difficulty = Difficulty.find(params[:id])
-    @difficulty
+    @difficulty.update
+    redirect_to admin_top_path
   end
 
-  def delete
+  def destroy
     @difficulty = Difficulty.find(params[:id])
     @difficulty.destroy
+    redirect_to admin_top_path
   end
   
   
