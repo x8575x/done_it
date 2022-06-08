@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <h2>新規登録</h2>
+  </div>
+
+  <div class="row">
+    <%= form_with model: @user, url: user_registration_path, method: :post do |f| %>
+      <%= render "user/shared/error_messages", resource: resource %>
+
+      <div class="form-grop">
+        <%= f.label :name, "ニックネーム" %>
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+
+      <div class="form-grop">
+        <%= f.label :birthday, "生年月日" %>
+        <%= f.date_select(
+          :birthday,
+          use_month_numbers: true, #数字で月を表示
+          default: Date.new(1990, 1, 1), #初期設定
+          start_year:     1950, #開始年
+          end_year:       (Time.now.year), #終了年月日（now）
+          class: "form-control")
+        %>
+      </div>
+
+      <div class="form-grop">
+        <%= f.label :sex, "性別" %>
+        男性<%= f.radio_button :sex, 'true', checked: true %>
+        女性<%= f.radio_button :sex, 'false', checked: false %>
+      </div>
+
+      <div class="form-grop">
+        <%= f.label :introduction, "自己紹介" %>
+        <%= f.text_area :introduction %>
+      </div>
+
+      <div class="form-grop">
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, autocomplete: "email" %>
+      </div>
+
+      <div class="form-grop">
+        <%= f.label :password, "パスワード" %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="form-grop">
+        <%= f.label :password_confirmation, "パスワード(確認用)" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "登録", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
+  </div>
+
+
+    <div class="row">
+      <%= render "user/shared/links" %>
+    </div>
+
+
+</div>
+
