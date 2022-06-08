@@ -32,11 +32,11 @@
       </div>
 
       <% if @user == current_user %>
-        <%= link_to edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-block" do %>
+        <%= link_to edit_user_path(current_user.id), class: "btn btn-secondary btn-block" do %>
           <i class="fas fa-user-cog"></i>
         <% end %>
       <% else %>
-        <div class="row border-bottom p-3">
+        <div class="row">
           <%= render 'user/follow_relationships/follow_btn', user: @user %>
         </div>
       <% end %>

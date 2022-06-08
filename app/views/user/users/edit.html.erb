@@ -1,2 +1,44 @@
-<h1>User::Users#edit</h1>
-<p>Find me in app/views/user/users/edit.html.erb</p>
+<div class="container">
+  <h2 class="row mt-5 justify-content-center">プロフィール編集</h2>
+
+  <%= form_with model: @user, url: user_path(@user), method: :patch do |f| %>
+    <div class="form-grop row offset-1 mt-5">
+      <%= f.label :name,"Name", class: "col-lg-2 mr-5" %>
+      <%= f.text_field :name, class: "col-lg-6", autofocus: true%>
+    </div>
+
+    <div class="form-grop row offset-1 mt-3">
+        <%= f.label :introduction, "Introduction", class: "col-lg-2 mr-5" %>
+        <%= f.text_area :introduction, class: "col-lg-6" %>
+      </div>
+
+    <div class="form-grop row offset-1 mt-3">
+      <%= label :profile_image,"Profile Image", class: "col-lg-2 mr-5" %>
+      <%= f.file_field :profile_image, class: "col-lg-6", accept: "image/*" %>
+    </div>
+
+    <div class="form-grop row offset-1 mt-3">
+      <%= f.label :birthday, "Birthday", class: "col-lg-2 mr-5" %>
+      <%= f.date_select(
+        :birthday,
+        use_month_numbers: true, #数字で月を表示
+        default: Date.new(1990, 1, 1), #初期設定
+        start_year:     1950, #開始年
+        end_year:       (Time.now.year), #終了年月日（now）
+        class: "col-lg-6 mr-1")
+      %>
+    </div>
+
+    <div class="form-grop row offset-1 mt-3">
+      <%= f.label :sex, "Gender", class: "col-lg-2 mr-5" %>
+      <div class="col-lg-3">男性<%= f.radio_button :sex, 'true', checked: true %></div>
+      <div class="col-lg-3">女性<%= f.radio_button :sex, 'false', checked: false %></div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+      <%= f.submit "変更を保存", class: "btn btn-primary" %>
+    </div>
+
+  <% end %>
+
+</div>
