@@ -20,7 +20,11 @@ Rails.application.routes.draw do
   resources :searchs, only: [:index]
 
   scope module: 'user' do
-    resources :users, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update] do
+      get 'followings' => 'follow_relationships#followings', as: 'followings'
+      get 'followers' => 'follow_relationships#followers', as: 'followers'
+      resource :follow_relationships, only: [:create, :destroy,]
+    end
   end
 
 end

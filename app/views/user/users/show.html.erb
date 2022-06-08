@@ -1,2 +1,58 @@
-<h1>User::Users#show</h1>
-<p>Find me in app/views/user/users/show.html.erb</p>
+<div class="container">
+
+  <div class="row mt-5">
+
+    <div class="col-lg-4">
+      <div class="row justify-content-center"><%= image_tag @user.get_profile_image(200,200) %></div>
+      <div class="row">
+        <table class="table table-borderless">
+          <tr class="border-bottom"><th>Name</th><td><%= @user.name %></td></tr>
+          <tr class="border-bottom"><td colspan="2"><%= @user.introduction %><td></tr>
+          <tr class="border-bottom"><th>Birthday</th><td><%= @user.birthday %></td></tr>
+          <tr class="border-bottom"><th>Gender</th>
+          <td><% if @user.sex == true %>
+                男性
+              <% else %>
+                女性
+              <% end %>
+          </td>
+          <tr class="border-bottom"><th>Follow</th>
+            <td><%= link_to user_followings_path(@user) do %>
+                  <%= @user.followings.count %>
+                <% end%>
+          </td></tr>
+          <tr class="border-bottom"><th>Follower</th>
+            <td><%= link_to user_followings_path(@user) do %>
+                  <%= @user.followers.count %>
+                <% end%>
+          </td></tr>
+
+
+        </table>
+      </div>
+
+      <% if @user == current_user %>
+        <%= link_to edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-block" do %>
+          <i class="fas fa-user-cog"></i>
+        <% end %>
+      <% else %>
+        <div class="row border-bottom p-3">
+          <%= render 'user/follow_relationships/follow_btn', user: @user %>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div class="col-lg-6 ml-5">
+      <div class="row">ああああ</div>
+    </div>
+
+  </div>
+
+
+
+
+
+      <!--<= render 'user/follow_relationships/follow_index', user: @user %>-->
+    </div>
+</div>

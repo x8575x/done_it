@@ -25,6 +25,12 @@
       </div>
 
       <div class="form-grop">
+        <%= f.label :profile_image, "プロフィール画像" %>
+        <%= f.file_field :profile_image, accept: "image/*" %>
+      </div>
+
+
+      <div class="form-grop">
         <%= f.label :sex, "性別" %>
         男性<%= f.radio_button :sex, 'true', checked: true %>
         女性<%= f.radio_button :sex, 'false', checked: false %>
