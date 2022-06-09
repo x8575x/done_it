@@ -13,7 +13,7 @@ class Admin::DifficultiesController < ApplicationController
 
   def update
     @difficulty = Difficulty.find(params[:id])
-    @difficulty.update
+    @difficulty.update(difficulty_params)
     redirect_to admin_top_path
   end
 
@@ -22,9 +22,9 @@ class Admin::DifficultiesController < ApplicationController
     @difficulty.destroy
     redirect_to admin_top_path
   end
-  
-  
-  
+
+
+
   private
 
   def difficulty_params

@@ -1,2 +1,11 @@
-<h1>Admin::Mysteries#edit</h1>
-<p>Find me in app/views/admin/mysteries/edit.html.erb</p>
+<dvi class="row justify-content-center mt-5"><h2>Mystery</h2></dvi>
+
+  <%= form_with model: @mystery, url: admin_mystery_path, method: :patch do |f| %>
+    <div class="form-grop row offset-1 mt-5">
+      <%= f.label :name,"種類", class: "col-lg-2 mr-5" %>
+      <%= f.text_field :name, class: "col-lg-6" %>
+      <div class="col-lg-2">
+        <%= f.submit "保存", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>

@@ -13,7 +13,7 @@ class Admin::LongsController < ApplicationController
 
   def update
     @long = Long.find(params[:id])
-    @long.update
+    @long.update(long_params)
     redirect_to admin_top_path
   end
 

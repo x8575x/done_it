@@ -1,2 +1,13 @@
-<h1>Admin::Tags#edit</h1>
-<p>Find me in app/views/admin/tags/edit.html.erb</p>
+
+
+  <dvi class="row justify-content-center border-top mt-5"><h2>Tag</h2></dvi>
+
+  <%= form_with model: @tag, url: admin_tag_path, method: :patch do |f| %>
+    <div class="form-grop row offset-1 mt-5">
+      <%= f.label :name,"タグ", class: "col-lg-2 mr-5" %>
+      <%= f.text_field :name, class: "col-lg-6" %>
+      <div class="col-lg-2">
+        <%= f.submit "保存", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>

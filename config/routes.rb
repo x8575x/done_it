@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     resources :longs, only: [:edit, :create, :update, :destroy]
     resources :mysteries, only: [:edit, :create, :update, :destroy]
     resources :difficulties, only: [:edit, :create, :update, :destroy]
+    resources :tags, only: [:edit, :create, :update, :destroy]
   end
 
 
