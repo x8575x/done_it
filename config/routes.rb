@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get "/search" => "searchs#show"
   resources :searchs, only: [:index]
 
+
   # user routes
   scope module: 'user' do
     resources :users, only: [:show, :edit, :update] do
@@ -27,7 +28,12 @@ Rails.application.routes.draw do
       get 'followers' => 'follow_relationships#followers', as: 'followers'
       resource :follow_relationships, only: [:create, :destroy]
     end
+    resources :reviews do
+      resources :comment, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
+    end
   end
+
 
   # Admin routes
   namespace :admin do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_09_055749) do
+ActiveRecord::Schema.define(version: 2022_06_09_105833) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(version: 2022_06_09_055749) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "books", id: false, force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.string "isbn"
+    t.date "sales_date"
+    t.string "image"
+    t.string "rakuten_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -102,6 +113,20 @@ ActiveRecord::Schema.define(version: 2022_06_09_055749) do
   create_table "mystery_relationships", force: :cascade do |t|
     t.integer "mystery_id"
     t.integer "review_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "raviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "book_id"
+    t.integer "type_id"
+    t.integer "long_id"
+    t.integer "mystery_relationship_id"
+    t.integer "difficulty_relationship_id"
+    t.integer "tag_relationship_id"
+    t.text "body"
+    t.text "netabare"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
