@@ -1,0 +1,2 @@
+class MysteryRelationship < ApplicationRecord
+end
