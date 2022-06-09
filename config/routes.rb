@@ -29,7 +29,10 @@ Rails.application.routes.draw do
       resource :follow_relationships, only: [:create, :destroy]
     end
     resources :reviews do
-      resources :comment, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
+      resources :difficulty_relationships, only: [:create, :update, :destroy]
+      resources :mystery_relationships, only: [:create, :update, :destroy]
+      resources :tag_relationships, only: [:create, :update, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
   end

@@ -1,33 +1,33 @@
 <div class="container">
-  <% @book.each do |book| %>
+  <% @search.each do |search| %>
     <div class="row mt-5 justify-content-center">
       <div class="col-lg-6">
-        <h3><%= book.title %></h3>
+        <h3><%= search.title %></h3>
       </div>
     </div>
 
     <div class="row justify-content-center mt-3">
       <div class="col-lg-2">
         <div class="row justify-content-center">
-          <%= image_tag(book.large_image_url) %>
+          <%= image_tag(search.large_image_url) %>
         </div>
       </div>
 
       <div class="col-lg-5">
         <div class="row justify-content-center">
-          <%= book.author %>　著
+          <%= search.author %>　著
         </div>
         <div class="row justify-content-center">
-          <%= book.publisher_name %>　出版
+          <%= search.publisher_name %>　出版
         </div>
         <div class="row justify-content-center">
-          <%= book.sales_date %>　発売
+          <%= search.sales_date %>　発売
         </div>
         <div class="row justify-content-center">
-          <%= book.item_price %>円(税込み)
+          <%= search.item_price %>円(税込み)
         </div>
         <div class="row justify-content-center">
-          <%= book.item_caption %>)
+          <%= search.item_caption %>)
         </div>
       </div>
     </div>
