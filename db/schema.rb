@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2022_06_09_105833) do
     t.string "title"
     t.string "author"
     t.string "isbn"
-    t.date "sales_date"
+    t.string "sales_date"
     t.string "image"
     t.string "rakuten_url"
     t.datetime "created_at", precision: 6, null: false

@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       resources :tag_relationships, only: [:create, :update, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
+    resources :books, only: [:create, :index]
   end
 
 
