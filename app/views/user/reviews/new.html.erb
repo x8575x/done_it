@@ -1,0 +1,11 @@
+<div class="container">
+
+  <%= form_with model: @reviews, url: reviews_path, method: :post do |f| %>
+    <%= f.label :netabare,"ネタバレ" %>
+    <%= f.text_area :netabare %>
+
+    <%= f.submit "投稿" %>
+  <% end %>
+
+
+</div>
