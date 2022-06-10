@@ -4,7 +4,7 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       
       t.string :title
       t.string :author
-      t.string :isbn
+      t.string :isbn, null: false, primary_key: true
       t.string :sales_date
       t.string :image
       t.string :rakuten_url
