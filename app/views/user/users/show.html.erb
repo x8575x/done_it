@@ -2,7 +2,7 @@
 
   <div class="row mt-5">
 
-    <div class="col-lg-4">
+    <div class="col-lg-3">
       <div class="row justify-content-center"><%= image_tag @user.get_profile_image(200,200) %></div>
       <div class="row">
         <table class="table table-borderless">
@@ -43,16 +43,58 @@
 
     </div>
 
-    <div class="col-lg-6 ml-5">
-      <div class="row">ああああ</div>
-    </div>
+    <div class="col-lg-8 ml-3">
 
+      <% @reviews.each do |review| %>
+        <div class="border p-3 mb-3">
+          <div class="row">
+
+            <div class="col-lg-4">
+              <div class="row justify-content-center"><%= image_tag review.book.image %></div>
+            </div>
+
+            <div class="col-lg-8">
+              <div class="row justify-content-center"><h4><%= review.book.title %></h4></div>
+
+              <div class="row">
+                <div class="col-lg-8"><%= review.type.name %></div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-8"><%= review.long.name %></div>
+              </div>
+
+              <div class="row col-lg-12">
+                <% review.mysteries.each do |mystery| %>
+                  <%= mystery.name %>
+               <% end %>
+              </div>
+
+              <div class="row col-lg-12">
+                <% review.difficulties.each do |difficulty| %>
+                  <%= difficulty.name %>
+               <% end %>
+              </div>
+
+              <div class="row col-lg-12">
+                <% review.tags.each do |tag| %>
+                  <%= tag.name %>
+                <% end %>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row ml-3 col-lg-11 border-top p-3">
+            <%= review.body %>
+          </div>
+
+          <div class="row ml-3 col-lg-11 border-top p-3">
+            <%= review.netabare %>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
   </div>
-
-
-
-
-
-      <!--<= render 'user/follow_relationships/follow_index', user: @user %>-->
-    </div>
 </div>
