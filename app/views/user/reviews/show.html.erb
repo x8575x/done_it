@@ -51,6 +51,10 @@
         <div class="col-lg-8"><%= @review.netabare %></div>
       </div>
 
+      <div class="row">
+        <%= render 'favorites/favorite_btn' , review: @review %>
+      </div>
+
 
 
       <% @review.comments.each do |comment| %>
@@ -58,12 +62,18 @@
           <div class="col-lg-2"><%= image_tag comment.user.get_profile_image(100,100) %></div>
           <div class="col-lg-6">
             <div class="row"><%= comment.comment %></div>
-            <div class="row justify-content-end"><%= comment.user.name %>　(<%= comment.created_at.strftime('%Y/%m/%d %I:%M:%S') %>)</div>
+            <div class="row justify-content-end">
+              <%= comment.user.name %>
+              (<%= comment.created_at.strftime('%Y/%m/%d %I:%M:%S') %>)
+              <% if comment.user == current_user %>
+                <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, class: "btn btn-danger" %>
+              <% end %>
+            </div>
           </div>
         </div>
       <% end %>
 
-      <div class="justify-content-center">
+      <div class="justify-content-center mt-5">
         <%= form_with model: [@review, @comment] do |f| %>
           <%= f.text_area :comment, rows: '5', placeholder: "コメント", class: "col-lg-6" %>
           <%= f.submit "送信する" %>

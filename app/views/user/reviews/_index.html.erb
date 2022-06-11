@@ -53,8 +53,10 @@
           </div>
 
           <div class="row">
-            <p>コメント件数：<%= @review.comments.count %></p>
-            <%= link_to "コメントする", review_path(review.id) %></div>
+            <p>コメント件数：<%= review.comments.count %></p>
+            <%= link_to "コメントする", review_path(review.id) %>
+          </div>
+
         </div>
       </div>
 
