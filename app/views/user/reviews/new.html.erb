@@ -2,7 +2,7 @@
   <dvi class="row justify-content-center mt-5"><h2>感想を投稿</h2></dvi>
 
 
-  <%= form_with model: @reviews, url: reviews_path, method: :post do |f| %>
+  <%= form_with model: @review, url: reviews_path, method: :post do |f| %>
 
     <%= f.hidden_field :book_id, :value => @isbn %>
 
@@ -26,11 +26,26 @@
       <%= f.text_area :netabare, class: "col-lg-4" %>
     </div>
 
-    <%= f.label :mystery_relationship_id, "謎解き方法" %><br />
-    <%= collection_check_boxes(:review, :mystery_relationship_ids, Mystery.all, :id, :name) do |b| %>
-      <%= b.label { b.check_box + b.text } %>
-    <% end %>
+    <div class="row offset-1 mt-5">
+      <%= f.label :mystery_id, "謎解き方法", class: "col-lg-4" %>
+      <%= collection_check_boxes(:review, :mystery_ids, Mystery.all, :id, :name) do |b| %>
+        <%= b.label { b.check_box + b.text } %>
+      <% end %>
+    </div>
 
+     <div class="row offset-1 mt-5">
+      <%= f.label :difficulty_id, "謎解き方法", class: "col-lg-4" %>
+      <%= collection_check_boxes(:review, :difficulty_ids, Difficulty.all, :id, :name) do |b| %>
+        <%= b.label { b.check_box + b.text } %>
+      <% end %>
+    </div>
+
+     <div class="row offset-1 mt-5">
+      <%= f.label :tag_id, "謎解き方法", class: "col-lg-4" %>
+      <%= collection_check_boxes(:review, :tag_ids, Tag.all, :id, :name) do |b| %>
+        <%= b.label { b.check_box + b.text } %>
+      <% end %>
+    </div>
 
     <div class="form-grop row justify-content-center mt-5">
       <%= f.submit "投稿", class: "btn btn-success" %>

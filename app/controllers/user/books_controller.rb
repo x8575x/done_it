@@ -6,7 +6,7 @@ class User::BooksController < ApplicationController
       redirect_to search_path(isbn: book.isbn)
     end
   end
-  
+
   def index
     @books = Book.all
   end

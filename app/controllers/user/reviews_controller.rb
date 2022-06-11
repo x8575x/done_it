@@ -8,15 +8,18 @@ class User::ReviewsController < ApplicationController
   def create
     review = Review.new(review_params)
     review.user_id = current_user.id
-    review.save!
+    review.save
   end
 
+  def index
+    @reviews = Review.all
+  end
 
 
   private
 
   def review_params
-    params.require(:review).permit(:body, :netabare, :type_id, :long_id, { :mystery_relationship_id => [] }, :difficulty_relationship_id, :tag_relationship_id)
+    params.require(:review).permit(:book_id,:body, :netabare, :type_id, :long_id, { :mystery_ids => [] }, { :difficulty_ids => [] }, { :tag_ids => [] })
   end
 
 

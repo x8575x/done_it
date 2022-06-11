@@ -121,9 +121,6 @@ ActiveRecord::Schema.define(version: 2022_06_10_115643) do
     t.integer "book_id"
     t.integer "type_id"
     t.integer "long_id"
-    t.integer "mystery_relationship_id"
-    t.integer "difficulty_relationship_id"
-    t.integer "tag_relationship_id"
     t.text "body"
     t.text "netabare"
     t.datetime "created_at", precision: 6, null: false
