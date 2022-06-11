@@ -2,6 +2,7 @@ class User::ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    # 検索フォームのisbnの引き継ぎ
     @isbn = params[:isbn]
   end
 
@@ -19,7 +20,11 @@ class User::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:book_id,:body, :netabare, :type_id, :long_id, { :mystery_ids => [] }, { :difficulty_ids => [] }, { :tag_ids => [] })
+    params.require(:review).permit(
+      :book_id,:body, :netabare, :type_id, :long_id,
+      # Mystery,Difficulty,Tagの配列で複数保存
+      { :mystery_ids => [] }, { :difficulty_ids => [] }, { :tag_ids => [] }
+    )
   end
 
 

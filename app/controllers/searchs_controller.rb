@@ -10,6 +10,7 @@ class SearchsController < ApplicationController
 
   def show
     @search = RakutenWebService::Books::Book.search(isbn: params[:isbn])
+    @reviews = Review.where(book_id: params[:isbn])
   end
 
 end

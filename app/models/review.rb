@@ -9,10 +9,16 @@ class Review < ApplicationRecord
   # タグ・種類に関するアソシエーション
   belongs_to :type
   belongs_to :long
+  
+  # Review - MysteryRelationship - Mysteryのアソシエーション
   has_many :mystery_relationships
   has_many :mysteries, through: :mystery_relationships
+  
+  # Review - DifficultyRelationship - Difficultyのアソシエーション
   has_many :difficulty_relationships
   has_many :difficulties, through: :difficulty_relationships
+
+  # Review - Tag -TagRelationshipのアソシエーション  
   has_many :tag_relationships
   has_many :tags, through: :tag_relationships
 

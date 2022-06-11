@@ -33,17 +33,14 @@
     </div>
 
 
-    <div class="row">
-      <%= link_to '感想を投稿', new_review_path(isbn: search.isbn) %>
+    <div class="row  justify-content-center mt-5">
+      <%= link_to '感想を投稿', new_review_path(isbn: search.isbn), class: "col-lg-3 btn btn-success" %>
     </div>
 
   <% end %>
 
+  <div class="mb-5">
+    <%= render 'user/reviews/index', reviews: @reviews %>
+  </div>
 
-
-
-
-
-
-</div>
 </div>
