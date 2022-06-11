@@ -16,6 +16,11 @@ class User::ReviewsController < ApplicationController
     @reviews = Review.all
   end
 
+  def show
+    @review = Review.find(params[:id])
+    @comment = Comment.new
+  end
+
 
   private
 
