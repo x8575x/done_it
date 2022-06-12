@@ -35,7 +35,7 @@
               <% end %>
             </div>
           <% else %>
-            <div class="row justify-content-center"><%= link_to '詳細へ', search_path(isbn: search.isbn) %></div>
+            <div class="row justify-content-center"><%= link_to '詳細へ', book_path(search.isbn) %></div>
           <% end %>
         </div>
       <% end %>

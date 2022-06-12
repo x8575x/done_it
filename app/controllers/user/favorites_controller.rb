@@ -4,7 +4,7 @@ class  User::FavoritesController < ApplicationController
     @review = Review.find(params[:review_id])
     favorite = Favorite.new(review_id: @review.id)
     favorite.user_id = current_user.id
-    favorite.save!
+    favorite.save
     redirect_to request.referer
   end
 

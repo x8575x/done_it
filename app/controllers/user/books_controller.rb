@@ -7,6 +7,11 @@ class User::BooksController < ApplicationController
     end
   end
 
+  def show
+    @book = Book.find(params[:id])
+    @reviews = Review.where(book_id: params[:id])
+  end
+
   def index
     @books = Book.all
   end
