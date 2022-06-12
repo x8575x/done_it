@@ -13,6 +13,7 @@
   <div class="row justify-content-center mt-5">
     <h2>検索結果</h2>
   </div>
+
   <div class="row justify-content-center">
     <% if @searchs.present? %>
       <% @searchs.each do |search| %>
@@ -21,19 +22,21 @@
           <div class="row justify-content-center mb-3"><%= image_tag(search.large_image_url) %></div>
           <div class="row justify-content-center mb-3"><%= search.author %></div>
           <div class="row justify-content-center mb-3"><%= search.publisher_name %></div>
+
           <%  unless Book.exists?(isbn: search.isbn) %>
             <div>
               <%= form_with model: @book, url: books_path, method: :post do |f| %>
                 <%= f.hidden_field :title, :value => search.title %>
                 <%= f.hidden_field :author, :value => search.author %>
                 <%= f.hidden_field :isbn, :value => search.isbn %>
-                
+
                 <%= f.hidden_field :publisher_name, :value => search.publisher_name %>
                 <%= f.hidden_field :item_caption, :value => search.item_caption %>
                 <%= f.hidden_field :item_price, :value => search.item_price %>
-                
+
                 <%= f.hidden_field :sales_date, :value => search.sales_date %>
                 <%= f.hidden_field :image, :value => search.large_image_url %>
+                <%= f.hidden_field :image_m, :value => search.medium_image_url %>
                 <%= f.hidden_field :rakuten_url, :value => search.item_url %>
 
                 <%= f.submit '詳細へ' %>

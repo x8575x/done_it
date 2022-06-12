@@ -5,7 +5,7 @@ class User::ReadsController < ApplicationController
     read = Read.new(book_id: book.id)
     read.user_id = current_user.id
     read.save
-    
+
     # ログイン中のユーザーが読みたい本に登録していた場合、削除
     if book.want_by?(current_user)
       want = current_user.wants.find_by(book_id: book.id)
@@ -22,7 +22,8 @@ class User::ReadsController < ApplicationController
       get.destroy
     end
     
-    redirect_to request.referer
+    # 感想投稿画面へ
+    redirect_to new_review_path(isbn: book.id)
   end
 
   def destroy

@@ -10,6 +10,7 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       t.text :item_caption
       t.string :item_price
       t.string :image
+      t.string :image_m
       t.string :rakuten_url
 
       t.timestamps

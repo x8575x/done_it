@@ -10,6 +10,7 @@ class User::ReviewsController < ApplicationController
     review = Review.new(review_params)
     review.user_id = current_user.id
     review.save
+    redirect_to review_path(review.id)
   end
 
   def index

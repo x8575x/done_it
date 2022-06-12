@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2022_06_12_030827) do
     t.text "item_caption"
     t.string "item_price"
     t.string "image"
+    t.string "image_m"
     t.string "rakuten_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
