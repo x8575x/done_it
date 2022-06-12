@@ -27,6 +27,11 @@
                 <%= f.hidden_field :title, :value => search.title %>
                 <%= f.hidden_field :author, :value => search.author %>
                 <%= f.hidden_field :isbn, :value => search.isbn %>
+                
+                <%= f.hidden_field :publisher_name, :value => search.publisher_name %>
+                <%= f.hidden_field :item_caption, :value => search.item_caption %>
+                <%= f.hidden_field :item_price, :value => search.item_price %>
+                
                 <%= f.hidden_field :sales_date, :value => search.sales_date %>
                 <%= f.hidden_field :image, :value => search.large_image_url %>
                 <%= f.hidden_field :rakuten_url, :value => search.item_url %>

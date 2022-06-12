@@ -3,7 +3,7 @@ class User::BooksController < ApplicationController
   def create
     book = Book.new(book_params)
     if book.save
-      redirect_to search_path(isbn: book.isbn)
+      redirect_to book_path(book.id)
     end
   end
 
@@ -18,7 +18,8 @@ class User::BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :author, :isbn, :sales_date, :image, :rakuten_url)
+    params.require(:book).permit(:title, :author, :isbn, :sales_date, :image, :rakuten_url,
+      :publisher_name, :item_caption, :item_price)
   end
 
 end

@@ -17,29 +17,33 @@
         <div class="row justify-content-center">
           <%= @book.author %>　著
         </div>
-        <!--<div class="row justify-content-center">-->
-        <!--  %= @book.publisher_name %>　出版-->
-        <!--</div>-->
+        <div class="row justify-content-center">
+          <%= @book.publisher_name %>　出版
+        </div>
         <div class="row justify-content-center">
           <%= @book.sales_date %>　発売
         </div>
-        <!--<div class="row justify-content-center">-->
-        <!--  <= @book.item_price %>円(税込み)-->
-        <!--</div>-->
-        <!--<div class="row justify-content-center">-->
-        <!--  <= @book.item_caption %>)-->
-        <!--</div>-->
+        <div class="row justify-content-center">
+          <%= @book.item_price %>円(税込み)
+        </div>
+        <div class="row justify-content-center">
+          <%= @book.item_caption %>)
+        </div>
       </div>
     </div>
 
-      <%= render 'user/wants/want_btn', book: @book %>
-      <%= render 'user/readings/reading_btn', book: @book %>
-      <%= render 'user/reads/read_btn', book: @book %>
-      <%= render 'user/gets/get_btn', book: @book %>
-
-    <div class="row  justify-content-center mt-5">
-      <%= link_to '感想を投稿', new_review_path(isbn: @book.isbn), class: "col-lg-3 btn btn-success" %>
+    <div class="row mt-5">
+      <div class="col-lg-3"><%= render 'user/wants/want_btn', book: @book %></div>
+      <div class="col-lg-3"><%= render 'user/readings/reading_btn', book: @book %></div>
+      <div class="col-lg-3"><%= render 'user/reads/read_btn', book: @book %></div>
+      <div class="col-lg-3"><%= render 'user/gets/get_btn', book: @book %></div>
     </div>
+
+    <% if user_signed_in? %>
+      <div class="row  justify-content-center mt-5">
+        <%= link_to '感想を投稿', new_review_path(isbn: @book.isbn), class: "col-lg-3 btn btn-success" %>
+      </div>
+    <% end %>
 
 
   <div class="row justify-content-center mt-5"><h3>みんなの感想</h3></div>
