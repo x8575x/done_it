@@ -1,5 +1,5 @@
-<div class="">
-  <div class="row">
+<div class="container">
+  <div class="row mt-5">
 
     <div class="col-lg-4">
       <%= link_to user_path(@review.user.id) do %>
@@ -52,7 +52,7 @@
       </div>
 
       <div class="row">
-        <%= render 'favorites/favorite_btn' , review: @review %>
+        <%= render 'user/favorites/favorite_btn' , review: @review %>
       </div>
 
 
