@@ -1,0 +1,19 @@
+<% @time_line.each do |obj| %>
+  <div class="row">
+    <% if obj.kind_of?(Review) %>
+      <%= @review.book.title %>のレビューを投稿しました
+    <% else obj.kind_of?(Want) %>
+      <%= @want.book.title %>を読みたい本に登録しました
+    <!--<= reading.book.title %>を読みたい本に登録しました-->
+    <!--<= read.book.title %>を読みたい本に登録しました-->
+    <!--<= get.book.title %>を読みたい本に登録しました-->
+    <% end %>
+  </div>
+<% end %>
+
+<!--< @reviews.each do |review| %>-->
+<!--  <= review.book.title %>のレビューを投稿しました-->
+<!--< end %>-->
+<!--< @wants.each do |want| %>-->
+<!--  <= want.book.title %>を読みたい本に登録しました-->
+<!--< end %>-->

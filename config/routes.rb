@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   # user routes
   scope module: 'user' do
     resources :users, only: [:show, :edit, :update] do
+      get 'time_line' => 'users#time_line', as: 'time_line'
       # フォロー・フォロワー
       get 'followings' => 'follow_relationships#followings', as: 'followings'
       get 'followers' => 'follow_relationships#followers', as: 'followers'
@@ -39,6 +40,8 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
+    get 'review/search' => 'reviews#search'
+
     resources :books, only: [:create, :show] do
       # 読みたい、読んでいる、読んだ、積読いいね機能
       resource :wants, only: [:create, :index, :destroy]

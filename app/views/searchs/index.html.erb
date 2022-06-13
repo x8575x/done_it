@@ -1,15 +1,29 @@
 <div class="container">
   <div class="row justify-content-center offset-1 mt-5">
     <div class="col-lg-4">
-      <h2>Book search</h2>
+      <h2>タイトルで検索</h2>
     </div>
     <div class="col-lg-4" id="search-box">
-      <%= form_tag(searchs_path, method: :get) do %>
-        <%= text_field_tag :keyword, "", id: "search", name: "keyword", placeholder: "本のタイトル", style: "width: 200px;" %>
+      <%= form_with url:searchs_path, method: :get do %>
+        <%= text_field :title, "", id: "search", name: "title", placeholder: "本のタイトル", style: "width: 200px;" %>
         <button title="検索" type="submit">検索</button>
       <% end %>
     </div>
   </div>
+
+  <div class="row justify-content-center offset-1 mt-5">
+    <div class="col-lg-4">
+      <h2>著者で検索</h2>
+    </div>
+    <div class="col-lg-4" id="search-box">
+      <%= form_with url:searchs_path, method: :get do %>
+        <%= text_field :author, "", id: "search", name: "author", placeholder: "本のタイトル", style: "width: 200px;" %>
+        <button title="検索" type="submit">検索</button>
+      <% end %>
+    </div>
+  </div>
+
+
   <div class="row justify-content-center mt-5">
     <h2>検索結果</h2>
   </div>

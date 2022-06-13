@@ -37,6 +37,11 @@
                 <% end %>
               </li>
               <li class="nav-item">
+                <%= link_to user_time_line_path(current_user.id), class: 'nav-link text-white' do %>
+                  <i class="fas fa-user"></i> Time Line
+                <% end %>
+              </li>
+              <li class="nav-item">
                 <%= link_to user_path(current_user.id), class: 'nav-link text-white' do %>
                   <i class="fas fa-user"></i> My page
                 <% end %>
