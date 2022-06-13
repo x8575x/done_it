@@ -34,12 +34,12 @@ Rails.application.routes.draw do
       get 'reads' => 'reads#index', as: 'read'
       get 'gets' => 'gets#index', as: 'get'
     end
-    resources :reviews do
+    resources :reviews, only: [:create, :new, :edit, :update, :show, :destroy] do
       # レビューコメント、いいね
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
-    resources :books, only: [:create, :index, :show] do
+    resources :books, only: [:create, :show] do
       # 読みたい、読んでいる、読んだ、積読いいね機能
       resource :wants, only: [:create, :index, :destroy]
       resource :readings, only: [:create, :index, :destroy]

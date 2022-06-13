@@ -10,17 +10,30 @@ class User::ReviewsController < ApplicationController
   def create
     review = Review.new(review_params)
     review.user_id = current_user.id
-    review.save
-    redirect_to review_path(review.id)
-  end
-
-  def index
-    @reviews = Review.all
+    if review.save
+      redirect_to review_path(review.id)
+    end
   end
 
   def show
     @review = Review.find(params[:id])
     @comment = Comment.new
+  end
+
+  def edit
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    review = Review.find(params[:id])
+    review.update(review_params)
+    redirect_to review_path(review.id)
+  end
+
+  def destroy
+    review = Review.find(params[:id])
+    review.destroy
+    redirect_to user_path(current_user.id)
   end
 
 

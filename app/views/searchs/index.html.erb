@@ -24,7 +24,7 @@
           <div class="row justify-content-center mb-3"><%= search.publisher_name %></div>
 
           <%  unless Book.exists?(isbn: search.isbn) %>
-            <div>
+            <div class="text-center">
               <%= form_with model: @book, url: books_path, method: :post do |f| %>
                 <%= f.hidden_field :title, :value => search.title %>
                 <%= f.hidden_field :author, :value => search.author %>
@@ -39,11 +39,11 @@
                 <%= f.hidden_field :image_m, :value => search.medium_image_url %>
                 <%= f.hidden_field :rakuten_url, :value => search.item_url %>
 
-                <%= f.submit '詳細へ' %>
+                <%= f.submit '詳細へ', class: "btn btn-outline-success" %>
               <% end %>
             </div>
           <% else %>
-            <div class="row justify-content-center"><%= link_to '詳細へ', book_path(search.isbn) %></div>
+            <div class="row justify-content-center"><%= link_to '詳細へ', book_path(search.isbn), class: "btn btn-outline-primary" %></div>
           <% end %>
         </div>
       <% end %>
