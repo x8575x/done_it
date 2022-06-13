@@ -1,4 +1,5 @@
 class User::WantsController < ApplicationController
+  layout 'user/application'
 
   def create
     book = Book.find(params[:book_id])
@@ -33,6 +34,8 @@ class User::WantsController < ApplicationController
   end
 
   def index
+    @user = User.find(params[:user_id])
+    @wants = Want.where(user_id: params[:user_id])
   end
 
 end

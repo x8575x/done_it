@@ -1,11 +1,12 @@
 class User::ReadingsController < ApplicationController
+  layout 'user/application'
 
   def create
     book = Book.find(params[:book_id])
     reading = Reading.new(book_id: book.id)
     reading.user_id = current_user.id
     reading.save
-    
+
     # ログイン中のユーザーが読みたい本に登録していた場合、削除
     if book.want_by?(current_user)
       want = current_user.wants.find_by(book_id: book.id)
@@ -21,7 +22,7 @@ class User::ReadingsController < ApplicationController
       get = current_user.gets.find_by(book_id: book.id)
       get.destroy
     end
-    
+
     redirect_to request.referer
   end
 
@@ -33,6 +34,8 @@ class User::ReadingsController < ApplicationController
   end
 
   def index
+    @user = User.find(params[:user_id])
+    @readings = Reading.where(user_id: params[:user_id])
   end
 
 end

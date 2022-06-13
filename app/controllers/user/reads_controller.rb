@@ -1,4 +1,5 @@
 class User::ReadsController < ApplicationController
+  layout 'user/application'
 
   def create
     book = Book.find(params[:book_id])
@@ -21,7 +22,7 @@ class User::ReadsController < ApplicationController
       get = current_user.gets.find_by(book_id: book.id)
       get.destroy
     end
-    
+
     # 感想投稿画面へ
     redirect_to new_review_path(isbn: book.id)
   end
@@ -34,6 +35,8 @@ class User::ReadsController < ApplicationController
   end
 
   def index
+    @user = User.find(params[:user_id])
+    @reads = Read.where(user_id: params[:user_id])
   end
 
 end

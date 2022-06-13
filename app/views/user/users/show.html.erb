@@ -1,5 +1,9 @@
 <div class="container">
 
+
+
+  <!--ユーザー情報表示-->
+
   <div class="row mt-5">
 
     <div class="col-lg-3">
@@ -31,6 +35,12 @@
         </table>
       </div>
 
+      <div class="row"><%= link_to '読みたい本一覧', user_want_path(@user), class: "btn btn-outline-success btn-block mb-1" %> </div>
+      <div class="row"><%= link_to '読んでる本一覧', user_reading_path(@user), class: "btn btn-outline-success btn-block mb-1" %> </div>
+      <div class="row"><%= link_to '読んだ本一覧', user_read_path(@user), class: "btn btn-outline-success btn-block mb-1" %> </div>
+      <div class="row"><%= link_to '積読本一覧', user_get_path(@user), class: "btn btn-outline-success btn-block mb-3" %> </div>
+
+
       <% if @user == current_user %>
         <%= link_to edit_user_path(current_user.id), class: "btn btn-secondary btn-block" do %>
           <i class="fas fa-user-cog"></i>
@@ -42,6 +52,12 @@
       <% end %>
 
     </div>
+
+
+
+
+
+    <!--ユーザーレビュー表示-->
 
     <div class="col-lg-8 ml-3">
 

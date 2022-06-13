@@ -16,6 +16,9 @@ class User::UsersController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
+  def want
+  end
+
 
 
   private

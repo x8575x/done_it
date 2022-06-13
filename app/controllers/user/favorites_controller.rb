@@ -1,4 +1,5 @@
 class  User::FavoritesController < ApplicationController
+  layout 'user/application'
 
   def create
     @review = Review.find(params[:review_id])

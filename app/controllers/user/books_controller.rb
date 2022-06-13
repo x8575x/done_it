@@ -1,4 +1,5 @@
 class User::BooksController < ApplicationController
+  layout 'user/application'
 
   def create
     book = Book.new(book_params)
