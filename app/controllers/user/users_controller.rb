@@ -22,7 +22,6 @@ class User::UsersController < ApplicationController
     readings = Reading.where(user_id: [current_user.following_ids])
     reads = Read.where(user_id: [current_user.following_ids])
     gets = Get.where(user_id: [current_user.following_ids])
-
     @time_line = (reviews + wants + readings + reads + gets).sort_by{|x| x.created_at}.reverse.last(15)
   end
 

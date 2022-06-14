@@ -3,34 +3,34 @@
 
 
   <%= form_with model: @review, url: reviews_path, method: :post do |f| %>
-  
+
     <!--Book_idに本のisbn送信-->
     <%= f.hidden_field :book_id, :value => @isbn %>
-    
+
     <!--Type選択セレクトボックス-->
     <div class="form-grop row offset-1 mt-5">
       <%= f.label :type_id,"分類", class: "col-lg-4" %>
       <%= f.collection_select :type_id, Type.all, :id, :name, include_blank: "選択してください", class: "col-lg-4" %>
     </div>
-    
+
     <!--Long選択セレクトボックス-->
     <div class="form-grop row offset-1 mt-5">
       <%= f.label :long_id,"長さ", class: "col-lg-4" %>
       <%= f.collection_select :long_id, Long.all, :id, :name, include_blank: "選択してください", class: "col-lg-4" %>
     </div>
-    
+
     <!--感想入力フォーム-->
     <div class="form-grop row offset-1 mt-5">
       <%= f.label :body,"感想", class: "col-lg-4" %>
       <%= f.text_area :body, class: "col-lg-4" %>
     </div>
-    
+
     <!--ネタバレ含む感想入力フォーム-->
     <div class="form-grop row offset-1 mt-5">
       <%= f.label :netabare,"ネタバレ含む", class: "col-lg-4" %>
       <%= f.text_area :netabare, class: "col-lg-4" %>
     </div>
-    
+
     <!--Mystery複数選択チェックボックス-->
     <div class="row offset-1 mt-5">
       <%= f.label :mystery_id, "謎解き方法", class: "col-lg-4" %>
@@ -46,7 +46,7 @@
         <%= b.label { b.check_box + b.text } %>
       <% end %>
     </div>
-    
+
     <!--タグ複数選択セレクトボックス-->
      <div class="row offset-1 mt-5">
       <%= f.label :tag_id, "タグ", class: "col-lg-4" %>
@@ -55,8 +55,10 @@
       <% end %>
     </div>
 
-    <div class="form-grop row justify-content-center mt-5">
-      <%= f.submit "投稿", class: "btn btn-success" %>
+    <div class="form-grop row justify-content-center m-5">
+      <%= f.submit "投稿", class: "btn btn-success col-lg-3 mr-5" %>
+
+      <%= link_to 'レビューは投稿しない', book_path(@isbn), class: "btn btn-danger col-lg-3" %>
     </div>
 
   <% end %>
