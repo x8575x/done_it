@@ -17,16 +17,13 @@ class User::UsersController < ApplicationController
   end
 
   def time_line
-    @reviews = Review.where(user_id: [current_user.following_ids])
-    @wants = Want.where(user_id: [current_user.following_ids])
-    @readings = Reading.where(user_id: [current_user.following_ids])
-    @reads = Read.where(user_id: [current_user.following_ids])
-    @gets = Get.where(user_id: [current_user.following_ids])
-    
-    @time_line = @reviews | @wants | @readings | @reads | @gets 
-    # @time_line.sort{|f,s| f.created_at <=> s.created_at}
+    reviews = Review.where(user_id: [current_user.following_ids])
+    wants = Want.where(user_id: [current_user.following_ids])
+    readings = Reading.where(user_id: [current_user.following_ids])
+    reads = Read.where(user_id: [current_user.following_ids])
+    gets = Get.where(user_id: [current_user.following_ids])
 
-
+    @time_line = (reviews + wants + readings + reads + gets).sort_by{|x| x.created_at}.reverse.last(15)
   end
 
 

@@ -35,10 +35,11 @@ class User::ReviewsController < ApplicationController
     review.destroy
     redirect_to user_path(current_user.id)
   end
-  
+
   def search
     if search != ""
       Review.where()
+    end
   end
 
 

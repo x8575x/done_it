@@ -17,7 +17,7 @@
     </div>
     <div class="col-lg-4" id="search-box">
       <%= form_with url:searchs_path, method: :get do %>
-        <%= text_field :author, "", id: "search", name: "author", placeholder: "本のタイトル", style: "width: 200px;" %>
+        <%= text_field :author, "", id: "search", name: "author", placeholder: "著者名", style: "width: 200px;" %>
         <button title="検索" type="submit">検索</button>
       <% end %>
     </div>

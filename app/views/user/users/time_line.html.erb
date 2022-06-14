@@ -1,19 +1,23 @@
 <% @time_line.each do |obj| %>
-  <div class="row">
-    <% if obj.kind_of?(Review) %>
-      <%= @review.book.title %>のレビューを投稿しました
-    <% else obj.kind_of?(Want) %>
-      <%= @want.book.title %>を読みたい本に登録しました
-    <!--<= reading.book.title %>を読みたい本に登録しました-->
-    <!--<= read.book.title %>を読みたい本に登録しました-->
-    <!--<= get.book.title %>を読みたい本に登録しました-->
-    <% end %>
-  </div>
+  <% if obj.kind_of?(Review) %>
+    <div class="row">
+      <%= obj.book.title %>のレビューを投稿しました
+    </div>
+  <% elsif obj.kind_of?(Want) %>
+    <div class="row">
+      <%= obj.book.title %>を欲しい本に登録しました
+    </div>
+  <% elsif obj.kind_of?(Reading) %>
+    <div class="row">
+      <%= obj.book.title %>を読みたい本に登録しました
+    </div>
+  <% elsif obj.kind_of?(Read) %>
+    <div class="row">
+      <%= obj.book.title %>を読んだ本に登録しました
+    </div>
+  <% else obj.kind_of?(Get) %>
+    <div class="row">
+      <%= obj.book.title %>を積読本に登録しました
+    </div>
+  <% end %>
 <% end %>
-
-<!--< @reviews.each do |review| %>-->
-<!--  <= review.book.title %>のレビューを投稿しました-->
-<!--< end %>-->
-<!--< @wants.each do |want| %>-->
-<!--  <= want.book.title %>を読みたい本に登録しました-->
-<!--< end %>-->
