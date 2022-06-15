@@ -55,7 +55,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# 楽天API
+# 本の検索機能　楽天API
 gem 'rakuten_web_service'
 
+# 会員機能　Devise
 gem 'devise'
+
+# ページネーション　Kaminari
+gem 'kaminari','~> 1.2.1'

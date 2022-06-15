@@ -25,8 +25,26 @@
           <ul class="navbar-nav ml-auto">
 
             <li class="nav-item">
-              <%= link_to admin_top_path, class: 'nav-link text-white' do %>
+              <%= link_to admin_users_path, class: 'nav-link text-white' do %>
+                <i class="fas fa-users"></i> Users
+              <% end %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to admin_reviews_path, class: 'nav-link text-white' do %>
+                <i class="fas fa-book-open"></i> Reviews
+              <% end %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to admin_tags_path, class: 'nav-link text-white' do %>
                 <i class="fas fa-search"></i> Tags
+              <% end %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to destroy_admin_session_path, class: 'nav-link text-white', method: :delete do %>
+                <i class="fas fa-sign-out-alt"></i> Log out
               <% end %>
             </li>
 

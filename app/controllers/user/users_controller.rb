@@ -3,7 +3,7 @@ class User::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @reviews = Review.where(user_id: params[:id])
+    @reviews = Review.where(user_id: params[:id]).page(params[:page]).per(10)
   end
 
   def edit
@@ -18,7 +18,7 @@ class User::UsersController < ApplicationController
 
   def quit
   end
-  
+
   def withdraw
     @user = User.find(current_user.id)
     if @user.update(is_deleted: true)

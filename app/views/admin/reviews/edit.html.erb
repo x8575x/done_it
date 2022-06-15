@@ -1,8 +1,8 @@
 <div class="container">
-  <dvi class="row justify-content-center mt-5"><h2>感想を編集</h2></dvi>
+  <dvi class="row justify-content-center mt-5"><h2>レビュー編集</h2></dvi>
 
 
-  <%= form_with model: @review, url: review_path, method: :patch do |f| %>
+  <%= form_with model: @review, url: admin_review_path, method: :patch do |f| %>
 
     <!--Type選択セレクトボックス-->
     <div class="form-grop row offset-1 mt-5">
@@ -38,7 +38,7 @@
 
     <!--謎解き方法複数選択セレクトボックス-->
     <div class="row offset-1 mt-5">
-      <%= f.label :difficulty_id, "謎解き方法", class: "col-lg-4" %>
+      <%= f.label :difficulty_id, "読みやすさ", class: "col-lg-4" %>
       <%= collection_check_boxes(:review, :difficulty_ids, Difficulty.all, :id, :name) do |b| %>
         <%= b.label { b.check_box + b.text } %>
       <% end %>
@@ -52,8 +52,8 @@
       <% end %>
     </div>
 
-    <div class="form-grop row justify-content-center mt-5">
-      <%= f.submit "編集", class: "btn btn-success" %>
+    <div class="form-grop row justify-content-center m-5">
+      <%= f.submit "編集", class: "btn btn-success col-lg-3 mr-5" %>
     </div>
 
   <% end %>

@@ -2,6 +2,9 @@ class Admin::HomesController < ApplicationController
   layout 'admin/application'
 
   def top
+  end
+
+  def tags
     @difficulty = Difficulty.new
     @difficulties = Difficulty.all
     @long = Long.new

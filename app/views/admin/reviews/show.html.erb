@@ -1,0 +1,60 @@
+<div class="container">
+
+  <div class="row mt-5 mb-3">
+    <div class="col-lg-6"><h3>レビューされた本</h3></div>
+  </div>
+
+  <div class="row border p-3">
+    <div class="col-lg-4 text-center">
+      <%= image_tag(@review.book.image) %>
+    </div>
+
+    <div class="col-lg-7">
+      <div class="row"><h3>『 <%= @review.book.title %> 』</h3></div>
+      <div class="row"><h4><%= @review.book.author %></h4><h5>　(出版：<%= @review.book.publisher_name %>)</h5></div>
+      <div class="row"><%= @review.book.item_caption %></div>
+    </div>
+  </div>
+
+  <div class="row mt-5 mb-3">
+    <div class="col-lg-4"><h3>レビューしたユーザー</h3></div>
+    <div class="col-lg-7"><h3>レビュー内容</h3></div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col-lg-4">
+      <div class="row justify-content-center"><%= @review.user.name %></div>
+      <div class="row justify-content-center"><%= image_tag @review.user.get_profile_image(200,200) %></div>
+      <div class="row justify-content-center mt-3"><%= link_to 'ユーザー詳細へ', admin_user_path(@review.user.id), class: "btn btn-primary" %></div>
+    </div>
+    <div class="col-lg-7 ml-3">
+      <div class="row"><strong>内容</strong></div>
+      <div class="row mb-3"><%= @review.body %></div>
+      <div class="row"><strong>ネタバレ内容</strong></div>
+      <div class="row mb-3"><%= @review.netabare %></div>
+
+      <div class="row"><strong>タグ</strong></div>
+      <div class="row"><%= @review.type.name %></div>
+      <div class="row"><%= @review.long.name %></div>
+      <div class="row">
+        <% @review.mysteries.each do |mystery| %>
+          <%= mystery.name %>
+       <% end %>
+      </div>
+      <div class="row">
+        <% @review.difficulties.each do |difficulty| %>
+          <%= difficulty.name %>
+       <% end %>
+      </div>
+      <div class="row">
+        <% @review.tags.each do |tag| %>
+          <%= tag.name %>
+       <% end %>
+      </div>
+      <div class="row justify-content-center mt-3">
+        <div class="col-lg-3"><%= link_to "編集", edit_admin_review_path(@review), class: "btn btn-success" %></div>
+        <div class="col-lg-3"><%= link_to "削除", admin_review_path(@review), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></div>
+      </div>
+    </div>
+
+  </div>

@@ -12,6 +12,6 @@
 
         <div class="row justify-content-center col-md">
             <%= link_to "退会しない", user_path(current_user.id), class: 'btn btn-sm btn-success btn-lg mr-4' %>
-            <%= link_to "退会する", _withdraw_path, method: :patch, class: 'btn btn-sm btn-danger btn-lg' %>
+            <%= link_to "退会する", user_withdraw_path, method: :patch, class: 'btn btn-sm btn-danger btn-lg' %>
         </div>
 </div>

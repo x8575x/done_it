@@ -1,0 +1,36 @@
+<div class="container">
+
+  <div class="row  offset-1 mt-5 mb-3">
+    <div class="col-lg-6"><h3>レビュー一覧</h3></div>
+  </div>
+
+  <div class="row text-center">
+    <div class="col-lg-10 offset-1">
+      <table class="table table-bordered table-hover table-background">
+        <thead class="thead-dark">
+          <tr>
+            <th>レビューID</th>
+            <th>投稿者ID</th>
+            <th>投稿者</th>
+            <th></th>
+            <th>内容</th>
+            <th>ネタバレ内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @reviews.each do |review| %>
+            <tr onclick="window.location.href='<%= admin_review_path(review.id) %>'" role="link">
+              <td><%= review.id %></td>
+              <td><%= review.user.id %></td>
+              <td><%= review.user.name %></td>
+              <td><%= image_tag review.user.get_profile_image(80,80) %></td>
+              <td><%= review.body %></td>
+              <td><%= review.netabare %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
