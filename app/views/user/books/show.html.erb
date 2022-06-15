@@ -1,9 +1,7 @@
 <div class="container">
 
-    <div class="row mt-5 justify-content-center">
-      <div class="col-lg-6">
-        <h3><%= @book.title %></h3>
-      </div>
+    <div class="row mt-5">
+      <h1><%= @book.title %></h1>
     </div>
 
     <div class="row justify-content-center mt-3">
@@ -13,31 +11,30 @@
         </div>
       </div>
 
-      <div class="col-lg-5">
+      <div class="col-lg-6">
         <div class="row justify-content-center">
-          <%= @book.author %>　著
-        </div>
-        <div class="row justify-content-center">
-          <%= @book.publisher_name %>　出版
-        </div>
-        <div class="row justify-content-center">
-          <%= @book.sales_date %>　発売
-        </div>
-        <div class="row justify-content-center">
-          <%= @book.item_price %>円(税込み)
+          <h5><%= @book.author %></h5>　著
         </div>
         <div class="row justify-content-center">
           <%= @book.item_caption %>)
         </div>
+        <div class="row justify-content-center">
+          <%= @book.publisher_name %> /
+          <%= @book.sales_date %> /
+          <%= @book.item_price %>円(税込み)
+        </div>
       </div>
+
+      <div class="col-lg-3 mt-3 ml-3">
+          <%= render 'user/wants/want_btn', book: @book %>
+          <%= render 'user/readings/reading_btn', book: @book %>
+          <%= render 'user/reads/read_btn', book: @book %>
+          <%= render 'user/gets/get_btn', book: @book %>
+      </div>
+
     </div>
 
-    <div class="row mt-5">
-      <div class="col-lg-3"><%= render 'user/wants/want_btn', book: @book %></div>
-      <div class="col-lg-3"><%= render 'user/readings/reading_btn', book: @book %></div>
-      <div class="col-lg-3"><%= render 'user/reads/read_btn', book: @book %></div>
-      <div class="col-lg-3"><%= render 'user/gets/get_btn', book: @book %></div>
-    </div>
+
 
   <div class="row justify-content-center mt-5"><h3>みんなの感想</h3></div>
   <%= render 'user/reviews/index', reviews: @reviews %>

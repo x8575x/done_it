@@ -2,6 +2,9 @@
 <p>Find me in app/views/homes/top.html.erb</p>
 
 
-<div class="row">
-  <%= link_to 'ゲストログイン（閲覧用）', user_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-</div>
+<% if user_signed_in? %>
+<% else %>
+  <div class="row justify-content-center">
+    <%= link_to 'ゲストログイン（閲覧用）', user_guest_sign_in_path, class: "col-lg-4 btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+  </div>
+<% end %>
