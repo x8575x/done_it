@@ -52,11 +52,9 @@ class User::ReviewsController < ApplicationController
     )
   end
 
-  # def review_search_params
-  #   params.fetch(:search, {}).permit(:type_id, :long_id,
-  #     { :mystery_ids => [] }, { :difficulty_ids => [] }, { :tag_ids => [] }
-  #   )
-  # end
+  def review_search_params
+    params.fetch(:search, {}).permit(:type_id, :long_id, :mystery_ids, :difficulty_ids, :tag_ids)
+  end
 
 
 end

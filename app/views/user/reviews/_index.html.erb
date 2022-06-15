@@ -52,13 +52,11 @@
             <div class="col-lg-8"><%= review.netabare %></div>
           </div>
 
-          <div class="row">
-            <%= render 'user/favorites/favorite_btn', review: review %>
-          </div>
 
           <div class="row">
+             <%= render 'user/favorites/favorite_btn', review: review %>
             <p>コメント件数：<%= review.comments.count %></p>
-            <%= link_to "コメントする", review_path(review.id) %>
+            <%= link_to "レビュー詳細へ", review_path(review.id) %>
           </div>
 
         </div>

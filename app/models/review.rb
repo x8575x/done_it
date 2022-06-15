@@ -32,18 +32,19 @@ class Review < ApplicationRecord
 
 
 
-  # scope :review_search, -> (search_params) do
-  #   return if search_params.blank?
+  scope :search, -> (search_params) do
+    return if search_params.blank?
 
-  #   room_type_in(search_params[:room])
-  #     .star_in(search_params[:star])
-  #     .age_in(search_params[:age])
-  #     .sex_in(search_params[:sex])
-  #   end
+    type(search_params[:type_id])
+      .long(search_params[:long_id])
+      # .mystery(search_params[:mystery_ids])
+      # .difficulty(search_params[:difficulty_ids])
+      # .tag(search_params[:tag_ids])
+  end
 
-  # scope :, -> (room) { where(room_id: room.map{|n| n.to_i}) if room.present? }
-  # scope :star_in, -> (star) { where(star: star) if star.present? }
-  # scope :age_in, -> (age) { where(age: age) if age.present? }
-  # scope :sex_in, -> (sex) { where(sex: sex) if sex.present? }
-
+  scope :type, -> (type_id) { where("type_id = ?", type_id) if type_id.present?}
+  scope :long, -> (long_id) { where("long_id = ?", long_id) if long_id.present?}
+  # scope :mystery, -> (mystery_ids) { where("mystery_ids = ?", mystery_ids) if mystery_ids.present?}
+  # scope :difficulty, -> (difficulty_ids) { where("difficulty_ids = ?", difficulty_ids) if difficulty_ids.present?}
+  # scope :tag, -> (tag_ids) { where("tag_ids = ?", tag_ids) if tag_ids.present?}
 end
