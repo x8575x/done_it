@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   # user routes
   scope module: 'user' do
     resources :users, only: [:show, :edit, :update] do
+      get 'quit' => 'users#quit'
+      patch 'withdraw' => 'users#withdraw'
       get 'time_line' => 'users#time_line', as: 'time_line'
       # フォロー・フォロワー
       get 'followings' => 'follow_relationships#followings', as: 'followings'

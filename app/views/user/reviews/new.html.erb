@@ -41,7 +41,7 @@
 
     <!--謎解き方法複数選択セレクトボックス-->
     <div class="row offset-1 mt-5">
-      <%= f.label :difficulty_id, "謎解き方法", class: "col-lg-4" %>
+      <%= f.label :difficulty_id, "読みやすさ", class: "col-lg-4" %>
       <%= collection_check_boxes(:review, :difficulty_ids, Difficulty.all, :id, :name) do |b| %>
         <%= b.label { b.check_box + b.text } %>
       <% end %>

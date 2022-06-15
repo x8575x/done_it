@@ -16,6 +16,17 @@ class User::UsersController < ApplicationController
     redirect_to user_path(current_user.id)
   end
 
+  def quit
+  end
+  
+  def withdraw
+    @user = User.find(current_user.id)
+    if @user.update(is_deleted: true)
+      reset_session
+      redirect_to root_path
+    end
+  end
+
   def time_line
     reviews = Review.where(user_id: [current_user.following_ids])
     wants = Want.where(user_id: [current_user.following_ids])

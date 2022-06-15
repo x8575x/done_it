@@ -37,9 +37,8 @@ class User::ReviewsController < ApplicationController
   end
 
   def search
-    if search != ""
-      Review.where()
-    end
+    @search_params = review_search_params
+    @reviews = Review.search(@search_params)
   end
 
 
@@ -49,6 +48,12 @@ class User::ReviewsController < ApplicationController
     params.require(:review).permit(
       :book_id,:body, :netabare, :type_id, :long_id,
       # Mystery,Difficulty,Tagの配列で複数保存
+      { :mystery_ids => [] }, { :difficulty_ids => [] }, { :tag_ids => [] }
+    )
+  end
+  
+  def review_search_params
+    params.fetch(:search, {}).permit(:type_id, :long_id,
       { :mystery_ids => [] }, { :difficulty_ids => [] }, { :tag_ids => [] }
     )
   end
