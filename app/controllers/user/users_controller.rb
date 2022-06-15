@@ -1,4 +1,5 @@
 class User::UsersController < ApplicationController
+  before_action :ensure_guest_user, only: [:edit]
   layout 'user/application'
 
   def show
@@ -42,6 +43,14 @@ class User::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :birthday, :sex, :introduction, :profile_image)
+  end
+
+  # ゲストログイン用
+  def ensure_guest_user
+    @user = User.find(params[:id])
+    if @user.name == "guestuser"
+      redirect_to user_path(current_user) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+    end
   end
 
 end

@@ -35,11 +35,11 @@
   <div class="row"><%= link_to '積読本一覧', user_get_path(user), class: "btn btn-outline-success btn-block mb-3" %> </div>
 
 
-  <% if user == current_user %>
+  <% if user == current_user && user.name != "guestuser" %>
     <%= link_to edit_user_path(current_user.id), class: "btn btn-secondary btn-block" do %>
       <i class="fas fa-user-cog"></i>
     <% end %>
-  <% else %>
+  <% elsif user.name != "guestuser" %>
     <div class="row">
       <%= render 'user/follow_relationships/follow_btn', user: user %>
     </div>
