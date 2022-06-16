@@ -73,35 +73,9 @@
           <%= render 'user/favorites/favorite_btn' , review: @review %>
         </div>
       </div>
-
-
-
-      <% @review.comments.each do |comment| %>
-        <div class="row border-top mt-5 p-3">
-          <div class="col-lg-2"><%= image_tag comment.user.get_profile_image(100,100) %></div>
-          <div class="col-lg-6">
-            <div class="row"><%= comment.comment %></div>
-            <div class="row justify-content-end">
-              <%= comment.user.name %>
-              (<%= comment.created_at.strftime('%Y/%m/%d %I:%M:%S') %>)
-              <% if comment.user == current_user %>
-                <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-
-      <!--ログインしている場合、コメント入力欄を表示-->
-      <% if user_signed_in? %>
-        <div class="justify-content-center mt-5">
-          <%= form_with model: [@review, @comment] do |f| %>
-            <%= f.text_area :comment, rows: '5', placeholder: "コメント", class: "col-lg-6" %>
-            <%= f.submit "送信する" %>
-          <% end %>
-        </div>
-      <% end %>
-
+      
+      <div class="index_<%= @review.id %>"><%= render 'user/comments/comment_index', review: @review %></div>
+      <%= render 'user/comments/form', {review: @review, comment: @comment} %>
 
     </div>
   </div>

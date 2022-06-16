@@ -1,0 +1,9 @@
+<!--ログインしている場合、コメント入力欄を表示-->
+<% if user_signed_in? %>
+  <div class="justify-content-center mt-5">
+    <%= form_with model: [review, comment], local: false do |f| %>
+      <%= f.text_area :comment, rows: '5', placeholder: "コメント", id: "review_comment",class: "col-lg-6" %>
+      <%= f.submit "送信する" %>
+    <% end %>
+  </div>
+<% end %>
