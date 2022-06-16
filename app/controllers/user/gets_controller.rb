@@ -24,14 +24,14 @@ class User::GetsController < ApplicationController
       read.destroy
     end
 
-    redirect_to request.referer
+    render :get
   end
 
   def destroy
-    book = Book.find(params[:book_id])
-    get = current_user.gets.find_by(book_id: book.id)
+    @book = Book.find(params[:book_id])
+    get = current_user.gets.find_by(book_id: @book.id)
     get.destroy
-    redirect_to request.referer
+    render :get
   end
 
   def index

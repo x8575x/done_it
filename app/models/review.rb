@@ -37,14 +37,14 @@ class Review < ApplicationRecord
 
     type(search_params[:type_id])
       .long(search_params[:long_id])
-      # .mystery(search_params[:mystery_ids])
-      # .difficulty(search_params[:difficulty_ids])
-      # .tag(search_params[:tag_ids])
+      .mystery(search_params[:mystery_ids])
+      .difficulty(search_params[:difficulty_ids])
+      .tag(search_params[:tag_ids])
   end
 
   scope :type, -> (type_id) { where("type_id = ?", type_id) if type_id.present?}
   scope :long, -> (long_id) { where("long_id = ?", long_id) if long_id.present?}
-  # scope :mystery, -> (mystery_ids) { where("mystery_ids = ?", mystery_ids) if mystery_ids.present?}
-  # scope :difficulty, -> (difficulty_ids) { where("difficulty_ids = ?", difficulty_ids) if difficulty_ids.present?}
-  # scope :tag, -> (tag_ids) { where("tag_ids = ?", tag_ids) if tag_ids.present?}
+  scope :mystery, -> (mystery_ids) { where("mystery_ids = ?", mystery_ids) if mystery_ids.present?}
+  scope :difficulty, -> (difficulty_ids) { where("difficulty_ids = ?", difficulty_ids) if difficulty_ids.present?}
+  scope :tag, -> (tag_ids) { where("tag_ids = ?", tag_ids) if tag_ids.present?}
 end

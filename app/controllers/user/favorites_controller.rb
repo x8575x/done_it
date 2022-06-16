@@ -6,14 +6,14 @@ class  User::FavoritesController < ApplicationController
     favorite = Favorite.new(review_id: @review.id)
     favorite.user_id = current_user.id
     favorite.save
-    redirect_to request.referer
+    render :favorite
   end
 
   def destroy
     @review = Review.find(params[:review_id])
     favorite = current_user.favorites.find_by(review_id: @review.id)
     favorite.destroy
-    redirect_to request.referer
+    render :favorite
   end
 
 end

@@ -1,11 +1,11 @@
 <!--ログインしていて、いいねがされている場合-->
 <% if user_signed_in? && book.get_by?(current_user) %>
-  <%= link_to book_gets_path(book), method: :delete do %>
+  <%= link_to book_gets_path(book), method: :delete, remote: true do %>
     <div class="btn btn-block btn-danger mb-1">積読本から解除</div>
   <% end %>
 <!--ログインしていて、いいねがされていない場合-->
 <% elsif user_signed_in? && !book.get_by?(current_user) %>
-  <%= link_to book_gets_path(book), method: :post do %>
+  <%= link_to book_gets_path(book), method: :post, remote: true do %>
     <div class="btn btn-success btn-block mb-1">積読本に登録</div>
   <% end %>
 <!--ログインしていない場合-->

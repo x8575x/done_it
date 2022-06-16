@@ -23,14 +23,14 @@ class User::WantsController < ApplicationController
       get.destroy
     end
 
-    redirect_to request.referer
+    render :want
   end
 
   def destroy
     book = Book.find(params[:book_id])
     want = current_user.wants.find_by(book_id: book.id)
     want.destroy
-    redirect_to request.referer
+    render :want
   end
 
   def index

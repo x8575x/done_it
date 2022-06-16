@@ -1,5 +1,5 @@
 <div class="container">
-  
+
   <div class="row mt-5 mb-3">
     <div class="col-lg-6"><h3>レビューされた本</h3></div>
   </div>
@@ -15,7 +15,7 @@
       <div class="row"><%= @review.book.item_caption %></div>
     </div>
   </div>
-  
+
   <div class="row mt-5">
 
     <div class="col-lg-4">
@@ -69,7 +69,9 @@
       </div>
 
       <div class="row">
-        <%= render 'user/favorites/favorite_btn' , review: @review %>
+        <div class="favorite_<%= @review.id %>">
+          <%= render 'user/favorites/favorite_btn' , review: @review %>
+        </div>
       </div>
 
 

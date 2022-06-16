@@ -23,15 +23,14 @@ class User::ReadsController < ApplicationController
       get.destroy
     end
 
-    # 感想投稿画面へ
-    redirect_to new_review_path(isbn: book.id)
+    render :read
   end
 
   def destroy
     book = Book.find(params[:book_id])
     read = current_user.reads.find_by(book_id: book.id)
     read.destroy
-    redirect_to request.referer
+    render :read
   end
 
   def index
