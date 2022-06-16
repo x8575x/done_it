@@ -36,7 +36,7 @@ class User::GetsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @gets = Get.where(user_id: params[:user_id])
+    @gets = Get.where(user_id: params[:user_id]).page(params[:page]).per(9)
   end
 
 end

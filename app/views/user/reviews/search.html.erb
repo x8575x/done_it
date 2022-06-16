@@ -18,7 +18,7 @@
     <!--Mystery複数選択チェックボックス-->
     <div class="row offset-1 mt-5">
       <%= f.label :mystery_id, "謎解き方法", class: "col-lg-4" %>
-      <%= collection_check_boxes(@search_params[:mystery_ids], :mystery_ids, Mystery.all, :id, :name) do |b| %>
+      <%= f.collection_check_boxes(:mystery_ids, Mystery.all, :id, :name) do |b| %>
         <%= b.label { b.check_box + b.text } %>
       <% end %>
     </div>
@@ -26,7 +26,7 @@
     <!--謎解き方法複数選択セレクトボックス-->
     <div class="row offset-1 mt-5">
       <%= f.label :difficulty_id, "読みやすさ", class: "col-lg-4" %>
-      <%= collection_check_boxes(@search_params[:difficulty_ids], :difficulty_ids, Difficulty.all, :id, :name) do |b| %>
+      <%= f.collection_check_boxes(:difficulty_ids, Difficulty.all, :id, :name) do |b| %>
         <%= b.label { b.check_box + b.text } %>
       <% end %>
     </div>
@@ -34,7 +34,7 @@
     <!--タグ複数選択セレクトボックス-->
      <div class="row offset-1 mt-5">
       <%= f.label :tag_id, "タグ", class: "col-lg-4" %>
-      <%= collection_check_boxes(@search_params[:tag_ids], :tag_ids, Tag.all, :id, :name) do |b| %>
+      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |b| %>
         <%= b.label { b.check_box + b.text } %>
       <% end %>
     </div>

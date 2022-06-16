@@ -73,7 +73,7 @@
           <%= render 'user/favorites/favorite_btn' , review: @review %>
         </div>
       </div>
-      
+
       <div class="index_<%= @review.id %>"><%= render 'user/comments/comment_index', review: @review %></div>
       <%= render 'user/comments/form', {review: @review, comment: @comment} %>
 

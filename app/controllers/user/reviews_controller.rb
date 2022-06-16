@@ -17,6 +17,7 @@ class User::ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+    @comments = @review.comments.page(params[:page]).per(10)
     @comment = Comment.new
   end
 
@@ -38,6 +39,9 @@ class User::ReviewsController < ApplicationController
 
   def search
     @search_params = review_search_params
+    @search_params[:mystery_ids] = @search_params[:mystery_ids].reject(&:blank?)
+    @search_params[:difficulty_ids] = @search_params[:difficulty_ids].reject(&:blank?)
+    @search_params[:tag_ids] = @search_params[:tag_ids].reject(&:blank?)
     @reviews = Review.search(@search_params)
   end
 
@@ -53,7 +57,7 @@ class User::ReviewsController < ApplicationController
   end
 
   def review_search_params
-    params.fetch(:search, {}).permit(:type_id, :long_id, :mystery_ids, :difficulty_ids, :tag_ids)
+    params.require(:search).permit(:type_id, :long_id, :mystery_ids => [], :difficulty_ids => [], :tag_ids => [])
   end
 
 

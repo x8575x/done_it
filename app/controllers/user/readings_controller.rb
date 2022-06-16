@@ -35,7 +35,7 @@ class User::ReadingsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @readings = Reading.where(user_id: params[:user_id])
+    @readings = Reading.where(user_id: params[:user_id]).page(params[:page]).per(9)
   end
 
 end
