@@ -1,10 +1,14 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<div class="text">
+  done it? へようこそ<br>
+  ここはミステリ本のレビュー投稿サイトです。<br>
+  多様なタグを用意しておりますので、<br>
+  あなたにぴったりの本がきっと見つかることでしょう…<br>
+</div>
 
 
-<% if user_signed_in? %>
-<% else %>
-  <div class="row justify-content-center">
-    <%= link_to 'ゲストログイン（閲覧用）', user_guest_sign_in_path, class: "col-lg-4 btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-  </div>
-<% end %>
+  <% unless user_signed_in? %>
+    <div class="row justify-content-center mt-5">
+      <%= link_to 'ゲストログイン（閲覧用）', user_guest_sign_in_path, class: "col-lg-4 btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+    </div>
+  <% end %>
+

@@ -13,3 +13,20 @@
  *= require_self.
  *= require_self
  */
+
+ body {
+  color: #000055;
+}
+
+header {
+  background-color: 	#000055;
+}
+
+.text {
+  margin-top: 50px;
+  text-align: center;
+}
+
+span {
+  color: red;
+}
