@@ -1,21 +1,21 @@
 <div class="container">
 
   <!--ユーザー情報表示-->
-
   <div class="row mt-5">
-
     <div class="col-lg-3 mr-5"><%= render 'user/users/user_info', user: @user %></div>
 
     <!--ユーザーレビュー表示-->
-
     <div class="col-lg-8">
       <% @reviews.each do |review| %>
-
-        <div class="row mb-5">
-          <div class="col-lg-3"><%= image_tag(review.book.image) %></div>
-          <div class="col-lg-9"><%= render 'user/reviews/review', review: review %></div>
+        <div class="border p-3 mb-3">
+          <div class="center mb-2"><%= review.book.title %></div>
+          <div class="row">
+            <div class="col-lg-3"><%= image_tag(review.book.image) %></div>
+            <div class="col-lg-9"><%= render 'user/reviews/review', review: review %></div>
+          </div>
         </div>
       <% end %>
     </div>
+
   </div>
 </div>

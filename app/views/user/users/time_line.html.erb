@@ -1,12 +1,11 @@
 <div class="container">
-  <div class="row">
-    <%= render 'user/users/user_info', user: current_user %>
+  <div class="row mt-5">
+    <div class="col-lg-3 mr-5"><%= render 'user/users/user_info', user: current_user %></div>
 
-
-    <div class="col-lg-8 ml-3 mt-5">
+    <div class="col-lg-8">
       <% @time_line.each do |obj| %>
         <% if obj.kind_of?(Review) %>
-          <div class="row border p-1 justify-content-center my-3">
+          <div class="row border p-1 justify-content-center mb-3">
             <div class="col-lg-2">
               <%= image_tag obj.user.get_profile_image(80,80) %></div>
             <div class="col-lg-9">
