@@ -17,60 +17,25 @@
   </div>
 
 
-
-
-
   <div class="row mt-5 offset-1">
-
     <div class="col-lg-3 center">
       <%= link_to user_path(@review.user_id) do %>
         <%= image_tag @review.user.get_profile_image(200,200) %>
         <p><%= @review.user.name %></p>
       <% end %>
     </div>
-
-    <div class="col-lg-8 review">
-      <p><i class="fas fa-book"></i> <%= @review.type.name %> / <%= @review.long.name %></p>
-      <p><i class="fas fa-search"></i>
-        <% @review.mysteries.each do |mystery| %>
-          <%= mystery.name %>
-       <% end %>
-      </p>
-      <p><i class="fas fa-book-reader"></i>
-        <% @review.difficulties.each do |difficulty| %>
-          <%= difficulty.name %>
-         <% end %>
-      </p>
-
-      <p>
-        <i class="fas fa-paperclip"></i>
-        <% @review.tags.each do |tag| %>
-          <%= tag.name %>
-       <% end %>
-      </p>
-      <div><i class="fas fa-comment"></i><%= @review.body %></div>
-
-      <i class="fas fa-exclamation-triangle"></i>
-      <div class="netabare-on"><%= @review.netabare %></p>
-        <script>
-        $(document).ready(function () {
-          $(document).on('click', '.netabare', function() {
-            $(this).removeClass('on');
-          });
-        });
-        </script>
-      </div>
+    <div class="col-lg-8">
+      <%= render 'review', review: @review %>
+    </div>
   </div>
 
 
 
 
 
-      <div class="row">
-        <div class="favorite_<%= @review.id %>">
-          <%= render 'user/favorites/favorite_btn' , review: @review %>
-        </div>
-      </div>
+
+
+
 
       <div class="index_<%= @review.id %>"><%= render 'user/comments/comment_index', review: @review %></div>
       <%= render 'user/comments/form', {review: @review, comment: @comment} %>

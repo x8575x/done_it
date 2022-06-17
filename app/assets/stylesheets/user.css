@@ -1,5 +1,16 @@
-.review {
+.review_body {
   word-wrap: break-word;
+}
+
+.review{
+  position: relative;
+}
+
+
+.favorite {
+  position: absolute;
+  top: 0px;
+  right: 10px;
 }
 
 p {
@@ -15,11 +26,11 @@ p {
   box-sizing: border-box;
   cursor: pointer;
 }
-.netabare-on {
+.netabare.on {
   color: rgba(0,0,0,0);
   text-shadow: 0 0 10px #000;
 }
-.netabare-on:before {
+.netabare.on:before {
   content: 'ネタバレを含みます';
   position: absolute;
   text-shadow: none;

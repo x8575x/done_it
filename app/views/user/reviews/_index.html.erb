@@ -1,58 +1,9 @@
   <% if @reviews.exists? %>
     <div class="row justify-content-center mt-5"><h3>みんなの感想</h3></div>
+    
+    
     <% reviews.each do |review| %>
-      <div class="border p-3">
-        <div class="row">
-
-          <div class="col-lg-4">
-            <%= link_to user_path(review.user.id) do %>
-              <div class="row justify-content-center"><%= image_tag review.user.get_profile_image(200,200) %></div>
-              <div class="row justify-content-center"><%= review.user.name %></div>
-            <% end %>
-          </div>
-
-
-          <div class="col-lg-8">
-            <div class="row">
-              <div class="col-lg-4">分類：</div>
-              <div class="col-lg-8"><%= review.type.name %></div>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-4">長さ：</div>
-              <div class="col-lg-8"><%= review.long.name %></div>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-4">謎解き：</div>
-              <% review.mysteries.each do |mystery| %>
-                <div class="col-lg-3"><%= mystery.name %></div>
-             <% end %>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-4">読みやすさ：</div>
-              <% review.difficulties.each do |difficulty| %>
-                <div class="col-lg-3"><%= difficulty.name %></div>
-             <% end %>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-4">タグ：</div>
-              <% review.tags.each do |tag| %>
-                <div class="col-lg-3"><%= tag.name %></div>
-             <% end %>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-4">感想：</div>
-              <div class="col-lg-8"><%= review.body %></div>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-4">ネタバレ：</div>
-              <div class="col-lg-8"><%= review.netabare %></div>
-            </div>
+      <%= render 'user/reviews/review', review: review %>
 
 
             <div class="row">
@@ -62,11 +13,6 @@
               <p>コメント件数：<%= review.comments.count %></p>
               <%= link_to "レビュー詳細へ", review_path(review.id) %>
             </div>
-
-          </div>
-        </div>
-
-      </div>
 
     <% end %>
   <% else %>
