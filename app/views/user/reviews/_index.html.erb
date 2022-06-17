@@ -56,7 +56,9 @@
 
 
             <div class="row">
-               <%= render 'user/favorites/favorite_btn', review: review %>
+               <div class="favorite_<%= review.id %>">
+                <%= render 'user/favorites/favorite_btn' , review: review %>
+              </div>
               <p>コメント件数：<%= review.comments.count %></p>
               <%= link_to "レビュー詳細へ", review_path(review.id) %>
             </div>
