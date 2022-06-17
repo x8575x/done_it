@@ -1,0 +1,36 @@
+.review {
+  word-wrap: break-word;
+}
+
+p {
+  margin-bottom: 5px;
+}
+
+.center{
+  text-align: center;
+}
+
+.netabare {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.netabare-on {
+  color: rgba(0,0,0,0);
+  text-shadow: 0 0 10px #000;
+}
+.netabare-on:before {
+  content: 'ネタバレを含みます';
+  position: absolute;
+  text-shadow: none;
+  color: #fff;
+  width: 220px;
+  height: 28px;
+  line-height: 28px;
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  background-color: #cb2222;
+  margin-left: -110px;
+  margin-top: -14px;
+}

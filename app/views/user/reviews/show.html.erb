@@ -16,57 +16,55 @@
     </div>
   </div>
 
-  <div class="row mt-5">
 
-    <div class="col-lg-4">
+
+
+
+  <div class="row mt-5 offset-1">
+
+    <div class="col-lg-3 center">
       <%= link_to user_path(@review.user_id) do %>
-        <div class="row justify-content-center"><%= image_tag @review.user.get_profile_image(200,200) %></div>
-        <div class="row justify-content-center"><%= @review.user.name %></div>
+        <%= image_tag @review.user.get_profile_image(200,200) %>
+        <p><%= @review.user.name %></p>
       <% end %>
     </div>
 
-
-    <div class="col-lg-8">
-      <div class="row">
-        <div class="col-lg-4">分類：</div>
-        <div class="col-lg-8"><%= @review.type.name %></div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4">長さ：</div>
-        <div class="col-lg-8"><%= @review.long.name %></div>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4">謎解き：</div>
+    <div class="col-lg-8 review">
+      <p><i class="fas fa-book"></i> <%= @review.type.name %> / <%= @review.long.name %></p>
+      <p><i class="fas fa-search"></i>
         <% @review.mysteries.each do |mystery| %>
-          <div class="col-lg-3"><%= mystery.name %></div>
+          <%= mystery.name %>
        <% end %>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4">読みやすさ：</div>
+      </p>
+      <p><i class="fas fa-book-reader"></i>
         <% @review.difficulties.each do |difficulty| %>
-          <div class="col-lg-3"><%= difficulty.name %></div>
-       <% end %>
-      </div>
+          <%= difficulty.name %>
+         <% end %>
+      </p>
 
-      <div class="row">
-        <div class="col-lg-4">タグ：</div>
+      <p>
+        <i class="fas fa-paperclip"></i>
         <% @review.tags.each do |tag| %>
-          <div class="col-lg-3"><%= tag.name %></div>
+          <%= tag.name %>
        <% end %>
-      </div>
+      </p>
+      <div><i class="fas fa-comment"></i><%= @review.body %></div>
 
-      <div class="row">
-        <div class="col-lg-4">感想：</div>
-        <div class="col-lg-8"><%= @review.body %></div>
+      <i class="fas fa-exclamation-triangle"></i>
+      <div class="netabare-on"><%= @review.netabare %></p>
+        <script>
+        $(document).ready(function () {
+          $(document).on('click', '.netabare', function() {
+            $(this).removeClass('on');
+          });
+        });
+        </script>
       </div>
+  </div>
 
-      <div class="row">
-        <div class="col-lg-4">ネタバレ：</div>
-        <div class="col-lg-8"><%= @review.netabare %></div>
-      </div>
+
+
+
 
       <div class="row">
         <div class="favorite_<%= @review.id %>">

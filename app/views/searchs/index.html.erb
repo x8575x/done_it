@@ -10,12 +10,17 @@
   </div>
 
 
-  <div class="row justify-content-center mt-5">
-    <h2>検索結果</h2>
-  </div>
 
-  <div class="row justify-content-center">
-    <% if @searchs.present? %>
+
+
+  <% if @searchs.present? %>
+    <div class="row justify-content-center mt-5">
+      <h2>検索結果　(<%= @searchs.response.count %>冊)</h2>
+    </div>
+    <!--<= paginate @searchs %>-->
+    <div class="row justify-content-center mb-3"><%= @searchs.response.page_count %></div>
+
+    <div class="row justify-content-center">
       <% @searchs.each do |search| %>
         <div class="col-lg-2  border p-3 m-3">
 
@@ -50,5 +55,8 @@
       <% end %>
     <% end %>
   </div>
+
+
+
 
 </div>
