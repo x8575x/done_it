@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  
   # Devise routes
   
   # ゲストログイン用
@@ -47,7 +48,10 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
+    # レビュー検索画面
     get 'review/search' => 'reviews#search'
+    # ランキング画面
+    get 'rank' => 'ranks#rank'
 
     resources :books, only: [:create, :show] do
       # 読みたい、読んでいる、読んだ、積読いいね機能

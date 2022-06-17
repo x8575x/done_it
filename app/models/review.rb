@@ -34,7 +34,9 @@ class Review < ApplicationRecord
 
   scope :search, -> (search_params) do
     return if search_params.blank?
-    value = includes(:mysteries, :difficulties, :tags).type(search_params[:type_id])
+    
+    value = includes(:mysteries, :difficulties, :tags)
+    .type(search_params[:type_id])
       .long(search_params[:long_id])
       .mystery(search_params[:mystery_ids])
       .difficulty(search_params[:difficulty_ids])

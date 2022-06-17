@@ -1,0 +1,22 @@
+<%= link_to "レビュー数", rank_path(sort: 'review') %>
+ | <%= link_to "読みたい本", rank_path(sort: 'want') %>
+ | <%= link_to "読んでいる本", rank_path(sort: 'reading') %>
+ | <%= link_to "読んだ本", rank_path(sort: 'read') %>
+ | <%= link_to "積読本", rank_path(sort: 'get') %>
+
+<div class="container">
+  <div class="row justify-content-center offset-1 mt-5">
+
+    <% @books.each.with_index(1) do |book, i| %>
+
+      第<%= i %>位
+      <div class="col-lg-3 border p-3 m-3" onclick="window.location.href='<%= book_path(book.id) %>'" role="link">
+        <div class="row justify-content-center text-center mb-3"><%= book.title %></div>
+        <div class="row justify-content-center mb-3"><%= image_tag(book.image) %></div>
+        <div class="row justify-content-center mb-3"><%= book.author %></div>
+        <div class="row justify-content-center mb-3"><%= book.publisher_name %></div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
