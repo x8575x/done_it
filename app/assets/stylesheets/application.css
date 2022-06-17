@@ -19,7 +19,7 @@
 }
 
 header {
-  background-color: 	#000055;
+  background-color: 	#000044;
 }
 
 .text {
@@ -27,6 +27,18 @@ header {
   text-align: center;
 }
 
-span {
+.red {
   color: red;
+}
+
+footer {
+  margin-top: 30px;
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  line-height: 120px;
+  color: white;
+  background-color: #000044;
+  bottom: 0;
+
 }
