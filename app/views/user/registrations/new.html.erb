@@ -25,8 +25,8 @@
       <div id="sign_up" class="row">
         <%= f.label :birthday_active, "生年月日公開設定", class: "col-lg-4" %>
         <p class="col-lg-5 text-left">
-          <span>公開　<%= f.radio_button :birthday_active, 'true' %></span>
-          <span>　　非公開　<%= f.radio_button :birthday_active, 'false' %></span>
+          <span>公開　<%= f.radio_button :birthday_active, 'true', checked: true %></span>
+          <span>　　非公開　<%= f.radio_button :birthday_active, 'false', checked: false %></span>
         </p>
       </div>
 
@@ -47,8 +47,8 @@
       <div id="sign_up" class="row">
         <%= f.label :sex_active, "性別公開設定", class: "col-lg-4" %>
         <p class="col-lg-5 text-left">
-          <span>公開　<%= f.radio_button :sex_active, 'true' %></span>
-          <span>　　非公開　<%= f.radio_button :sex_active, 'false' %></span>
+          <span>公開　<%= f.radio_button :sex_active, 'true', checked: true %></span>
+          <span>　　非公開　<%= f.radio_button :sex_active, 'false', checked: false %></span>
         </p>
       </div>
 
