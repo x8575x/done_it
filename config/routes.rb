@@ -68,7 +68,6 @@ Rails.application.routes.draw do
   # Admin routes
   namespace :admin do
     get '/top' => 'homes#top'
-    get '/tags' => 'homes#tags'
     resources :users, only: [:update, :show, :index]
     resources :reviews, only: [:update, :edit, :destroy, :show, :index]
     resources :types, only: [:edit, :create, :update, :destroy, :index]

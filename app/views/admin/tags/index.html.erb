@@ -1,0 +1,44 @@
+<h1>Tag</h1>
+
+<h2>新規作成</h2>
+<%= form_with model: @tag, url: admin_tags_path, method: :post do |f| %>
+  <div id="sign" class="row offset-2">
+    <%= f.label :name, "タグ名", class: "col-lg-3" %>
+    <%= f.text_field :name, class: "form-control col-lg-5" %>
+  </div>
+
+  <div id="sign" class="row offset-2">
+    <%= f.label :introduction, "説明", class: "col-lg-3" %>
+    <%= f.text_area :introduction, class: "form-control col-lg-5", size: "5x5" %>
+  </div>
+
+  <div id="sign" class="row justify-content-center ml-5 my-3">
+    <%= f.submit "作成", class: "submit_create col-lg-2 ml-5" %>
+  </div>
+<% end %>
+
+<h2>一覧</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>introduction</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tags.each do |tag| %>
+      <tr>
+        <td class="center"><%= tag.id %></td>
+        <td><%= tag.name %></td>
+        <td><%= safe_join(tag.introduction.split("\n"),tag(:br))%></td>
+        <td class="center"><%= link_to "編集",edit_admin_tag_path(tag.id) %></td>
+        <td class="center"><%= link_to "削除",admin_tag_path(tag.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

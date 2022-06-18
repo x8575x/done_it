@@ -3,24 +3,41 @@ class Admin::TagsController < ApplicationController
 
   def create
     @tag = Tag.new(tag_params)
-    @tag.save
-    redirect_to admin_top_path
+    if @tag.save
+      flash[:notice] = "登録しました"
+      redirect_to admin_tags_path
+    else
+      render :index
+    end
   end
 
   def edit
     @tag = Tag.find(params[:id])
   end
 
+  def index
+    @tag = Tag.new
+    @tags = Tag.all
+  end
+
   def update
     @tag = Tag.find(params[:id])
-    @tag.update(tag_params)
-    redirect_to admin_top_path
+    if @tag.update(tag_params)
+      flash[:notice] = "編集に成功しました"
+      redirect_to admin_tags_path
+    else
+      render :index
+    end
   end
 
   def destroy
     @tag = Tag.find(params[:id])
-    @tag.destroy
-    redirect_to admin_top_path
+    if @tag.destroy
+    flash[:notice] = "削除"
+      redirect_to admin_tags_path
+    else
+      render :index
+    end
   end
 
 
@@ -28,7 +45,7 @@ class Admin::TagsController < ApplicationController
   private
 
   def tag_params
-    params.require(:tag).permit(:name)
+    params.require(:tag).permit(:name, :introduction)
   end
 
 end
