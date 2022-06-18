@@ -42,7 +42,8 @@ class User::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :birthday, :sex, :introduction, :profile_image)
+    params.require(:user).permit(:name, :birthday, :sex, :introduction, :profile_image,
+      :mystery_active, :birthday_active, :sex_active)
   end
 
   # ゲストログイン用

@@ -100,7 +100,10 @@
     </header>
 
     <body>
-      <%= yield %>
+      <div class="container">
+        <%= render partial: 'layouts/flash' %>
+        <%= yield %>
+      </div>
     </body>
 
     <footer>

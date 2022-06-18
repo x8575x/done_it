@@ -41,3 +41,38 @@ footer {
   background-color: #000044;
   bottom: 0;
 }
+
+.flash {
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#sign_up {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.submit_create {
+  margin-bottom: 5px;
+  display: block;
+  background-color: #000055;
+  color: white;
+  border: solid 1px #000055;
+  border-radius: 5px;/*角丸*/
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.submit_create:hover {
+  text-decoration: none;
+  color: white;
+}
+
+h2 {
+  margin-bottom: 50px;
+}

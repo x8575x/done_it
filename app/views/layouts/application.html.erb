@@ -89,11 +89,9 @@
 
   <body>
     <div class="container">
-      <div class="row justify-content-center p-5">
-        <p id="notice"><%= flash[:notice] %></p>
-      </div>
+      <%= render partial: 'layouts/flash' %>
+      <%= yield %>
     </div>
-    <%= yield %>
   </body>
 
   <footer>

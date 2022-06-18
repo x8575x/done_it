@@ -1,76 +1,83 @@
-<div class="container">
-  <div class="row">
-    <h2>新規登録</h2>
-  </div>
+<div class="center">
+  <h2>新規会員登録</h2>
 
-  <div class="row">
+
     <%= form_with model: @user, url: user_registration_path, method: :post do |f| %>
       <%= render "user/shared/error_messages", resource: resource %>
 
-      <div class="form-grop">
-        <%= f.label :name, "ニックネーム" %>
-        <%= f.text_field :name, autofocus: true %>
+      <div id="sign_up" class="row">
+        <%= f.label :name, "名前", class: "col-lg-4" %>
+        <%= f.text_field :name, autofocus: true, class: "form-control col-lg-5" %>
       </div>
 
-      <div class="form-grop">
-        <%= f.label :birthday, "生年月日" %>
+      <div id="sign_up" class="row">
+        <%= f.label :birthday, "生年月日", class: "col-lg-4" %>
         <%= f.date_select(
           :birthday,
           use_month_numbers: true, #数字で月を表示
           default: Date.new(1990, 1, 1), #初期設定
           start_year:     1950, #開始年
           end_year:       (Time.now.year), #終了年月日（now）
-          class: "form-control")
+          class: "form-control col-lg-5")
         %>
       </div>
 
-      <div class="form-grop">
-        <%= f.label :profile_image, "プロフィール画像" %>
-        <%= f.file_field :profile_image, accept: "image/*" %>
+      <div id="sign_up" class="row">
+        <%= f.label :birthday_active, "生年月日公開設定", class: "col-lg-4" %>
+        <p class="col-lg-5 text-left">
+          <span>公開　<%= f.radio_button :birthday_active, 'true' %></span>
+          <span>　　非公開　<%= f.radio_button :birthday_active, 'false' %></span>
+        </p>
+      </div>
+
+      <div id="sign_up" class="row">
+        <%= f.label :profile_image, "プロフィール画像", class: "col-lg-4" %>
+        <%= f.file_field :profile_image, accept: "image/*", class: "col-lg-5" %>
       </div>
 
 
-      <div class="form-grop">
-        <%= f.label :sex, "性別" %>
-        男性<%= f.radio_button :sex, 'true', checked: true %>
-        女性<%= f.radio_button :sex, 'false', checked: false %>
+      <div id="sign_up" class="row">
+        <%= f.label :sex, "性別", class: "col-lg-4" %>
+        <p class="col-lg-5 text-left">
+          <span>男性　<%= f.radio_button :sex, 'true', checked: true %></span>
+          <span>　　女性　<%= f.radio_button :sex, 'false', checked: false %></span>
+        </p>
       </div>
 
-      <div class="form-grop">
-        <%= f.label :introduction, "自己紹介" %>
-        <%= f.text_area :introduction %>
+      <div id="sign_up" class="row">
+        <%= f.label :sex_active, "性別公開設定", class: "col-lg-4" %>
+        <p class="col-lg-5 text-left">
+          <span>公開　<%= f.radio_button :sex_active, 'true' %></span>
+          <span>　　非公開　<%= f.radio_button :sex_active, 'false' %></span>
+        </p>
       </div>
 
-      <div class="form-grop">
-        <%= f.label :email, "メールアドレス" %>
-        <%= f.email_field :email, autocomplete: "email" %>
+
+      <div id="sign_up" class="row">
+        <%= f.label :introduction, "自己紹介", class: "col-lg-4" %>
+        <%= f.text_area :introduction, class: "form-control col-lg-5", size: "30x10" %>
       </div>
 
-      <div class="form-grop">
-        <%= f.label :password, "パスワード" %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> 文字以上)</em>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "new-password" %>
+      <div id="sign_up" class="row">
+        <%= f.label :email, "メールアドレス", class: "col-lg-4" %>
+        <%= f.email_field :email, autocomplete: "email", class: "form-control col-lg-5" %>
       </div>
 
-      <div class="form-grop">
-        <%= f.label :password_confirmation, "パスワード(確認用)" %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <div id="sign_up" class="row">
+        <%= f.label :password, "パスワード(6文字以上)", class: "col-lg-4" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control col-lg-5" %>
       </div>
 
-      <div class="actions">
-        <%= f.submit "登録", class: "btn btn-primary" %>
+      <div id="sign_up" class="row">
+        <%= f.label :password_confirmation, "パスワード(確認用)", class: "col-lg-4" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control col-lg-5" %>
+      </div>
+
+      <div id="sign_up" class="row justify-content-center ml-5 mt-5">
+        <%= f.submit "登録", class: "submit_create col-lg-2" %>
       </div>
     <% end %>
 
   </div>
 
-
-    <div class="row">
-      <%= render "user/shared/links" %>
-    </div>
-
-
-</div>
-
+  <%= render "user/shared/links" %>
