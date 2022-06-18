@@ -18,11 +18,7 @@ class User::GetsController < ApplicationController
       reading = current_user.readings.find_by(book_id: @book.id)
       reading.destroy
     end
-    # ログイン中のユーザーが読んだ本に登録していた場合、削除
-    if @book.read_by?(current_user)
-      read = current_user.reads.find_by(book_id: @book.id)
-      read.destroy
-    end
+    
 
     render 'user/books/btn'
   end

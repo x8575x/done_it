@@ -1,7 +1,7 @@
 <!--ログインしていて、いいねがされている場合-->
 <% if user_signed_in? && book.read_by?(current_user) %>
-  <%= link_to book_reads_path(book), method: :delete, remote: true do %>
-    <div class="book_favo_delete mb-1">読んだ本から解除</div>
+  <%= link_to book_reads_path(book), method: :post, remote: true do %>
+    <div class="book_favo_delete mb-1">再読本に登録</div>
   <% end %>
 <!--ログインしていて、いいねがされていない場合-->
 <% elsif user_signed_in? && !book.read_by?(current_user) %>
