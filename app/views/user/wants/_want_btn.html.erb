@@ -1,12 +1,12 @@
 <!--ログインしていて、いいねがされている場合-->
 <% if user_signed_in? && book.want_by?(current_user) %>
   <%= link_to book_wants_path(book), method: :delete, remote: true do %>
-    <div class="btn btn-block btn-danger mb-1">読みたい本から解除</div>
+    <div class="book_favo_delete">読みたい本から解除</div>
   <% end %>
 <!--ログインしていて、いいねがされていない場合-->
 <% elsif user_signed_in? && !book.want_by?(current_user) %>
   <%= link_to book_wants_path(book), method: :post, remote: true do %>
-    <div class="btn btn-block btn-success mb-1">読みたい本に登録</div>
+    <div class="book_favo_create">読みたい本に登録</div>
   <% end %>
 <!--ログインしていない場合-->
 <% else %>

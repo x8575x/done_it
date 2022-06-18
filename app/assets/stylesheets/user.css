@@ -6,6 +6,17 @@ header {
   background-color: 	#000055;
 }
 
+footer {
+  margin-top: 30px;
+  width: 100%;
+  height: 120px;
+  text-align: center;
+  line-height: 120px;
+  color: white;
+  background-color: #000044;
+  bottom: 0;
+}
+
 .user_info p {
   text-align: center;
   margin-bottom: 15px;
@@ -23,11 +34,32 @@ header {
 }
 
 .red {
-  color: red;
+  color: #DD0000;
 }
 
 
+.book_favo_create{
+  margin-bottom: 5px;
+  display: block;
+  color: #000055;
+  border: solid 1px #000055;
+  border-radius: 5px;/*角丸*/
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+}
 
+.book_favo_delete {
+  margin-bottom: 5px;
+  display: block;
+  background-color: #000055;
+  color: white;
+  border: solid 1px #000055;
+  border-radius: 5px;/*角丸*/
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+}
 
 
 
