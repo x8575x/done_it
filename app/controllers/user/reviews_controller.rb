@@ -54,12 +54,13 @@ class User::ReviewsController < ApplicationController
   end
 
   def review_search_params
-    search_params = params.permit(:type_id, :long_id, :mystery_ids => [], :difficulty_ids => [], :tag_ids => [])
+    return unless params[:search]
+    search_params = params.require(:search).permit(:type_id, :long_id, :mystery_ids => [], :difficulty_ids => [], :tag_ids => [])
     # 検索時の配列でmystery_ids,difficulty_ids,tag_idsのnillを無視する記述
     %i[mystery_ids difficulty_ids tag_ids].each do |ids|
       search_params[ids] = search_params[ids]&.reject(&:blank?)
     end
-    return search_params
+    search_params
   end
 
 
