@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # Devise routes
-  
+
   # ゲストログイン用
   devise_scope :user do
     post 'user/guest_sign_in', to: 'user/sessions#guest_sign_in'
@@ -59,7 +59,7 @@ Rails.application.routes.draw do
       resource :reads, only: [:create, :index]
       resource :gets, only: [:create, :index, :destroy]
     end
-    
+
     # 読んだ本は再読機能があるため、独立してread.idで個別に消せるように
     resources :reads, only: [:destroy]
   end
@@ -71,11 +71,11 @@ Rails.application.routes.draw do
     get '/tags' => 'homes#tags'
     resources :users, only: [:update, :show, :index]
     resources :reviews, only: [:update, :edit, :destroy, :show, :index]
-    resources :types, only: [:edit, :create, :update, :destroy]
-    resources :longs, only: [:edit, :create, :update, :destroy]
-    resources :mysteries, only: [:edit, :create, :update, :destroy]
-    resources :difficulties, only: [:edit, :create, :update, :destroy]
-    resources :tags, only: [:edit, :create, :update, :destroy]
+    resources :types, only: [:edit, :create, :update, :destroy, :index]
+    resources :longs, only: [:edit, :create, :update, :destroy, :index]
+    resources :mysteries, only: [:edit, :create, :update, :destroy, :index]
+    resources :difficulties, only: [:edit, :create, :update, :destroy, :index]
+    resources :tags, only: [:edit, :create, :update, :destroy, :index]
   end
 
 

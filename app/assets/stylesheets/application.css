@@ -40,7 +40,8 @@ footer {
   color: white;
   background-color: #000044;
   bottom: 0;
-  position: absolute;/* ←絶対位置 */
+  /*position: absolute;*/
+  /* ←絶対位置 */
 }
 
 .footerFixed{

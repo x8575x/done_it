@@ -1,0 +1,87 @@
+header {
+  background-color: #000055;
+}
+
+.main {
+  padding: 50px 100px;
+  color: #000055;
+}
+
+.flash {
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+  margin-top: 30px;
+}
+
+
+/*ログイン画面*/
+#sign {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.submit_create {
+  margin-bottom: 5px;
+  display: block;
+  background-color: #000055;
+  color: white;
+  border: solid 1px #000055;
+  border-radius: 5px;/*角丸*/
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.submit_create:hover {
+  text-decoration: none;
+  color: white;
+}
+
+h2 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+/*テーブル*/
+thead {
+  background-color: #000055;
+  color: white;
+  text-align: center;
+}
+
+
+/*user_showページで使用*/
+.tr {
+  background-color: #000055;
+  color: white;
+}
+
+.show_table {
+  width: 1000px;
+  margin:0 auto;
+}
+
+
+/*user編集ぺージのボタン*/
+.btn {
+  margin-bottom: 5px;
+  background-color: #000055;
+  color: white;
+  border: solid 1px #000055;
+  border-radius: 5px;/*角丸*/
+  padding: 5px 10px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn:hover {
+  text-decoration: none;
+  color: white;
+}

@@ -8,12 +8,15 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
-        <%= link_to "done it?", root_path ,class: "nav-link text-white" %>
+        <%= link_to root_path, class: "nav-link text-white" do %>
+          <%= image_tag 'icon', size: "40x40" %> <%= image_tag 'done_it', size: "209x40" %>
+        <% end %>
 
         <!--ハンバーガーアイコン-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,15 +35,41 @@
 
             <li class="nav-item">
               <%= link_to admin_reviews_path, class: 'nav-link text-white' do %>
-                <i class="fas fa-book-open"></i> Reviews
+                <i class="fas fa-file-alt"></i>Reviews
+              <% end %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to admin_types_path, class: 'nav-link text-white' do %>
+                <i class="fas fa-book"></i>types
+              <% end %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to admin_longs_path, class: 'nav-link text-white' do %>
+                <i class="fas fa-ruler"></i>Longs
+              <% end %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to admin_mysteries_path, class: 'nav-link text-white' do %>
+                <i class="fas fa-search"></i>Mysteries
+              <% end %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to admin_difficulties_path, class: 'nav-link text-white' do %>
+                <i class="fas fa-book-reader"></i>Difficulties
               <% end %>
             </li>
 
             <li class="nav-item">
               <%= link_to admin_tags_path, class: 'nav-link text-white' do %>
-                <i class="fas fa-search"></i> Tags
+                <i class="fas fa-paperclip"></i>Tags
               <% end %>
             </li>
+
+
 
             <li class="nav-item">
               <%= link_to destroy_admin_session_path, class: 'nav-link text-white', method: :delete do %>
@@ -56,6 +85,9 @@
   </header>
 
   <body>
-    <%= yield %>
+    <div class="main">
+      <%= render partial: 'layouts/flash' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
