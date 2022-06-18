@@ -1,11 +1,11 @@
 <!--ログインしていてフォローしている場合-->
 <% if user_signed_in? && current_user.following?(user) %>
-  <%= link_to user_follow_relationships_path(user.id), class: "btn btn-danger btn-block", method: :delete do %>
+  <%= link_to user_follow_relationships_path(user.id), class: "btn btn-danger btn-block mt-3", method: :delete do %>
     <i class="fas fa-user-alt-slash"></i>　フォロー外す
   <% end %>
 <!--ログインしていてフォローしていない場合-->
 <% elsif user_signed_in? && !current_user.following?(user) %>
-  <%= link_to user_follow_relationships_path(user.id), class: "btn btn-primary btn-block", method: :post do %>
+  <%= link_to user_follow_relationships_path(user.id), class: "btn btn-primary btn-block mt-3", method: :post do %>
     <i class="fas fa-user-check"></i>　フォローする
   <% end %>
 <% else %>

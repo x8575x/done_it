@@ -17,18 +17,35 @@
       <%= tag.name %>
    <% end %>
   </p>
-  <div class="review_body">
-    <i class="fas fa-file-alt"></i><div><%= review.body %></div>
-    <i class="fas fa-exclamation-triangle"></i>
-    <div class="netabare on"><%= review.netabare %></p>
-      <script>
+  
+  
+  
+    
+    
+  <div class="review_body"><i class="fas fa-file-alt"></i>
+    <div>
+      <%if review.body.nil? %>
+        <%= review.body %>
+      <% else %>
+        <%= safe_join(review.body.split("\n"),tag(:br))%>
+      <%end %>
+    </div>
+    
+    <i class="fas fa-exclamation-triangle"></i><span class="red">ネタバレを含む内容があります</span>
+    <div class="netabare on">
+      <%if review.netabare.nil? %>
+        <%= review.netabare %>
+      <% else %>
+        <%= safe_join(review.netabare.split("\n"),tag(:br))%>
+      <%end %>
+    </div>
+    <script>
       $(document).ready(function () {
         $(document).on('click', '.netabare', function() {
           $(this).removeClass('on');
         });
       });
       </script>
-    </div>
     <p><i class="fas fa-clock"></i> <%= review.created_at.strftime('%Y/%m/%d %I:%M:%S') %></p>
   </div>
 </div>

@@ -14,6 +14,16 @@ header {
 .user_books a {
   margin-bottom: 5px;
   display: block;
+  color: #000055;
+  border: solid 1px #000055;
+  border-radius: 5px;/*角丸*/
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.red {
+  color: red;
 }
 
 
@@ -21,8 +31,9 @@ header {
 
 
 
-.review_body {
+.review_body div {
   word-wrap: break-word;
+  margin-bottom: 15px;
 }
 
 .review{
@@ -54,7 +65,7 @@ p {
   text-shadow: 0 0 10px #000;
 }
 .netabare.on:before {
-  content: 'ネタバレを含みます';
+  content: 'クリックで表示';
   position: absolute;
   text-shadow: none;
   color: #fff;

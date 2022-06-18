@@ -30,22 +30,26 @@
   </p>
 </div>
 
-
-
-  <div class="user_books">
-    <%= link_to '読みたい本一覧', user_want_path(user) %>
-    <%= link_to '読んでる本一覧', user_reading_path(user) %>
-    <%= link_to '読んだ本一覧', user_read_path(user) %>
-    <%= link_to '積読本一覧', user_get_path(user) %>
-  </div>
-
-  <% if user == current_user && user.name != "guestuser" %>
-    <%= link_to edit_user_path(current_user.id), class: "btn btn-secondary btn-block" do %>
-      <i class="fas fa-user-cog"></i>
-    <% end %>
-  <% elsif user.name != "guestuser" %>
-    <div class~"row">
-      <%= render 'user/follow_relationships/follow_btn', user: user %>
-    <div>
+<div class="user_books">
+  <%= link_to  user_want_path(user) do %>
+    読みたい本一覧　　　<%= image_tag 'yomitai' %>
   <% end %>
+  <%= link_to  user_reading_path(user) do %>
+    読んでる本一覧　　　<%= image_tag 'yonderu' %>
+  <% end %>
+  <%= link_to user_read_path(user) do %>
+    読んだ本一覧　　　　<%= image_tag 'yonda' %>
+  <% end %>
+  <%= link_to user_get_path(user) do %>
+    読んでる本一覧　　　<%= image_tag 'tundoku' %>
+  <% end %>
+</div>
+
+<% if user == current_user && user.name != "guestuser" %>
+  <%= link_to edit_user_path(current_user.id), class: "btn btn-secondary btn-block mt-3" do %>
+    <i class="fas fa-user-cog"></i>
+  <% end %>
+<% elsif user.name != "guestuser" %>
+  <%= render 'user/follow_relationships/follow_btn', user: user %>
+<% end %>
 
