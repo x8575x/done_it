@@ -13,6 +13,11 @@
         <div class="read_<%= @review.book.id %>"><%= render 'user/reads/read_btn', book: @review.book %></div>
         <div class="get_<%= @review.book.id %>"><%= render 'user/gets/get_btn', book: @review.book %></div>
       </p>
+      <p class="mt-5 text-center">
+        <%= link_to book_path(@review.book_id) do %>
+          本の詳細ページへ戻る
+        <% end %>
+      </p>
     </div>
 
     <div class="col-lg-8">

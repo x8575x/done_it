@@ -6,12 +6,14 @@
         <p><%= comment.user.name %></p>
       <% end %>
     </div>
-    <div class="col-lg-8">
+    <div class="col-lg-8 ">
       <p><%= comment.comment %></p>
-      <p>(<%= comment.created_at.strftime('%Y/%m/%d %I:%M:%S') %>)</p>
-      <p><% if comment.user == current_user %>
-          <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, remote: true, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
-          <% end %></p>
+      (<%= comment.created_at.strftime('%Y/%m/%d %I:%M:%S') %>)
+      <div class="row justify-content-center mt-2">
+        <% if comment.user == current_user %>
+          <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, remote: true, "data-confirm" => "本当に削除しますか？", class: "delete col-lg-2" %>
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>

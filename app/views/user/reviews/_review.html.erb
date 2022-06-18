@@ -17,11 +17,8 @@
       <%= tag.name %>
    <% end %>
   </p>
-  
-  
-  
-    
-    
+
+
   <div class="review_body"><i class="fas fa-file-alt"></i>
     <div>
       <%if review.body.nil? %>
@@ -30,7 +27,7 @@
         <%= safe_join(review.body.split("\n"),tag(:br))%>
       <%end %>
     </div>
-    
+
     <i class="fas fa-exclamation-triangle"></i><span class="red">ネタバレを含む内容があります</span>
     <div class="netabare on">
       <%if review.netabare.nil? %>
@@ -52,7 +49,7 @@
 
 <div class="favorite">
   <%= link_to review_path(review.id) do %>
-    <i class="fas fa-comment"></i><%= review.comments.count %>
+    <i class="far fa-comment"></i><%= review.comments.count %>
   <% end %>
   <span class="favorite_<%= review.id %>">
     <%= render 'user/favorites/favorite_btn' , review: review %>
@@ -61,7 +58,7 @@
 
 <div class="row mt-3 justify-content-center mb-3">
   <% if review.user == current_user %>
-    <div class="col-lg-3"><%= link_to '編集', edit_review_path(review.id), class: "btn btn-success btn-block" %></div>
-    <div class="col-lg-3"><%= link_to '削除', review_path(review.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-block" %></div>
+    <div class="col-lg-3"><%= link_to '編集', edit_review_path(review.id), class: "edit" %></div>
+    <div class="col-lg-3"><%= link_to '削除', review_path(review.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "delete" %></div>
   <% end %>
 </div>
