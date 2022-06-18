@@ -1,0 +1,36 @@
+<h1>Long</h1>
+
+<h2>新規作成</h2>
+<%= form_with model: @long, url: admin_longs_path, method: :post do |f| %>
+  <div id="sign" class="row offset-2">
+    <%= f.label :name, "本の長さ", class: "col-lg-2" %>
+    <%= f.text_field :name, class: "form-control col-lg-6" %>
+    <div class="col-lg-2">
+      <%= f.submit "作成", class: "btn" %>
+    </div>
+  </div>
+<% end %>
+
+<h2>一覧</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @longs.each do |long| %>
+      <tr>
+        <td class="center"><%= long.id %></td>
+        <td><%= long.name %></td>
+        <td class="center"><%= link_to "編集",edit_admin_long_path(long.id) %></td>
+        <td class="center"><%= link_to "削除",admin_long_path(long.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

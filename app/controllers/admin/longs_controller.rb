@@ -3,8 +3,12 @@ class Admin::LongsController < ApplicationController
 
   def create
     @long = Long.new(long_params)
-    @long.save
-    redirect_to admin_top_path
+    if @long.save
+    flash[:notice] = "登録しました"
+      redirect_to admin_longs_path
+    else
+      render :index
+    end
   end
 
   def edit
@@ -13,14 +17,27 @@ class Admin::LongsController < ApplicationController
 
   def update
     @long = Long.find(params[:id])
-    @long.update(long_params)
-    redirect_to admin_top_path
+    if @long.update(long_params)
+      flash[:notice] = "編集に成功しました"
+      redirect_to admin_longs_path
+    else
+      render :index
+    end
+  end
+  
+  def index
+    @long = Long.new
+    @longs = Long.all
   end
 
   def destroy
     @long = Long.find(params[:id])
-    @long.destroy
-    redirect_to admin_top_path
+    if @long.destroy
+      flash[:notice] = "削除しました"
+      redirect_to admin_longs_path
+    else
+      render :index
+    end
   end
 
 
