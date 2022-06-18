@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  
   # Devise routes
   
   # ゲストログイン用
@@ -57,9 +56,12 @@ Rails.application.routes.draw do
       # 読みたい、読んでいる、読んだ、積読いいね機能
       resource :wants, only: [:create, :index, :destroy]
       resource :readings, only: [:create, :index, :destroy]
-      resource :reads, only: [:create, :index, :destroy]
+      resource :reads, only: [:create, :index]
       resource :gets, only: [:create, :index, :destroy]
     end
+    
+    # 読んだ本は再読機能があるため、独立してread.idで個別に消せるように
+    resources :reads, only: [:destroy]
   end
 
 

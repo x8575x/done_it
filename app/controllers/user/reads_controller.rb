@@ -28,10 +28,9 @@ class User::ReadsController < ApplicationController
   end
 
   def destroy
-    @book = Book.find(params[:book_id])
-    read = current_user.reads.find_by(book_id: @book.id)
+    read = Read.find(params[:id])
     read.destroy
-    render 'user/books/btn'
+    redirect_to user_read_path(current_user)
   end
 
   def index
