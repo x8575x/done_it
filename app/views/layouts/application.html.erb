@@ -11,90 +11,92 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header>
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
-        <%= link_to root_path, class: "nav-link text-white" do %>
-          <%= image_tag 'icon', size: "40x40" %> <%= image_tag 'done_it', size: "209x40" %>
-        <% end %>
+  <div class="footerFixed">
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <%= link_to root_path, class: "nav-link text-white" do %>
+            <%= image_tag 'icon', size: "40x40" %> <%= image_tag 'done_it', size: "209x40" %>
+          <% end %>
 
-        <!--ハンバーガーアイコン-->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+          <!--ハンバーガーアイコン-->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-        <!--ハンバーガーが開いていた場合のヘッダー-->
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
+          <!--ハンバーガーが開いていた場合のヘッダー-->
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
 
-            <% if user_signed_in? %>
-            <!--ログイン済みのヘッダー-->
-              <li class="nav-item">
-                <%= link_to searchs_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-book"></i> Seach
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to about_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-search"></i> About
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to user_time_line_path(current_user.id), class: 'nav-link text-white' do %>
-                  <i class="fas fa-user"></i> Time Line
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to user_path(current_user.id), class: 'nav-link text-white' do %>
-                  <i class="fas fa-user"></i> My page
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to destroy_user_session_path, class: 'nav-link text-white', method: :delete do %>
-                  <i class="fas fa-sign-out-alt"></i> Log out
-                <% end %>
-              </li>
+              <% if user_signed_in? %>
+              <!--ログイン済みのヘッダー-->
+                <li class="nav-item">
+                  <%= link_to searchs_path, class: 'nav-link text-white' do %>
+                    <i class="fas fa-book"></i> Seach
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to about_path, class: 'nav-link text-white' do %>
+                    <i class="fas fa-search"></i> About
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to user_time_line_path(current_user.id), class: 'nav-link text-white' do %>
+                    <i class="fas fa-user"></i> Time Line
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to user_path(current_user.id), class: 'nav-link text-white' do %>
+                    <i class="fas fa-user"></i> My page
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to destroy_user_session_path, class: 'nav-link text-white', method: :delete do %>
+                    <i class="fas fa-sign-out-alt"></i> Log out
+                  <% end %>
+                </li>
 
 
-            <% else %>
-            <!--ログイン前のヘッダー-->
-              <li class="nav-item">
-                <%= link_to about_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-search"></i> About
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to searchs_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-book"></i> Seach
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to new_user_registration_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-user-plus"></i> Sign up
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <%= link_to new_user_session_path, class: 'nav-link text-white' do %>
-                  <i class="fas fa-sign-in-alt"></i> Log in
-                <% end %>
-              </li>
+              <% else %>
+              <!--ログイン前のヘッダー-->
+                <li class="nav-item">
+                  <%= link_to about_path, class: 'nav-link text-white' do %>
+                    <i class="fas fa-search"></i> About
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to searchs_path, class: 'nav-link text-white' do %>
+                    <i class="fas fa-book"></i> Seach
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to new_user_registration_path, class: 'nav-link text-white' do %>
+                    <i class="fas fa-user-plus"></i> Sign up
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to new_user_session_path, class: 'nav-link text-white' do %>
+                    <i class="fas fa-sign-in-alt"></i> Log in
+                  <% end %>
+                </li>
 
-            <% end %>
-          </ul>
+              <% end %>
+            </ul>
 
+          </div>
         </div>
+      </nav>
+    </header>
+
+    <body>
+      <div class="container">
+        <%= render partial: 'layouts/flash' %>
+        <%= yield %>
       </div>
-    </nav>
-  </header>
+    </body>
 
-  <body>
-    <div class="container">
-      <%= render partial: 'layouts/flash' %>
-      <%= yield %>
-    </div>
-  </body>
-
-  <footer>
-    <p class="footer-text">© All rights reserved by Infratop.Inc.</p>
-  </footer>
+    <footer>
+      <p class="footer-text">© All rights reserved by Infratop.Inc.</p>
+    </footer>
+  </div>
 </html>

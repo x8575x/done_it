@@ -19,7 +19,7 @@
 }
 
 header {
-  background-color: 	#000044;
+  background-color: #000055;
 }
 
 .text {
@@ -40,6 +40,15 @@ footer {
   color: white;
   background-color: #000044;
   bottom: 0;
+  position: absolute;/* ←絶対位置 */
+}
+
+.footerFixed{
+    min-height: 100vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
+    position: relative;/* ←相対位置 */
+    padding-bottom: 240px; /* ←フッターの高さを指定 */
+    box-sizing: border-box;
+    /* ↑ヘッダーやフッターを含むすべての要素の高さ＝min-height:100vhになるように指定 */
 }
 
 .flash {
@@ -51,7 +60,7 @@ footer {
   margin-top: 30px;
 }
 
-#sign_up {
+#sign {
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -75,4 +84,8 @@ footer {
 
 h2 {
   margin-bottom: 50px;
+}
+
+h3 {
+  margin-bottom: 15px;
 }
