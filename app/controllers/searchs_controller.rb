@@ -8,6 +8,7 @@ class SearchsController < ApplicationController
     elsif params[:author].present?
       @searchs = RakutenWebService::Books::Book.search(author: params[:author])
     end
+    @book = Book.new
   end
 
 end

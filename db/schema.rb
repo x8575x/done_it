@@ -161,6 +161,7 @@ ActiveRecord::Schema.define(version: 2022_06_12_030827) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
+    t.text "introduction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -182,6 +183,9 @@ ActiveRecord::Schema.define(version: 2022_06_12_030827) do
     t.boolean "sex", default: false, null: false
     t.text "introduction"
     t.boolean "is_deleted", default: false, null: false
+    t.boolean "mystery_active", default: false, null: false
+    t.boolean "birthday_active", default: false, null: false
+    t.boolean "sex_active", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
