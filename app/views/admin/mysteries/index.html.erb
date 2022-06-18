@@ -1,0 +1,36 @@
+<h1>Mystery</h1>
+
+<h2>新規作成</h2>
+<%= form_with model: @mystery, url: admin_mysteries_path, method: :post do |f| %>
+  <div id="sign" class="row offset-2">
+    <%= f.label :name, "謎解きの種類", class: "col-lg-2" %>
+    <%= f.text_field :name, class: "form-control col-lg-6" %>
+    <div class="col-lg-2">
+      <%= f.submit "作成", class: "btn" %>
+    </div>
+  </div>
+<% end %>
+
+<h2>一覧</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @mysteries.each do |mystery| %>
+      <tr>
+        <td class="center"><%= mystery.id %></td>
+        <td><%= mystery.name %></td>
+        <td class="center"><%= link_to "編集",edit_admin_mystery_path(mystery.id) %></td>
+        <td class="center"><%= link_to "削除",admin_mystery_path(mystery.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
