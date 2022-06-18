@@ -7,12 +7,14 @@ class User::CommentsController < ApplicationController
     comment.user_id = current_user.id
     comment.review_id = @review.id
     comment.save
+    @comments = @review.comments
     render :index
   end
 
   def destroy
     @review = Review.find(params[:review_id])
     Comment.find(params[:id]).destroy
+    @comments = @review.comments
     render :index
   end
 

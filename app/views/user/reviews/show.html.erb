@@ -22,9 +22,11 @@
         </div>
       </div>
       <div class="center">
-        <div class="index_<%= @review.id %>"><%= render 'user/comments/comment_index', review: @review %></div>
+        <div class="index_<%= @review.id %>"><%= render 'user/comments/comment_index', comments: @comments %></div>
+        <div class="row justify-content-center mb-3"><%= paginate @comments %></div>
         <%= render 'user/comments/form', {review: @review, comment: @comment} %>
       </div>
+
     </div>
   </div>
 </div>

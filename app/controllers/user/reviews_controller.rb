@@ -17,7 +17,7 @@ class User::ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
-    # @comments = @review.comments.page(params[:page]).per(10)
+    @comments = @review.comments.page(params[:page]).per(10)
     @comment = Comment.new
   end
 
@@ -39,10 +39,6 @@ class User::ReviewsController < ApplicationController
 
   def search
     @search_params = review_search_params
-    # 検索時の配列でmystery_ids,difficulty_ids,tag_idsのnillを無視する記述
-    @search_params[:mystery_ids] = @search_params[:mystery_ids].reject(&:blank?)
-    @search_params[:difficulty_ids] = @search_params[:difficulty_ids].reject(&:blank?)
-    @search_params[:tag_ids] = @search_params[:tag_ids].reject(&:blank?)
     @reviews = Review.search(@search_params)
   end
 
@@ -58,7 +54,12 @@ class User::ReviewsController < ApplicationController
   end
 
   def review_search_params
-    params.require(:search).permit(:type_id, :long_id, :mystery_ids => [], :difficulty_ids => [], :tag_ids => [])
+    search_params = params.permit(:type_id, :long_id, :mystery_ids => [], :difficulty_ids => [], :tag_ids => [])
+    # 検索時の配列でmystery_ids,difficulty_ids,tag_idsのnillを無視する記述
+    %i[mystery_ids difficulty_ids tag_ids].each do |ids|
+      search_params[ids] = search_params[ids]&.reject(&:blank?)
+    end
+    return search_params
   end
 
 
