@@ -6,6 +6,21 @@ header {
   background-color: 	#000055;
 }
 
+.user_info p {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.user_books a {
+  margin-bottom: 5px;
+  display: block;
+}
+
+
+
+
+
+
 .review_body {
   word-wrap: break-word;
 }
@@ -52,4 +67,13 @@ p {
   background-color: #cb2222;
   margin-left: -110px;
   margin-top: -14px;
+}
+
+.page-item.active .page-link {
+  background-color: #000055;
+  border-color: #000055;
+}
+
+.page-link {
+  color: #000055;
 }
