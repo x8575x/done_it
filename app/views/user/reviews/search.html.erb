@@ -6,13 +6,13 @@
     <!--Type選択セレクトボックス-->
     <div class="form-grop row offset-1 mt-5">
       <%= f.label :type_id,"分類", class: "col-lg-4" %>
-      <%= f.collection_select :type_id, Type.all, :id, :name, value: @search_params[:type_id], include_blank: "選択してください", class: "col-lg-4" %>
+      <%= f.collection_select :type_id, Type.all, :id, :name, include_blank: "選択してください", class: "col-lg-4" %>
     </div>
 
     <!--Long選択セレクトボックス-->
     <div class="form-grop row offset-1 mt-5">
       <%= f.label :long_id,"長さ", class: "col-lg-4" %>
-      <%= f.collection_select :long_id, Long.all, :id, :name, value: @search_params[:long_id], include_blank: "選択してください", class: "col-lg-4" %>
+      <%= f.collection_select :long_id, Long.all, :id, :name, include_blank: "選択してください", class: "col-lg-4" %>
     </div>
 
     <!--Mystery複数選択チェックボックス-->
@@ -50,7 +50,29 @@
 
 
   <% unless @search_params.blank? %>
-    <%= render 'index', reviews: @reviews %>
+    <% if @reviews.exists? %>
+      <div class="row justify-content-center mt-5"><h3>みんなの感想</h3></div>
+
+
+      <% @reviews.each do |review| %>
+        <div class="row border p-3 mt-3 offset-1">
+          <div class="col-lg-3 center">
+            <%= link_to user_path(review.user_id) do %>
+              <%= image_tag review.user.get_profile_image(200,200) %>
+              <p><%= review.user.name %></p>
+            <% end %>
+          </div>
+          <div class="col-lg-8">
+            <%= render 'user/reviews/review', review: review %>
+          </div>
+          <div class="row justify-content-center mb-3"><%= paginate @reviews %></div>
+        </div>
+
+
+      <% end %>
+    <% else %>
+      <div class="row justify-content-center mt-5"><h3>感想はまだありません</h3></div>
+    <% end %>
   <% end %>
 
 

@@ -39,7 +39,7 @@ class User::ReviewsController < ApplicationController
 
   def search
     @search_params = review_search_params
-    @reviews = Review.search(@search_params)
+    @reviews = Review.search(@search_params).page(params[:page]).per(10)
   end
 
 
