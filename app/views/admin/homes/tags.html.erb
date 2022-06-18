@@ -27,25 +27,7 @@
 
 
 
-  <dvi class="row justify-content-center border-top mt-5"><h2>Type</h2></dvi>
-
-  <%= form_with model: @type, url: admin_types_path, method: :post do |f| %>
-    <div class="form-grop row offset-1 mt-5">
-      <%= f.label :name,"種類", class: "col-lg-2 mr-5" %>
-      <%= f.text_field :name, class: "col-lg-6" %>
-      <div class="col-lg-2">
-        <%= f.submit "保存", class: "btn btn-primary" %>
-      </div>
-    </div>
-  <% end %>
-
-  <div class="row mt-3 offset-1">
-    <% @types.each do |type| %>
-      <div class="col-lg-6"><%= type.name %></div>
-      <%= link_to "編集",edit_admin_type_path(type.id), class: "col-lg-3" %>
-      <%= link_to "削除",admin_type_path(type.id), method: :delete, class: "col-lg-3" %>
-    <% end %>
-  </div>
+  
 
 
 

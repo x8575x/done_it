@@ -4,24 +4,39 @@ class Admin::TypesController < ApplicationController
 
   def create
     @type = Type.new(type_params)
-    @type.save
-    redirect_to admin_top_path
+    if @type.save
+      flash[:notice] = "登録しました"
+      redirect_to admin_types_path
+    else
+      render :index
+    end
   end
 
   def edit
     @type = Type.find(params[:id])
   end
 
+  def index
+    @type = Type.new
+    @types = Type.all
+  end
+
   def update
     @type = Type.find(params[:id])
-    @type.update(type_params)
-    redirect_to admin_top_path
+    if @type.update(type_params)
+      flash[:notice] = "編集に成功しました"
+      redirect_to admin_types_path
+    else
+      render :index
+    end
   end
 
   def destroy
     @type = Type.find(params[:id])
-    @type.destroy
-    redirect_to admin_top_path
+    if @type.destroy
+      flash[:notice] = "削除しました"
+      redirect_to admin_types_path
+    end
   end
 
 
