@@ -66,6 +66,7 @@ thead {
 .tr {
   background-color: #000055;
   color: white;
+  width: 300px;
 }
 
 .show_table {

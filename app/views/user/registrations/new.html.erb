@@ -25,7 +25,7 @@
       <div id="sign" class="row">
         <%= f.label :birthday_active, "生年月日公開設定", class: "col-lg-4" %>
         <p class="col-lg-5 text-left">
-          <span>公開　<%= f.radio_button :birthday_active, 'true', checked: true %></span>
+          <span>公開　<%= f.radio_button :birthday_active, 'true', checked: false %></span>
           <span>　　非公開　<%= f.radio_button :birthday_active, 'false', checked: false %></span>
         </p>
       </div>
@@ -39,7 +39,7 @@
       <div id="sign" class="row">
         <%= f.label :sex, "性別", class: "col-lg-4" %>
         <p class="col-lg-5 text-left">
-          <span>男性　<%= f.radio_button :sex, 'true', checked: true %></span>
+          <span>男性　<%= f.radio_button :sex, 'true', checked: false %></span>
           <span>　　女性　<%= f.radio_button :sex, 'false', checked: false %></span>
         </p>
       </div>
@@ -47,7 +47,7 @@
       <div id="sign" class="row">
         <%= f.label :sex_active, "性別公開設定", class: "col-lg-4" %>
         <p class="col-lg-5 text-left">
-          <span>公開　<%= f.radio_button :sex_active, 'true', checked: true %></span>
+          <span>公開　<%= f.radio_button :sex_active, 'true', checked: false %></span>
           <span>　　非公開　<%= f.radio_button :sex_active, 'false', checked: false %></span>
         </p>
       </div>
@@ -61,7 +61,7 @@
       <div id="sign" class="row">
         <%= f.label :mystery_active, "謎解き方法表示設定", class: "col-lg-4" %>
         <p class="col-lg-5 text-left">
-          <span>公開　<%= f.radio_button :mystery_active, 'true', checked: true %></span>
+          <span>公開　<%= f.radio_button :mystery_active, 'true', checked: false %></span>
           <span>　　非公開　<%= f.radio_button :mystery_active, 'false', checked: false %></span>
         </p>
         <div class="col-lg-4"></div>
