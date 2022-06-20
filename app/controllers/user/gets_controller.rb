@@ -18,7 +18,7 @@ class User::GetsController < ApplicationController
       reading = current_user.readings.find_by(book_id: @book.id)
       reading.destroy
     end
-    
+
 
     render 'user/books/btn'
   end
@@ -32,7 +32,7 @@ class User::GetsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @gets = Get.where(user_id: params[:user_id]).page(params[:page]).per(9)
+    @gets = Get.where(user_id: params[:user_id]).order(created_at: :desc).page(params[:page]).per(9)
   end
 
 end

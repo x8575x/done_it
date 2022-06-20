@@ -8,6 +8,10 @@ header {
   background-color: #000055;
 }
 
+.flash {
+  text-align: center;
+}
+
 /*フッター*/
 footer {
   margin-top: 30px;
@@ -223,4 +227,9 @@ p {
 
 h2 {
   margin-top: 50px;
+}
+
+#wrap {
+  word-wrap: break-word;
+  padding: 0px;
 }

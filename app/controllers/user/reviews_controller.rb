@@ -8,10 +8,14 @@ class User::ReviewsController < ApplicationController
   end
 
   def create
-    review = Review.new(review_params)
-    review.user_id = current_user.id
-    if review.save!
-      redirect_to review_path(review.id)
+    @review = Review.new(review_params)
+    @review.user_id = current_user.id
+    if @review.save
+      flash[:notice] = "レビューを投稿しました"
+      redirect_to review_path(@review.id)
+    else
+      @isbn = @review.book_id
+      render :new
     end
   end
 
