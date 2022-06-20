@@ -1,62 +1,55 @@
-<div class="container">
-  <div class="row justify-content-center offset-1 mt-5">
-    <div class="col-lg-4"><h2>Book search</h2></div>
+<div class="center">
+
     <%= form_with url:searchs_path, method: :get do |f| %>
-      <%= f.text_field :title, placeholder: "タイトル" %>
-      <%= f.text_field :author, placeholder: "著者" %>
-      <%= f.submit "検索",class: "btn btn-success" %>
+      <div class="form-group">
+        <span class="search">Book search</span>
+        <%= f.text_field :title, placeholder: "タイトル" %>
+        <%= f.text_field :author, placeholder: "著者" %>
+        <%= f.submit "検索",class: "btn" %>
+      </div>
     <% end %>
-    </div>
-  </div>
+
+</div>
 
 
 
 
-
+<div class="center">
   <% if @searchs.present? %>
-    <div class="row justify-content-center mt-5">
-      <h2>検索結果　(<%= @searchs.response.count %>冊)</h2>
-    </div>
-    <!--<= paginate @searchs %>-->
-    <div class="row justify-content-center mb-3"><%= @searchs.response.page_count %></div>
 
+    <h2>検索結果　(<%= @searchs.response.count %>冊)</h2>
     <div class="row justify-content-center">
       <% @searchs.each do |search| %>
         <div class="col-lg-2  border p-3 m-3">
-
-          <div class="row justify-content-center text-center mb-3"><%= search.title %></div>
-          <div class="row justify-content-center mb-3"><%= image_tag(search.large_image_url) %></div>
-          <div class="row justify-content-center mb-3"><%= search.author %></div>
-          <div class="row justify-content-center mb-3"><%= search.publisher_name %></div>
+          <p><%= search.title %></p>
+          <p><%= image_tag(search.large_image_url) %></p>
+          <p><%= search.author %></p>
+          <p><%= search.publisher_name %></p>
 
           <%  unless Book.exists?(isbn: search.isbn) %>
-            <div class="text-center">
-              <%= form_with model: @book, url: books_path, method: :post do |f| %>
-                <%= f.hidden_field :title, :value => search.title %>
-                <%= f.hidden_field :author, :value => search.author %>
-                <%= f.hidden_field :isbn, :value => search.isbn %>
+            <%= form_with model: @book, url: books_path, method: :post do |f| %>
+              <%= f.hidden_field :title, :value => search.title %>
+              <%= f.hidden_field :author, :value => search.author %>
+              <%= f.hidden_field :isbn, :value => search.isbn %>
+              <%= f.hidden_field :publisher_name, :value => search.publisher_name %>
+              <%= f.hidden_field :item_caption, :value => search.item_caption %>
+              <%= f.hidden_field :item_price, :value => search.item_price %>
+              <%= f.hidden_field :sales_date, :value => search.sales_date %>
+              <%= f.hidden_field :image, :value => search.large_image_url %>
+              <%= f.hidden_field :image_m, :value => search.medium_image_url %>
+              <%= f.hidden_field :rakuten_url, :value => search.item_url %>
 
-                <%= f.hidden_field :publisher_name, :value => search.publisher_name %>
-                <%= f.hidden_field :item_caption, :value => search.item_caption %>
-                <%= f.hidden_field :item_price, :value => search.item_price %>
-
-                <%= f.hidden_field :sales_date, :value => search.sales_date %>
-                <%= f.hidden_field :image, :value => search.large_image_url %>
-                <%= f.hidden_field :image_m, :value => search.medium_image_url %>
-                <%= f.hidden_field :rakuten_url, :value => search.item_url %>
-
-                <%= f.submit '詳細へ', class: "btn btn-outline-success" %>
-              <% end %>
-            </div>
+              <%= f.submit '詳細へ', class: "edit btn-block" %>
+            <% end %>
           <% else %>
-            <div class="row justify-content-center"><%= link_to '詳細へ', book_path(search.isbn), class: "btn btn-outline-primary" %></div>
+            <%= link_to '詳細へ', book_path(search.isbn), class: "edit" %>
           <% end %>
         </div>
       <% end %>
     <% end %>
   </div>
-
-
-
-
 </div>
+
+
+
+

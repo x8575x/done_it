@@ -95,3 +95,46 @@ h3 {
 .field_with_errors {
   display: contents;
 }
+
+
+/*user編集ぺージのボタン*/
+.btn {
+  margin-bottom: 5px;
+  background-color: #000055;
+  color: white;
+  border: solid 1px #000055;
+  border-radius: 5px;/*角丸*/
+  padding: 5px 10px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.search {
+  font-size : 33px;
+  margin-right: 20px
+}
+
+
+/*レビュー編集ボタン*/
+.edit {
+  margin-bottom: 5px;
+  display: block;
+  color: #000055;
+  border: solid 1px #000055;
+  border-radius: 5px;/*角丸*/
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+  background-color: white;
+}
+
+.edit:hover {
+  background-color: #000055;
+  color: white;
+  text-decoration: none;
+}
