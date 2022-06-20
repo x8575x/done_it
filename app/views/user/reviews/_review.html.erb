@@ -1,10 +1,15 @@
 <div class="review">
   <p><i class="fas fa-book"></i> <%= review.type.name %> / <%= review.long.name %></p>
-  <p><i class="fas fa-search"></i>
-    <% review.mysteries.each do |mystery| %>
-      <%= mystery.name %>
-   <% end %>
-  </p>
+
+  <% if current_user.mystery_active == true %>
+    <p><i class="fas fa-search"></i>
+      <% review.mysteries.each do |mystery| %>
+        <%= mystery.name %>
+     <% end %>
+    </p>
+  <% end %>
+  
+  
   <p><i class="fas fa-book-reader"></i>
     <% review.difficulties.each do |difficulty| %>
       <%= difficulty.name %>
@@ -18,31 +23,27 @@
    <% end %>
   </p>
 
-
-  <div class="review_body"><i class="fas fa-file-alt"></i>
+  <div class="review_body">
     <div>
-      <%if review.body.nil? %>
-        <%= review.body %>
-      <% else %>
-        <%= safe_join(review.body.split("\n"),tag(:br))%>
+      <% unless review.body.empty? %>
+        <i class="fas fa-file-alt"></i><%= safe_join(review.body.split("\n"),tag(:br))%>
       <%end %>
     </div>
 
-    <i class="fas fa-exclamation-triangle"></i><span class="red">ネタバレを含む内容があります</span>
-    <div class="netabare on">
-      <%if review.netabare.nil? %>
-        <%= review.netabare %>
-      <% else %>
-        <%= safe_join(review.netabare.split("\n"),tag(:br))%>
-      <%end %>
-    </div>
-    <script>
-      $(document).ready(function () {
-        $(document).on('click', '.netabare', function() {
-          $(this).removeClass('on');
+    <% unless review.netabare.empty? %>
+      <i class="fas fa-exclamation-triangle"></i><span class="red">ネタバレを含む内容があります</span>
+      <div class="netabare on">
+        <br><%= safe_join(review.netabare.split("\n"),tag(:br))%><br>
+      </div>
+      <script>
+        $(document).ready(function () {
+          $(document).on('click', '.netabare', function() {
+            $(this).removeClass('on');
+          });
         });
-      });
       </script>
+    <%end %>
+
     <p><i class="fas fa-clock"></i> <%= review.created_at.strftime('%Y/%m/%d %I:%M:%S') %></p>
   </div>
 </div>

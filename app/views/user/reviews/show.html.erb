@@ -1,43 +1,41 @@
-<div class="container">
 
-  <div class="row mt-5">
-    <div class="col-lg-4">
-      <div class="center mb-3"><%= image_tag(@review.book.image) %></div>
-      <p><h4><i class="fas fa-book"></i> <%= @review.book.title %></h4></p>
-      <p><h5><i class="fas fa-user"></i> <%= @review.book.author %></h5></p>
-      <p><h6><i class="fas fa-building"></i> <%= @review.book.publisher_name %></h6></p>
-      <p><i class="fas fa-comment-alt"></i><%= @review.book.item_caption %></p>
-      <p class="m-3">
-        <div class="want_<%= @review.book.id %>"><%= render 'user/wants/want_btn', book: @review.book %></div>
-        <div class="reading_<%= @review.book.id %>"><%= render 'user/readings/reading_btn', book: @review.book %></div>
-        <div class="read_<%= @review.book.id %>"><%= render 'user/reads/read_btn', book: @review.book %></div>
-        <div class="get_<%= @review.book.id %>"><%= render 'user/gets/get_btn', book: @review.book %></div>
-      </p>
-      <p class="mt-5 text-center">
-        <%= link_to book_path(@review.book_id) do %>
-          本の詳細ページへ戻る
+<div class="row mt-5">
+  <div class="col-lg-4">
+    <div class="center mb-3"><%= image_tag(@review.book.image) %></div>
+    <p><h4><i class="fas fa-book"></i> <%= @review.book.title %></h4></p>
+    <p><h5><i class="fas fa-user"></i> <%= @review.book.author %></h5></p>
+    <p><h6><i class="fas fa-building"></i> <%= @review.book.publisher_name %></h6></p>
+    <p><i class="fas fa-comment-alt"></i><%= @review.book.item_caption %></p>
+    <p class="m-3">
+      <div class="want_<%= @review.book.id %>"><%= render 'user/wants/want_btn', book: @review.book %></div>
+      <div class="reading_<%= @review.book.id %>"><%= render 'user/readings/reading_btn', book: @review.book %></div>
+      <div class="read_<%= @review.book.id %>"><%= render 'user/reads/read_btn', book: @review.book %></div>
+      <div class="get_<%= @review.book.id %>"><%= render 'user/gets/get_btn', book: @review.book %></div>
+    </p>
+    <p class="mt-5 text-center">
+      <%= link_to book_path(@review.book_id) do %>
+        本の詳細ページへ戻る
+      <% end %>
+    </p>
+  </div>
+
+  <div class="col-lg-8">
+    <div class="row">
+      <div class="col-lg-3 center">
+        <%= link_to user_path(@review.user_id) do %>
+          <%= image_tag @review.user.get_profile_image(180,180) %>
+          <p><%= @review.user.name %></p>
         <% end %>
-      </p>
+      </div>
+      <div class="col-lg-8">
+        <%= render 'review', review: @review %>
+      </div>
+    </div>
+    <div class="center">
+      <div class="index_<%= @review.id %>"><%= render 'user/comments/comment_index', comments: @comments %></div>
+      <div class="row justify-content-center mb-3"><%= paginate @comments %></div>
+      <%= render 'user/comments/form', {review: @review, comment: @comment} %>
     </div>
 
-    <div class="col-lg-8">
-      <div class="row">
-        <div class="col-lg-3 center">
-          <%= link_to user_path(@review.user_id) do %>
-            <%= image_tag @review.user.get_profile_image(180,180) %>
-            <p><%= @review.user.name %></p>
-          <% end %>
-        </div>
-        <div class="col-lg-8">
-          <%= render 'review', review: @review %>
-        </div>
-      </div>
-      <div class="center">
-        <div class="index_<%= @review.id %>"><%= render 'user/comments/comment_index', comments: @comments %></div>
-        <div class="row justify-content-center mb-3"><%= paginate @comments %></div>
-        <%= render 'user/comments/form', {review: @review, comment: @comment} %>
-      </div>
-
-    </div>
   </div>
 </div>

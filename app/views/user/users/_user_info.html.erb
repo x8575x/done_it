@@ -2,20 +2,25 @@
   <h4><p><%= user.name %></p></h4>
   <p><%= image_tag user.get_profile_image(200,200) %></p>
   <p>
-    <%if user.introduction.nil? %>
-      <%=user.introduction%>
-    <% else %>
+    <% unless user.introduction.nil? %>
       <%=safe_join(user.introduction.split("\n"),tag(:br))%>
     <%end %>
   </p>
-  <p>
-    <%= user.birthday %>
-    <% if user.sex == true %>
-      男性
-    <% else %>
-      女性
-    <% end %>
-  </p>
+
+  <% if user.birthday_active == true %>
+    <p><%= user.birthday %></p>
+  <% end %>
+
+  <% if user.sex_active == true %>
+    <p>
+      <% if user.sex == true %>
+        男性
+      <% else %>
+        女性
+      <% end %>
+    </p>
+  <% end %>
+
 
 
   <p>
