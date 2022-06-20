@@ -1,15 +1,15 @@
 
-<div class="row justify-content-center offset-1 mt-5">
+<div class="row justify-content-center mt-5">
 
   <% @reads.each do |read| %>
-    <div class="col-lg-3 border p-3 m-3" onclick="window.location.href='<%= book_path(read.book.id) %>'" role="link">
+    <div class="col-lg-2 border pt-3 m-3" onclick="window.location.href='<%= book_path(read.book.id) %>'" role="link">
       <div class="row justify-content-center text-center mb-3"><%= read.book.title %></div>
-      <div class="row justify-content-center mb-3"><%= image_tag(read.book.image) %></div>
+      <div class="row justify-content-center mb-3"><%= image_tag(read.book.image_m) %></div>
       <div class="row justify-content-center mb-3"><%= read.book.author %></div>
       <div class="row justify-content-center mb-3"><%= read.book.publisher_name %></div>
       <% if user_signed_in? && read.user == current_user %>
         <%= link_to read_path(read.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-          <div class="book_favo_delete mb-1">読んだ本から削除</div>
+          <div class="book_favo_delete mb-1">削除</div>
         <% end %>
       <% end %>
     </div>
