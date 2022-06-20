@@ -30,15 +30,23 @@ class User::ReviewsController < ApplicationController
   end
 
   def update
-    review = Review.find(params[:id])
-    review.update(review_params)
-    redirect_to review_path(review.id)
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      flash[:notice] = "レビューを編集しました"
+      redirect_to review_path(@review.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
     review = Review.find(params[:id])
-    review.destroy
-    redirect_to user_path(current_user.id)
+    if review.destroy
+      flash[:notice] = "レビューを削除しました"
+      redirect_to user_path(current_user.id)
+    else
+      render :index
+    end
   end
 
   def search
