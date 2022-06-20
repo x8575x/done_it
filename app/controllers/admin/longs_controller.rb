@@ -7,6 +7,7 @@ class Admin::LongsController < ApplicationController
     flash[:notice] = "登録しました"
       redirect_to admin_longs_path
     else
+      @longs = Long.all
       render :index
     end
   end
@@ -21,10 +22,10 @@ class Admin::LongsController < ApplicationController
       flash[:notice] = "編集に成功しました"
       redirect_to admin_longs_path
     else
-      render :index
+      render :edit
     end
   end
-  
+
   def index
     @long = Long.new
     @longs = Long.all

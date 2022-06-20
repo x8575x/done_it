@@ -1,6 +1,8 @@
 <h1>Type</h1>
 
 <%= form_with model: @type, url: admin_type_path, method: :patch do |f| %>
+  <%= render "layouts/errors", obj: @type %>
+
   <div id="sign" class="row offset-2">
   <%= f.label :name, "本の種類", class: "col-lg-2" %>
   <%= f.text_field :name, class: "form-control col-lg-6" %>

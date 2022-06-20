@@ -3,7 +3,7 @@
 
 
     <%= form_with model: @user, url: user_registration_path, method: :post do |f| %>
-      <%= render "user/shared/error_messages", resource: resource %>
+      <%= render "layouts/errors", obj: @user %>
 
       <div id="sign" class="row">
         <%= f.label :name, "名前", class: "col-lg-4" %>
@@ -56,6 +56,19 @@
       <div id="sign" class="row">
         <%= f.label :introduction, "自己紹介", class: "col-lg-4" %>
         <%= f.text_area :introduction, class: "form-control col-lg-5", size: "30x10" %>
+      </div>
+
+      <div id="sign" class="row">
+        <%= f.label :mystery_active, "謎解き方法表示設定", class: "col-lg-4" %>
+        <p class="col-lg-5 text-left">
+          <span>公開　<%= f.radio_button :mystery_active, 'true', checked: true %></span>
+          <span>　　非公開　<%= f.radio_button :mystery_active, 'false', checked: false %></span>
+        </p>
+        <div class="col-lg-4"></div>
+        <div class="col-lg-5 text-left">
+          <p>レビューにタグ付けされた謎解きに関する表示設定です。</p>
+          <p>登録後、マイページの設定から変更が可能です。</p>
+        </div>
       </div>
 
       <div id="sign" class="row">

@@ -7,6 +7,7 @@ class Admin::TagsController < ApplicationController
       flash[:notice] = "登録しました"
       redirect_to admin_tags_path
     else
+      @tags = Tag.all
       render :index
     end
   end
@@ -26,7 +27,7 @@ class Admin::TagsController < ApplicationController
       flash[:notice] = "編集に成功しました"
       redirect_to admin_tags_path
     else
-      render :index
+      render :edit
     end
   end
 

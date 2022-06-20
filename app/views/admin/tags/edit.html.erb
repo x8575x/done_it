@@ -1,6 +1,8 @@
 <h1>Tag</h1>
 
-<%= form_with model: @tag, url: admin_tags_path, method: :patch do |f| %>
+<%= form_with model: @tag, url: admin_tag_path, method: :patch do |f| %>
+  <%= render "layouts/errors", obj: @tag %>
+
   <div id="sign" class="row offset-2">
     <%= f.label :name, "タグ名", class: "col-lg-3" %>
     <%= f.text_field :name, class: "form-control col-lg-5" %>

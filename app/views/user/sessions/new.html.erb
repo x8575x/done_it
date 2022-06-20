@@ -2,7 +2,6 @@
   <h2>ログイン</h2>
 
   <%= form_with model: @user, url: user_session_path do |f| %>
-    <%= render "user/shared/error_messages", resource: resource %>
 
     <div id="sign" class="row">
       <%= f.label :email, "メールアドレス", class: "col-lg-4" %>

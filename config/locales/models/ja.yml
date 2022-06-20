@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    # models:
+    #   long: 本の長さ
+    attributes:
+      long:
+        name: 本の長さ
+      mystery:
+        name: 謎解きの種類
+      difficulty:
+        name: 読みやすさ
+      type:
+        name: 本の種類
+      tag:
+        name: タグ
+        introduction: タグの説明

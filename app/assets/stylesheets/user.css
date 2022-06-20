@@ -192,3 +192,8 @@ p {
 .form-grop {
   display: block;
 }
+
+/*バリデーションエラーの表示*/
+.field_with_errors {
+  display: contents;
+}

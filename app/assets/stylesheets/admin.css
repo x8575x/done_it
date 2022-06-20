@@ -90,3 +90,8 @@ thead {
   text-decoration: none;
   color: white;
 }
+
+/*バリデーションエラーの表示*/
+.field_with_errors {
+  display: contents;
+}

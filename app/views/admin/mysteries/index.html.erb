@@ -2,6 +2,8 @@
 
 <h2>新規作成</h2>
 <%= form_with model: @mystery, url: admin_mysteries_path, method: :post do |f| %>
+  <%= render "layouts/errors", obj: @mystery %>
+  
   <div id="sign" class="row offset-2">
     <%= f.label :name, "謎解きの種類", class: "col-lg-2" %>
     <%= f.text_field :name, class: "form-control col-lg-6" %>

@@ -7,6 +7,7 @@ class Admin::DifficultiesController < ApplicationController
       flash[:notice] = "登録しました"
       redirect_to admin_difficulties_path
     else
+      @difficulties = Difficulty.all
       render :index
     end
   end
@@ -26,7 +27,7 @@ class Admin::DifficultiesController < ApplicationController
     flash[:notice] = "編集に成功しました"
       redirect_to admin_difficulties_path
     else
-      render :index
+      render :edit
     end
   end
 

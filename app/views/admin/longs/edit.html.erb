@@ -1,6 +1,8 @@
 <h1>Long</h1>
 
 <%= form_with model: @long, url: admin_long_path, method: :patch do |f| %>
+  <%= render "layouts/errors", obj: @long %>
+  
   <div id="sign" class="row offset-2">
   <%= f.label :name, "本の長さ", class: "col-lg-2" %>
   <%= f.text_field :name, class: "form-control col-lg-6" %>

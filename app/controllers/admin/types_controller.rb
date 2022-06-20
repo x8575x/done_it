@@ -8,6 +8,7 @@ class Admin::TypesController < ApplicationController
       flash[:notice] = "登録しました"
       redirect_to admin_types_path
     else
+      @types = Type.all
       render :index
     end
   end
@@ -27,7 +28,7 @@ class Admin::TypesController < ApplicationController
       flash[:notice] = "編集に成功しました"
       redirect_to admin_types_path
     else
-      render :index
+      render :edit
     end
   end
 
