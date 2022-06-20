@@ -25,9 +25,11 @@
       <div class="reading_<%= @book.id %>"><%= render 'user/readings/reading_btn', book: @book %></div>
       <div class="read_<%= @book.id %>"><%= render 'user/reads/read_btn', book: @book %></div>
       <div class="get_<%= @book.id %>"><%= render 'user/gets/get_btn', book: @book %></div>
-      <%= link_to @book.rakuten_url, class: "book_favo_create" do %>
-        楽天ブックス
-      <% end %>
+      <div>
+        <%= link_to @book.rakuten_url, class: "book_favo_create" do %>
+          楽天ブックス
+        <% end %>
+      </div>
     </div>
   </div>
 

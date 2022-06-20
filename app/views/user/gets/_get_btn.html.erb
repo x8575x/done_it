@@ -1,7 +1,7 @@
 <!--ログインしていて、いいねがされている場合-->
 <% if user_signed_in? && book.get_by?(current_user) %>
   <%= link_to book_gets_path(book), method: :delete, remote: true, class: "book_favo_delete" do %>
-    <div class="book_favo_delete mb-1">積読本から解除</div>
+    積読本から解除
   <% end %>
 <!--ログインしていて、いいねがされていない場合-->
 <% elsif user_signed_in? && !book.get_by?(current_user) %>

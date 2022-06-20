@@ -45,9 +45,7 @@
     </tr>
     <tr>
       <td class="tr">自己紹介</td>
-      <%if @user.introduction.nil? %>
-        <td><%= @user.introduction %></td>
-      <% else %>
+      <% unless @user.introduction.nil? %>
         <td><%= safe_join(@user.introduction.split("\n"),tag(:br))%></td>
       <%end %>
     </tr>

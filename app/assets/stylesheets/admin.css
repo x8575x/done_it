@@ -96,3 +96,61 @@ thead {
 .field_with_errors {
   display: contents;
 }
+
+
+/*review/idexの表*/
+
+.warp {
+  word-break: break-all;
+  width: 400px;
+  table-layout: fixed;
+}
+
+.id {
+  width: 100px;
+  table-layout: fixed;
+}
+
+
+
+/*レビュー編集ボタン*/
+.edit {
+  margin-bottom: 5px;
+  display: block;
+  color: #000055;
+  border: solid 1px #000055;
+  border-radius: 5px;/*角丸*/
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.edit:hover {
+  background-color: #000055;
+  color: white;
+  text-decoration: none;
+}
+
+/*レビュー削除ボタン*/
+.delete {
+  margin-bottom: 5px;
+  display: block;
+  color: #BB0000;
+  border: solid 1px #BB0000;
+  border-radius: 5px;/*角丸*/
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.delete:hover {
+  background-color: #BB0000;
+  color: white;
+  text-decoration: none;
+}
+
+
+#form {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

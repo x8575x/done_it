@@ -1,59 +1,65 @@
-<div class="container">
-  <dvi class="row justify-content-center mt-5"><h2>レビュー編集</h2></dvi>
-
+<div class="center">
+  <h2>レビュー編集</h2>
 
   <%= form_with model: @review, url: admin_review_path, method: :patch do |f| %>
+    <%= render "layouts/errors", obj: @review %>
 
     <!--Type選択セレクトボックス-->
-    <div class="form-grop row offset-1 mt-5">
-      <%= f.label :type_id,"分類", class: "col-lg-4" %>
-      <%= f.collection_select :type_id, Type.all, :id, :name, include_blank: "選択してください", class: "col-lg-4" %>
-    </div>
+      <div  id="form" class="row">
+        <%= f.label :type_id,"分類", class: "col-lg-4" %>
+        <%= f.collection_select :type_id, Type.all, :id, :name, include_blank: "選択してください", class: "col-lg-6" %>
+      </div>
 
-    <!--Long選択セレクトボックス-->
-    <div class="form-grop row offset-1 mt-5">
-      <%= f.label :long_id,"長さ", class: "col-lg-4" %>
-      <%= f.collection_select :long_id, Long.all, :id, :name, include_blank: "選択してください", class: "col-lg-4" %>
-    </div>
+      <!--Long選択セレクトボックス-->
+      <div  id="form" class="row">
+        <%= f.label :long_id,"長さ", class: "col-lg-4" %>
+        <%= f.collection_select :long_id, Long.all, :id, :name, include_blank: "選択してください", class: "col-lg-6" %>
+      </div>
 
-    <!--感想入力フォーム-->
-    <div class="form-grop row offset-1 mt-5">
-      <%= f.label :body,"感想", class: "col-lg-4" %>
-      <%= f.text_area :body, class: "col-lg-4" %>
-    </div>
+      <!--Mystery複数選択チェックボックス-->
+      <div  id="form" class="row">
+        <%= f.label :mystery_id, "謎解き方法", class: "col-lg-4" %>
+        <div id="wrap" class="col-lg-6 text-left">
+          <%= collection_check_boxes(:review, :mystery_ids, Mystery.all, :id, :name) do |b| %>
+            <%= b.label { b.check_box + b.text } %>
+          <% end %>
+        </div>
+      </div>
 
-    <!--ネタバレ含む感想入力フォーム-->
-    <div class="form-grop row offset-1 mt-5">
-      <%= f.label :netabare,"ネタバレ含む", class: "col-lg-4" %>
-      <%= f.text_area :netabare, class: "col-lg-4" %>
-    </div>
+      <!--謎解き方法複数選択セレクトボックス-->
+      <div  id="form" class="row">
+        <%= f.label :difficulty_id, "読みやすさ", class: "col-lg-4" %>
+        <div id="wrap" class="col-lg-6 text-left">
+          <%= collection_check_boxes(:review, :difficulty_ids, Difficulty.all, :id, :name) do |b| %>
+            <%= b.label { b.check_box + b.text } %>
+          <% end %>
+        </div>
+      </div>
 
-    <!--Mystery複数選択チェックボックス-->
-    <div class="row offset-1 mt-5">
-      <%= f.label :mystery_id, "謎解き方法", class: "col-lg-4" %>
-      <%= collection_check_boxes(:review, :mystery_ids, Mystery.all, :id, :name) do |b| %>
-        <%= b.label { b.check_box + b.text } %>
-      <% end %>
-    </div>
+      <!--タグ複数選択セレクトボックス-->
+       <div  id="form" class="row">
+        <%= f.label :tag_id, "タグ", class: "col-lg-4" %>
+        <div id="wrap" class="col-lg-6 text-left">
+          <%= collection_check_boxes(:review, :tag_ids, Tag.all, :id, :name) do |b| %>
+            <%= b.label { b.check_box + b.text } %>
+          <% end %>
+        </div>
+      </div>
 
-    <!--謎解き方法複数選択セレクトボックス-->
-    <div class="row offset-1 mt-5">
-      <%= f.label :difficulty_id, "読みやすさ", class: "col-lg-4" %>
-      <%= collection_check_boxes(:review, :difficulty_ids, Difficulty.all, :id, :name) do |b| %>
-        <%= b.label { b.check_box + b.text } %>
-      <% end %>
-    </div>
+       <!--感想入力フォーム-->
+      <div  id="form" class="row">
+        <%= f.label :body,"感想", class: "col-lg-4" %>
+        <%= f.text_area :body, class: "form-control col-lg-6", size: "30x10" %>
+      </div>
 
-    <!--タグ複数選択セレクトボックス-->
-     <div class="row offset-1 mt-5">
-      <%= f.label :tag_id, "タグ", class: "col-lg-4" %>
-      <%= collection_check_boxes(:review, :tag_ids, Tag.all, :id, :name) do |b| %>
-        <%= b.label { b.check_box + b.text } %>
-      <% end %>
-    </div>
+      <!--ネタバレ含む感想入力フォーム-->
+      <div  id="form" class="row">
+        <%= f.label :netabare,"ネタバレ含む", class: "col-lg-4" %>
+        <%= f.text_area :netabare, class: "form-control col-lg-6", size: "30x10" %>
+      </div>
 
     <div class="form-grop row justify-content-center m-5">
-      <%= f.submit "編集", class: "btn btn-success col-lg-3 mr-5" %>
+      <%= f.submit "登録", class: "btn col-lg-3" %>
     </div>
 
   <% end %>

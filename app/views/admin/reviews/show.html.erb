@@ -1,60 +1,85 @@
-<div class="container">
-
-  <div class="row mt-5 mb-3">
-    <div class="col-lg-6"><h3>レビューされた本</h3></div>
-  </div>
+<h2>レビューされた本</h2>
 
   <div class="row border p-3">
-    <div class="col-lg-4 text-center">
-      <%= image_tag(@review.book.image) %>
-    </div>
+    <div class="col-lg-2 offset-2"><p><%= image_tag(@review.book.image) %></p></div>
 
-    <div class="col-lg-7">
-      <div class="row"><h3>『 <%= @review.book.title %> 』</h3></div>
-      <div class="row"><h4><%= @review.book.author %></h4><h5>　(出版：<%= @review.book.publisher_name %>)</h5></div>
-      <div class="row"><%= @review.book.item_caption %></div>
+    <div class="col-lg-6">
+      <h3>『 <%= @review.book.title %> 』</h3>
+      <h4><%= @review.book.author %></h4>
+      出版：<%= @review.book.publisher_name %>
+      <%= @review.book.item_caption %>
     </div>
   </div>
 
-  <div class="row mt-5 mb-3">
-    <div class="col-lg-4"><h3>レビューしたユーザー</h3></div>
-    <div class="col-lg-7"><h3>レビュー内容</h3></div>
-  </div>
-
-  <div class="row mb-5">
-    <div class="col-lg-4">
-      <div class="row justify-content-center"><%= @review.user.name %></div>
-      <div class="row justify-content-center"><%= image_tag @review.user.get_profile_image(200,200) %></div>
-      <div class="row justify-content-center mt-3"><%= link_to 'ユーザー詳細へ', admin_user_path(@review.user.id), class: "btn btn-primary" %></div>
-    </div>
-    <div class="col-lg-7 ml-3">
-      <div class="row"><strong>内容</strong></div>
-      <div class="row mb-3"><%= @review.body %></div>
-      <div class="row"><strong>ネタバレ内容</strong></div>
-      <div class="row mb-3"><%= @review.netabare %></div>
-
-      <div class="row"><strong>タグ</strong></div>
-      <div class="row"><%= @review.type.name %></div>
-      <div class="row"><%= @review.long.name %></div>
-      <div class="row">
+<div class="show_table mt-5">
+  <table class="table table-bordered">
+    <tr>
+      <td class="tr">投稿者</td>
+      <td>
+        <%= @review.user.name %>
+      </td>
+    </tr>
+    <tr>
+      <td class="tr"></td>
+        <td>
+          <%= image_tag @review.user.get_profile_image(100,100) %>
+          <%= link_to 'ユーザー詳細へ', admin_user_path(@review.user.id) %>
+        </td>
+      </td>
+    </tr>
+    <tr>
+      <td class="tr">本の種類</td>
+      <td><%= @review.type.name %></td>
+    </tr>
+    <tr>
+      <td class="tr">本の長さ</td>
+      <td><%= @review.long.name %></td>
+    </tr>
+    <tr>
+      <td class="tr">謎解き方法</td>
+      <td>
         <% @review.mysteries.each do |mystery| %>
-          <%= mystery.name %>
-       <% end %>
-      </div>
-      <div class="row">
+          <li><%= mystery.name %></li>
+        <% end %>
+     </td>
+    </tr>
+    <tr>
+      <td class="tr">読みやすさ</td>
+      <td>
         <% @review.difficulties.each do |difficulty| %>
-          <%= difficulty.name %>
-       <% end %>
-      </div>
-      <div class="row">
+          <li><%= difficulty.name %></li>
+        <% end %>
+     </td>
+    </tr>
+    <tr>
+      <td class="tr">タグ</td>
+      <td>
         <% @review.tags.each do |tag| %>
-          <%= tag.name %>
-       <% end %>
-      </div>
-      <div class="row justify-content-center mt-3">
-        <div class="col-lg-3"><%= link_to "編集", edit_admin_review_path(@review), class: "btn btn-success" %></div>
-        <div class="col-lg-3"><%= link_to "削除", admin_review_path(@review), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></div>
-      </div>
-    </div>
+          <li><%= tag.name %></li>
+        <% end %>
+    </tr>
+    <tr>
+      <td class="tr">内容</td>
+      <% unless @review.body.nil? %>
+        <td class="warp"><%= safe_join(@review.body.split("\n"),tag(:br)) %></td>
+      <%end %>
+    </tr>
+    <tr>
+      <td class="tr">ネタバレ</td>
+      <% unless @review.netabare.nil? %>
+        <td class="warp"><%= safe_join(@review.netabare.split("\n"),tag(:br)) %></td>
+      <%end %>
+    </tr>
+    <tr>
+  </table>
+</div>
 
-  </div>
+
+
+<div class="row justify-content-center mt-5">
+  <div class="col-lg-3"><%= link_to "編集", edit_admin_review_path(@review), class: "edit" %></div>
+  <div class="col-lg-3"><%= link_to "削除", admin_review_path(@review), method: :delete, "data-confirm" => "本当に削除しますか？", class: "delete" %></div>
+</div>
+
+<br><br><br>
+<p><%= link_to "戻る", admin_reviews_path %></p>
