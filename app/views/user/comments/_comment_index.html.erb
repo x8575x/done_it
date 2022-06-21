@@ -1,13 +1,13 @@
 <% comments.each do |comment| %>
   <div class="row border-top p-3">
-    <div class="col-lg-2">
+    <div class="col-lg-4">
       <%= link_to user_path(comment.user_id) do %>
         <%= image_tag comment.user.get_profile_image(80,80) %>
         <p><%= comment.user.name %></p>
       <% end %>
     </div>
-    <div class="col-lg-8 ">
-      <p><%= comment.comment %></p>
+    <div class="col-lg-8">
+      <div class="body_warp"><%= comment.comment %></div>
       (<%= comment.created_at.strftime('%Y/%m/%d %I:%M:%S') %>)
       <div class="row justify-content-center mt-2">
         <% if comment.user == current_user %>

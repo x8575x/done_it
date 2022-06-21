@@ -1,4 +1,4 @@
-<h2>会員一覧</h2>
+<h1>会員一覧</h1>
 
 <table class="table table-bordered table-hover">
   <thead>
@@ -15,7 +15,7 @@
       <tr onclick="window.location.href='<%= admin_user_path(user.id) %>'" role="link">
         <td><%= user.id %></td>
         <td><%= user.name %></td>
-        <td><%= image_tag user.get_profile_image(80,80) %></td>
+        <td><%= image_tag user.get_profile_image(50,50) %></td>
         <td><%= user.email %></td>
         <% if user.is_deleted == true %>
           <td class="text-danger">退会</td>

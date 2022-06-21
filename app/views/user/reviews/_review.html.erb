@@ -1,39 +1,39 @@
 <div class="review">
-  <p><i class="fas fa-book"></i> <%= review.type.name %> / <%= review.long.name %></p>
+  <div><i class="fas fa-book"></i> <%= review.type.name %> / <%= review.long.name %></div>
 
   <% if current_user.mystery_active == true %>
-    <p><i class="fas fa-search"></i>
+    <div>
+      <i class="fas fa-search"></i>
       <% review.mysteries.each do |mystery| %>
         <%= mystery.name %>
      <% end %>
-    </p>
+    </div>
   <% end %>
-  
-  
-  <p><i class="fas fa-book-reader"></i>
+
+  <div>
+    <i class="fas fa-book-reader"></i>
     <% review.difficulties.each do |difficulty| %>
       <%= difficulty.name %>
      <% end %>
-  </p>
+  </div>
 
-  <p>
+  <div>
     <i class="fas fa-paperclip"></i>
     <% review.tags.each do |tag| %>
       <%= tag.name %>
    <% end %>
-  </p>
+  </div>
 
-  <div class="review_body">
-    <div>
-      <% unless review.body.empty? %>
-        <i class="fas fa-file-alt"></i><%= safe_join(review.body.split("\n"),tag(:br))%>
-      <%end %>
-    </div>
+  <div class="body_warp">
+    <i class="fas fa-file-alt"></i>レビュー内容
+    <% unless review.body.empty? %>
+      <div><%= safe_join(review.body.split("\n"),tag(:br))%></div>
+    <%end %>
 
     <% unless review.netabare.empty? %>
       <i class="fas fa-exclamation-triangle"></i><span class="red">ネタバレを含む内容があります</span>
       <div class="netabare on">
-        <br><%= safe_join(review.netabare.split("\n"),tag(:br))%><br>
+        <%= safe_join(review.netabare.split("\n"),tag(:br))%><br>
       </div>
       <script>
         $(document).ready(function () {
@@ -43,9 +43,9 @@
         });
       </script>
     <%end %>
-
-    <p><i class="fas fa-clock"></i> <%= review.created_at.strftime('%Y/%m/%d %I:%M:%S') %></p>
   </div>
+  <p><i class="fas fa-clock"></i> <%= review.created_at.strftime('%Y/%m/%d %I:%M:%S') %></p>
+
 </div>
 
 <div class="favorite">

@@ -9,7 +9,7 @@
       <div class="row justify-content-center mb-3"><%= read.book.publisher_name %></div>
       <% if user_signed_in? && read.user == current_user %>
         <%= link_to read_path(read.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-          <div class="book_favo_delete mb-1">削除</div>
+          <div class="edit">削除</div>
         <% end %>
       <% end %>
     </div>

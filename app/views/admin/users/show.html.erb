@@ -1,113 +1,113 @@
-<h2><%= @user.name %>さんの会員詳細</h2>
-<p><%= image_tag @user.get_profile_image(200,200) %></p>
-
-<div class="show_table">
-  <table class="table table-bordered">
-    <tr>
-      <td class="tr">会員ID</td>
-      <td><%= @user.id %></td>
-    </tr>
-    <tr>
-      <td class="tr">名前</td>
-      <td><%= @user.name %></td>
-    </tr>
-    <tr>
-      <td class="tr">メールアドレス</td>
-      <td><%= @user.email %></td>
-    </tr>
-    <tr>
-      <td class="tr">生年月日</td>
-      <td><%= @user.birthday %></td>
-    </tr>
-    <tr>
-      <td class="tr">生年月日　公開設定</td>
-      <% if  @user.birthday_active %>
-        <td>公開</td>
-      <% else %>
-        <td>非公開</td>
-      <% end %>
-    </tr>
-    <tr>
-      <td class="tr">性別</td>
-      <% if @user.sex %>
-        <td>男性</td>
-      <% else %>
-        <td>女性</td>
-      <% end %>
-    </tr>
-    <tr>
-      <td class="tr">性別　公開設定</td>
-      <% if @user.sex_active %>
-        <td>公開</td>
-      <% else %>
-        <td>非公開</td>
-      <% end %>
-    </tr>
-    <tr>
-      <td class="tr">自己紹介</td>
-      <% unless @user.introduction.nil? %>
-        <td><%= safe_join(@user.introduction.split("\n"),tag(:br))%></td>
-      <%end %>
-    </tr>
-    <tr>
-      <td class="tr">謎解き　公開設定</td>
-      <% if @user.mystery_active %>
-        <td>公開</td>
-      <% else %>
-        <td>非公開</td>
-      <% end %>
-    </tr>
-    <tr>
-      <td class="tr">レビュー数</td>
-      <td><%= @user.reviews.count %></td>
-    </tr>
-    <tr>
-      <td class="tr">コメント数</td>
-      <td><%= @user.comments.count %></td>
-    </tr>
-    <tr>
-      <td class="tr">いいね数</td>
-      <td><%= @user.favorites.count %></td>
-    </tr>
-    <tr>
-      <td class="tr">読みたい本登録数</td>
-      <td><%= @user.wants.count %></td>
-    </tr>
-    <tr>
-      <td class="tr">読みたい本登録数</td>
-      <td><%= @user.readings.count %></td>
-    </tr>
-    <tr>
-      <td class="tr">読んだ本登録数</td>
-      <td><%= @user.reads.count %></td>
-    </tr>
-    <tr>
-      <td class="tr">積読本登録数</td>
-      <td><%= @user.gets.count %></td>
-    </tr>
-    <tr>
-      <td class="tr">ステータス</td>
-      <% if @user.is_deleted == true %>
-        <td class="text-danger">退会</td>
-      <% else %>
-        <td class="text-success">有効</td>
-      <% end %>
-    </tr>
-  </table>
-</div>
+<div class="center">
+  <h2><%= @user.name %>さんの会員詳細</h2>
+  <p><%= image_tag @user.get_profile_image(200,200) %></p>
 
 
-<div class="row justify-content-center m-5">
+  <div class="show_table">
+    <table class="table table-bordered">
+      <tr>
+        <td class="tr">会員ID</td>
+        <td><%= @user.id %></td>
+      </tr>
+      <tr>
+        <td class="tr">名前</td>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <td class="tr">メールアドレス</td>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <td class="tr">生年月日</td>
+        <td><%= @user.birthday %></td>
+      </tr>
+      <tr>
+        <td class="tr">生年月日　公開設定</td>
+        <% if  @user.birthday_active %>
+          <td>公開</td>
+        <% else %>
+          <td>非公開</td>
+        <% end %>
+      </tr>
+      <tr>
+        <td class="tr">性別</td>
+        <% if @user.sex %>
+          <td>男性</td>
+        <% else %>
+          <td>女性</td>
+        <% end %>
+      </tr>
+      <tr>
+        <td class="tr">性別　公開設定</td>
+        <% if @user.sex_active %>
+          <td>公開</td>
+        <% else %>
+          <td>非公開</td>
+        <% end %>
+      </tr>
+      <tr>
+        <td class="tr">自己紹介</td>
+        <% unless @user.introduction.nil? %>
+          <td><%= safe_join(@user.introduction.split("\n"),tag(:br))%></td>
+        <%end %>
+      </tr>
+      <tr>
+        <td class="tr">謎解き　公開設定</td>
+        <% if @user.mystery_active %>
+          <td>公開</td>
+        <% else %>
+          <td>非公開</td>
+        <% end %>
+      </tr>
+      <tr>
+        <td class="tr">レビュー数</td>
+        <td><%= @user.reviews.count %></td>
+      </tr>
+      <tr>
+        <td class="tr">コメント数</td>
+        <td><%= @user.comments.count %></td>
+      </tr>
+      <tr>
+        <td class="tr">いいね数</td>
+        <td><%= @user.favorites.count %></td>
+      </tr>
+      <tr>
+        <td class="tr">読みたい本登録数</td>
+        <td><%= @user.wants.count %></td>
+      </tr>
+      <tr>
+        <td class="tr">読みたい本登録数</td>
+        <td><%= @user.readings.count %></td>
+      </tr>
+      <tr>
+        <td class="tr">読んだ本登録数</td>
+        <td><%= @user.reads.count %></td>
+      </tr>
+      <tr>
+        <td class="tr">積読本登録数</td>
+        <td><%= @user.gets.count %></td>
+      </tr>
+      <tr>
+        <td class="tr">ステータス</td>
+        <% if @user.is_deleted == true %>
+          <td class="text-danger">退会</td>
+        <% else %>
+          <td class="text-success">有効</td>
+        <% end %>
+      </tr>
+    </table>
+  </div><br>
+
+
   <%= form_with model: @user, url: admin_user_path, methos: :patch do |f| %>
     <div class="custom-control custom-radio">
       <%= f.label :is_deleted, '会員ステータス', class: "mr-5" %>
       <%= f.radio_button :is_deleted, false %> <%= f.label :is_active, "有効", class: "text-success mr-3" %>
       <%= f.radio_button :is_deleted, true %> <%= f.label :is_active, "退会", class: "text-danger mr-3" %>
-      <%= f.submit "変更", class: "btn" %>
+      <%= f.submit "変更", class: "btn_submit" %>
     </div>
   <% end %>
+
+  <br><br><%= link_to "戻る", admin_users_path %><br><br>
+
 </div>
-
-
-<p><%= link_to "戻る", admin_users_path %></p>
-

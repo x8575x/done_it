@@ -2,7 +2,7 @@ class Admin::ReviewsController < ApplicationController
   layout 'admin/application'
 
   def index
-    @reviews = Review.all.page(params[:page]).per(10)
+    @reviews = Review.all.page(params[:page]).per(20)
   end
 
   def show
@@ -15,15 +15,23 @@ class Admin::ReviewsController < ApplicationController
 
 
   def update
-    review = Review.find(params[:id])
-    review.update(review_params)
-    redirect_to admin_reviews_path
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      flash[:notice] = "編集に成功しました"
+      redirect_to admin_review_path(@review)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    review = Review.find(params[:id])
-    review.destroy
-    redirect_to admin_reviews_path
+    @review = Review.find(params[:id])
+    if @review.destroy
+      flash[:notice] = "削除に成功しました"
+      redirect_to admin_reviews_path
+    else
+      render :edit
+    end
   end
 
 

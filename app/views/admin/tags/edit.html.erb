@@ -3,19 +3,19 @@
 <%= form_with model: @tag, url: admin_tag_path, method: :patch do |f| %>
   <%= render "layouts/errors", obj: @tag %>
 
-  <div id="sign" class="row offset-2">
+  <div id="form" class="row offset-2">
     <%= f.label :name, "タグ名", class: "col-lg-3" %>
     <%= f.text_field :name, class: "form-control col-lg-5" %>
   </div>
 
-  <div id="sign" class="row offset-2">
+  <div id="form" class="row offset-2">
     <%= f.label :introduction, "説明", class: "col-lg-3" %>
     <%= f.text_area :introduction, class: "form-control col-lg-5", size: "5x5" %>
   </div>
 
-  <div id="sign" class="row justify-content-center ml-5">
+  <div id="form" class="row justify-content-center ml-5">
     <%= f.submit "編集", class: "submit_create col-lg-2 ml-5" %>
   </div>
 <% end %>
-<br><br><br><br>
-<p><%= link_to "戻る", admin_tags_path %></p>
+
+<div class="center"><%= link_to "戻る", admin_tags_path %></div>

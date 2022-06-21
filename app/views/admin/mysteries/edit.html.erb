@@ -2,14 +2,14 @@
 
 <%= form_with model: @mystery, url: admin_mystery_path, method: :patch do |f| %>
   <%= render "layouts/errors", obj: @mystery %>
-  
-  <div id="sign" class="row offset-2">
+
+  <div id="form" class="row offset-2">
   <%= f.label :name, "謎解きの種類", class: "col-lg-2" %>
   <%= f.text_field :name, class: "form-control col-lg-6" %>
   <div class="col-lg-2">
-    <%= f.submit "編集", class: "btn" %>
+    <%= f.submit "編集", class: "submit_create" %>
   </div>
 </div>
 <% end %>
 
-<p><%= link_to "戻る", admin_mysteries_path %></p>
+<div class="center"><%= link_to "戻る", admin_mysteries_path %></div>

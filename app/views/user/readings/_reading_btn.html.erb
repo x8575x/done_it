@@ -1,11 +1,11 @@
 <!--ログインしていて、いいねがされている場合-->
 <% if user_signed_in? && book.reading_by?(current_user) %>
-  <%= link_to book_readings_path(book), method: :delete, remote: true, class: "book_favo_delete" do %>
+  <%= link_to book_readings_path(book), method: :delete, remote: true, class: "submit_create" do %>
     読んでいる本から解除
   <% end %>
 <!--ログインしていて、いいねがされていない場合-->
 <% elsif user_signed_in? && !book.reading_by?(current_user) %>
-  <%= link_to book_readings_path(book), method: :post, remote: true, class: "book_favo_create" do %>
+  <%= link_to book_readings_path(book), method: :post, remote: true, class: "edit" do %>
     読んでいる本に登録
   <% end %>
 <!--ログインしていない場合-->

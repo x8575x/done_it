@@ -1,30 +1,30 @@
-<h2>レビュー一覧</h2>
+<h1>レビュー一覧</h1>
 
-  <table class="table table-bordered table-hover">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>投稿者</th>
-        <th></th>
-        <th>内容</th>
-        <th>ネタバレ内容</th>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>投稿者</th>
+      <th></th>
+      <th>内容</th>
+      <th>ネタバレ内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr onclick="window.location.href='<%= admin_review_path(review.id) %>'" role="link">
+        <td><%= review.id %></td>
+        <td><%= review.user.name %></td>
+        <td><%= image_tag review.user.get_profile_image(50,50) %></td>
+        <% unless review.body.nil? %>
+          <td class="warp"><%= safe_join(review.body.split("\n"),tag(:br)) %></td>
+        <%end %>
+        <% unless review.netabare.nil? %>
+          <td class="warp"><%= safe_join(review.netabare.split("\n"),tag(:br)) %></td>
+        <%end %>
       </tr>
-    </thead>
-    <tbody>
-      <% @reviews.each do |review| %>
-        <tr onclick="window.location.href='<%= admin_review_path(review.id) %>'" role="link">
-          <td><%= review.id %></td>
-          <td><%= review.user.name %></td>
-          <td><%= image_tag review.user.get_profile_image(80,80) %></td>
-          <% unless review.body.nil? %>
-            <td class="warp"><%= safe_join(review.body.split("\n"),tag(:br)) %></td>
-          <%end %>
-          <% unless review.netabare.nil? %>
-            <td class="warp"><%= safe_join(review.netabare.split("\n"),tag(:br)) %></td>
-          <%end %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>
 
-  <div class="row justify-content-center mb-3 mt-5"><%= paginate @reviews %></div>
+<div class="row justify-content-center mb-3 mt-5"><%= paginate @reviews %></div>

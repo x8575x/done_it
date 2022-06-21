@@ -30,7 +30,7 @@ class User::WantsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @wants = Want.where(user_id: params[:user_id]).order(created_at: :desc).page(params[:page]).per(9)
+    @wants = Want.where(user_id: params[:user_id]).order(created_at: :desc).page(params[:page]).per(15)
   end
 
 end

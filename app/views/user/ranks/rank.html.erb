@@ -1,5 +1,4 @@
-<div class="container">
-  <div class="row justify-content-center mt-5"><h2>Book Rankings</h2></div>
+  <div class="row justify-content-center mt-3"><h2>Book Rankings</h2></div>
   <div class="row justify-content-center mt-1">
     <%= link_to "レビュー数", rank_path(sort: 'review') %>
     　|　<%= link_to "読みたい本", rank_path(sort: 'want') %>
@@ -9,7 +8,7 @@
   </div>
 
 
-  <div class="row justify-content-center mt-3">
+  <div class="row justify-content-center">
     <% @books.each.with_index(1) do |book, i| %>
 
       <% if i == 1 %>
@@ -50,5 +49,3 @@
       <% end %>
     <% end %>
   </div>
-
-</div>

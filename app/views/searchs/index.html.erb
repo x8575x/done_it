@@ -1,16 +1,15 @@
 <div class="center">
 
     <%= form_with url:searchs_path, method: :get do |f| %>
-      <div class="form-group">
+      <div class="form-group mt-5">
         <span class="search">Book search</span>
         <%= f.text_field :title, placeholder: "タイトル" %>
         <%= f.text_field :author, placeholder: "著者" %>
-        <%= f.submit "検索",class: "btn" %>
+        <%= f.submit "検索",class: "btn_submit" %>
       </div>
     <% end %>
 
 </div>
-
 
 
 

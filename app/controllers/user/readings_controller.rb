@@ -30,7 +30,7 @@ class User::ReadingsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @readings = Reading.where(user_id: params[:user_id]).order(created_at: :desc).page(params[:page]).per(9)
+    @readings = Reading.where(user_id: params[:user_id]).order(created_at: :desc).page(params[:page]).per(15)
   end
 
 end

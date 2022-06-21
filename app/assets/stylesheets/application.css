@@ -14,23 +14,18 @@
  *= require_self
  */
 
-body {
-  color: #000055;
-}
-
+/*ヘッダーの背景色*/
 header {
   background-color: #000055;
 }
 
-.text {
-  margin-top: 50px;
-  text-align: center;
+
+/*サイト全体の文字色*/
+body {
+  color: #000055;
 }
 
-.red {
-  color: red;
-}
-
+/*フッター下部固定*/
 footer {
   margin-top: 30px;
   width: 100%;
@@ -50,22 +45,41 @@ footer {
 
 .container {
   flex: 1 1 auto;
+　margin-top: 30px;
 }
 
+/*フラッシュメッセージのセンタリング*/
 .flash {
   text-align: center;
 }
 
-.center {
-  text-align: center;
-  margin-top: 30px;
+/*バリデーションエラーのフォーム崩れ防止*/
+.field_with_errors {
+  display: contents;
 }
 
+/*ページネーションレイアウト*/
+.page-item.active .page-link {
+  background-color: #000055;
+  border-color: #000055;
+}
+
+.page-link {
+  color: #000055;
+}
+
+/*文字色を赤くするところ*/
+.red {
+  color: #DD0000;
+}
+
+/*入力フォーム*/
 #form {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
+/*createボタン(青背景に白文字)*/
 .submit_create {
   margin-bottom: 5px;
   display: block;
@@ -83,22 +97,46 @@ footer {
   color: white;
 }
 
-h2 {
-  margin-top: 50px;
+/*editボタン(白背景に青文字)*/
+.edit {
+  margin-bottom: 5px;
+  display: block;
+  color: #000055;
+  border: solid 1px #000055;
+  background-color: white;
+  border-radius: 5px;/*角丸*/
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
 }
 
-h3 {
-  margin-bottom: 15px;
+.edit:hover {
+  background-color: #000055;
+  color: white;
+  text-decoration: none;
 }
 
-/*バリデーションエラーの表示*/
-.field_with_errors {
-  display: contents;
+/*deleteボタン(白背景に赤文字)*/
+.delete {
+  margin-bottom: 5px;
+  display: block;
+  color: #BB0000;
+  border: solid 1px #BB0000;
+  border-radius: 5px;/*角丸*/
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.delete:hover {
+  background-color: #BB0000;
+  color: white;
+  text-decoration: none;
 }
 
 
-/*user編集ぺージのボタン*/
-.btn {
+/*改行なしのボタン(青背景に青文字)*/
+.btn_submit {
   margin-bottom: 5px;
   background-color: #000055;
   color: white;
@@ -109,32 +147,141 @@ h3 {
   text-align: center;
 }
 
-.btn:hover {
-  text-decoration: none;
-  color: white;
+
+/*文字センタリング*/
+.center {
+  text-align: center;
 }
 
+
+
+
+/*userページ*/
+
+/*文章改行設定*/
+.body_warp{
+  word-wrap: break-word;
+  margin-bottom: 15px;
+}
+
+/*ネタバレ文章の隠し設定*/
+.netabare {
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+
+}
+.netabare.on {
+  color: rgba(0,0,0,0);
+  text-shadow: 0 0 10px #000;
+}
+.netabare.on:before {
+  content: 'クリックで表示';/*クリック前表示文*/
+  position: absolute;
+  text-shadow: none;
+  color: #fff;
+  width: 220px;/*クリック前表示文横*/
+  height: 28px;/*クリック前表示文縦*/
+  line-height: 28px;
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  background-color: #cb2222;
+  margin-left: -110px;
+}
+
+
+/*レビューいいね、コメントボタン文position*/
+.review{
+  position: relative;
+}
+
+/*いいね、コメントボタンposition*/
+.favorite {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+}
+
+/*book searxhページ文字*/
 .search {
   font-size : 33px;
   margin-right: 20px
 }
 
 
-/*レビュー編集ボタン*/
-.edit {
-  margin-bottom: 5px;
-  display: block;
-  color: #000055;
-  border: solid 1px #000055;
-  border-radius: 5px;/*角丸*/
-  padding: 5px;
-  text-decoration: none;
-  text-align: center;
-  background-color: white;
-}
 
-.edit:hover {
+
+
+
+
+/*adminページ*/
+
+/*テーブル*/
+thead {
   background-color: #000055;
   color: white;
-  text-decoration: none;
+  text-align: center;
 }
+
+/*user_showページで使用*/
+.tr {
+  background-color: #000055;
+  color: white;
+  width: 300px;
+}
+
+.show_table {
+  width: 1000px;
+  margin:0 auto;
+}
+
+/*review/idexの表*/
+
+.warp {
+  word-break: break-all;
+  width: 400px;
+  table-layout: fixed;
+}
+
+.id {
+  width: 100px;
+  table-layout: fixed;
+}
+
+
+
+
+
+
+/**/
+/**/
+
+
+
+.text {
+  margin-top: 50px;
+  text-align: center;
+}
+
+
+
+
+h1 {
+  text-align: center;
+  margin: 50px 0;
+}
+
+h2 {
+  margin-top: 50px;
+}
+
+h3 {
+  margin-bottom: 15px;
+}
+
+
+
+
+
+
