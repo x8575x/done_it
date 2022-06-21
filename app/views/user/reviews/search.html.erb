@@ -4,46 +4,46 @@
   <%= form_with(scope: :search, url: review_search_path, method: :get) do |f| %>
 
     <!--Type選択セレクトボックス-->
-      <div  id="form" class="row">
-        <%= f.label :type_id,"分類", class: "col-lg-4" %>
-        <%= f.collection_select :type_id, Type.all, :id, :name, include_blank: "選択してください", class: "col-lg-6" %>
-      </div>
+    <div  id="form" class="row">
+      <%= f.label :type_id,"分類", class: "col-lg-4" %>
+      <%= f.collection_select :type_id, Type.all, :id, :name, include_blank: "選択してください", class: "col-lg-6" %>
+    </div>
 
-      <!--Long選択セレクトボックス-->
-      <div  id="form" class="row">
-        <%= f.label :long_id,"長さ", class: "col-lg-4" %>
-        <%= f.collection_select :long_id, Long.all, :id, :name, include_blank: "選択してください", class: "col-lg-6" %>
-      </div>
+    <!--Long選択セレクトボックス-->
+    <div  id="form" class="row">
+      <%= f.label :long_id,"長さ", class: "col-lg-4" %>
+      <%= f.collection_select :long_id, Long.all, :id, :name, include_blank: "選択してください", class: "col-lg-6" %>
+    </div>
 
-      <!--Mystery複数選択チェックボックス-->
-      <div  id="form" class="row">
-        <%= f.label :mystery_id, "謎解き方法", class: "col-lg-4" %>
-        <div id="wrap" class="col-lg-6 text-left">
-          <%= collection_check_boxes(:review, :mystery_ids, Mystery.all, :id, :name) do |b| %>
-            <%= b.label { b.check_box + b.text } %>
-          <% end %>
-        </div>
+    <!--Mystery複数選択チェックボックス-->
+    <div  id="form" class="row">
+      <%= f.label :mystery_id, "謎解き方法", class: "col-lg-4" %>
+      <div id="wrap" class="col-lg-6 text-left">
+        <%= collection_check_boxes(:review, :mystery_ids, Mystery.all, :id, :name) do |b| %>
+          <%= b.label { b.check_box + b.text } %>
+        <% end %>
       </div>
+    </div>
 
-      <!--謎解き方法複数選択セレクトボックス-->
-      <div  id="form" class="row">
-        <%= f.label :difficulty_id, "読みやすさ", class: "col-lg-4" %>
-        <div id="wrap" class="col-lg-6 text-left">
-          <%= collection_check_boxes(:review, :difficulty_ids, Difficulty.all, :id, :name) do |b| %>
-            <%= b.label { b.check_box + b.text } %>
-          <% end %>
-        </div>
+    <!--謎解き方法複数選択セレクトボックス-->
+    <div  id="form" class="row">
+      <%= f.label :difficulty_id, "読みやすさ", class: "col-lg-4" %>
+      <div id="wrap" class="col-lg-6 text-left">
+        <%= collection_check_boxes(:review, :difficulty_ids, Difficulty.all, :id, :name) do |b| %>
+          <%= b.label { b.check_box + b.text } %>
+        <% end %>
       </div>
+    </div>
 
-      <!--タグ複数選択セレクトボックス-->
-       <div  id="form" class="row">
-        <%= f.label :tag_id, "タグ", class: "col-lg-4" %>
-        <div id="wrap" class="col-lg-6 text-left">
-          <%= collection_check_boxes(:review, :tag_ids, Tag.all, :id, :name) do |b| %>
-            <%= b.label { b.check_box + b.text } %>
-          <% end %>
-        </div>
+    <!--タグ複数選択セレクトボックス-->
+     <div  id="form" class="row">
+      <%= f.label :tag_id, "タグ", class: "col-lg-4" %>
+      <div id="wrap" class="col-lg-6 text-left">
+        <%= collection_check_boxes(:review, :tag_ids, Tag.all, :id, :name) do |b| %>
+          <%= b.label { b.check_box + b.text } %>
+        <% end %>
       </div>
+    </div>
 
     <div class="row justify-content-center m-5">
       <%= f.submit "検索", class: "submit_create col-lg-3" %>
@@ -65,18 +65,13 @@
               <p><%= review.user.name %></p>
             <% end %>
           </div>
-          <div class="col-lg-8">
-            <%= render 'user/reviews/review', review: review %>
-          </div>
+          <div class="col-lg-8"><%= render 'user/reviews/review', review: review %></div>
           <div class="row justify-content-center mb-3"><%= paginate @reviews %></div>
         </div>
-
-
       <% end %>
     <% else %>
       <div class="row justify-content-center mt-5"><h3>感想はまだありません</h3></div>
     <% end %>
   <% end %>
-
 
 </div>

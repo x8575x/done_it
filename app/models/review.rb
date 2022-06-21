@@ -5,7 +5,6 @@ class Review < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-
   # タグ・種類に関するアソシエーション
   belongs_to :type
   belongs_to :long
@@ -22,15 +21,10 @@ class Review < ApplicationRecord
   has_many :tag_relationships
   has_many :tags, through: :tag_relationships
 
-
-
-
   # Viewで使用するメソッド
   def favorit_by?(user)
     favorites.exists?(user_id: user.id)
   end
-
-
 
   scope :search, -> (search_params) do
     return if search_params.blank?
@@ -50,4 +44,5 @@ class Review < ApplicationRecord
   scope :mystery, -> (mystery_ids) { where(mysteries: {id: mystery_ids}) if mystery_ids.present?}
   scope :difficulty, -> (difficulty_ids) { where(difficulties: {id: difficulty_ids}) if difficulty_ids.present?}
   scope :tag, -> (tag_ids) { where(tags: {id: tag_ids}) if tag_ids.present?}
+  
 end
