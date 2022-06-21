@@ -14,6 +14,9 @@
  *= require_self
  */
 
+
+
+/*共通CSS部分*/
 /*ヘッダーの背景色*/
 header {
   background-color: #000055;
@@ -134,7 +137,6 @@ footer {
   text-decoration: none;
 }
 
-
 /*改行なしのボタン(青背景に青文字)*/
 .btn_submit {
   margin-bottom: 5px;
@@ -147,11 +149,30 @@ footer {
   text-align: center;
 }
 
-
 /*文字センタリング*/
 .center {
   text-align: center;
 }
+
+h1 {
+  text-align: center;
+  margin: 50px 0;
+}
+
+h2 {
+  margin-top: 50px;
+}
+
+h3 {
+  margin-bottom: 15px;
+}
+
+
+
+
+
+
+
 
 
 
@@ -215,6 +236,14 @@ footer {
 
 
 
+
+
+
+
+
+
+
+
 /*adminページ*/
 
 /*テーブル*/
@@ -250,36 +279,11 @@ thead {
 }
 
 
-
-
-
-
-/**/
-/**/
-
-
-
+/*top/abooutページ*/
 .text {
   margin-top: 50px;
   text-align: center;
 }
-
-
-
-
-h1 {
-  text-align: center;
-  margin: 50px 0;
-}
-
-h2 {
-  margin-top: 50px;
-}
-
-h3 {
-  margin-bottom: 15px;
-}
-
 
 
 
