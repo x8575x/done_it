@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2022_06_12_030827) do
 
   create_table "gets", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "book_id"
+    t.integer "book_id", limit: 8, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -129,21 +129,21 @@ ActiveRecord::Schema.define(version: 2022_06_12_030827) do
 
   create_table "readings", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "book_id"
+    t.integer "book_id", limit: 8, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reads", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "book_id"
+    t.integer "book_id", limit: 8, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "book_id"
+    t.integer "book_id", limit: 8, null: false
     t.integer "type_id"
     t.integer "long_id"
     t.text "body"
@@ -194,7 +194,7 @@ ActiveRecord::Schema.define(version: 2022_06_12_030827) do
 
   create_table "wants", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "book_id"
+    t.integer "book_id", limit: 8, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
