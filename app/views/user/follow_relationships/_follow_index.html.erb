@@ -7,11 +7,11 @@
             <div><%= user.name %></div>
             <%= image_tag user.get_profile_image(150,150) %>
           <% end %>
-          <div>レビュー数：<%= user.reviews.count %></div>
-          <div>読みたい本：<%= user.wants.count %></div>
-          <div>読んでる本：<%= user.readings.count %></div>
-          <div>読んだ本：<%= user.reads.count %></div>
-          <div>積読本：<%= user.gets.count %></div>
+          <div>レビュー数：<%= user.reviews.count %>件</div>
+          <div>読みたい本：<%= user.wants.count %>冊</div>
+          <div>読んでる本：<%= user.readings.count %>冊</div>
+          <div>読んだ本：<%= user.reads.count %>冊</div>
+          <div>積読本：<%= user.gets.count %>冊</div>
         <% unless  user == current_user %>
           <div class="follow_btn_<%= user.id %>"><%= render 'user/follow_relationships/follow_btn', user: user %></div>
         <% end %>
