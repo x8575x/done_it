@@ -1,13 +1,21 @@
 <div class="review">
   <div><i class="fas fa-book"></i> <%= review.type.name %> / <%= review.long.name %></div>
 
-  <% if current_user.mystery_active == true %>
+  <% if user_signed_in? && current_user.mystery_active == true %>
     <div>
       <i class="fas fa-search"></i>
       <% review.mysteries.each do |mystery| %>
         <%= mystery.name %>
      <% end %>
     </div>
+  <% elsif !user_signed_in? %>
+    <div>
+      <i class="fas fa-search"></i>
+      <% review.mysteries.each do |mystery| %>
+        <%= mystery.name %>
+     <% end %>
+    </div>
+  <% else %>
   <% end %>
 
   <div>

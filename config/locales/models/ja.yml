@@ -14,3 +14,6 @@ ja:
       tag:
         name: タグ
         introduction: タグの説明
+      review:
+        type:  本の分類
+        long:  本の長さ

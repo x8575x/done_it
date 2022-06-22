@@ -4,15 +4,23 @@
 </div>
 
 
-<div class="row text-center">
-  <div class="col-lg-2 mr-3">
+<div class="row justify-content-center">
+  <% if user_signed_in? %>
+    <div class="col-lg-2 mr-3">
+  <% else %>
+    <div class="col-lg-2">
+  <% end %>
     <p><%= image_tag(@book.image) %></p>
     <%= link_to @book.rakuten_url do %>
       楽天ブックスへ
     <% end %>
   </div>
 
-  <div class="col-lg-6 mb-5">
+  <% if user_signed_in? %>
+    <div class="col-lg-6 mb-5">
+  <% else %>
+    <div class="col-lg-7 mt-5">
+  <% end %>
     <p><%= @book.item_caption %>)</p>
     <p>
       <%= @book.publisher_name %>／
