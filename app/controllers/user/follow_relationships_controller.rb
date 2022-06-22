@@ -4,13 +4,15 @@ class User::FollowRelationshipsController < ApplicationController
   # フォローするとき
   def create
     current_user.follow(params[:user_id])
-    redirect_to request.referer
+    @user = User.find(params[:user_id])
+    render "user/follow_relationships/follow_btn"
   end
 
   # フォロー外すとき
   def destroy
     current_user.unfollow(params[:user_id])
-    redirect_to request.referer
+    @user = User.find(params[:user_id])
+    render "user/follow_relationships/follow_btn"
   end
 
   # フォロー一覧
