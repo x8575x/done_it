@@ -5,6 +5,7 @@ class User::FollowRelationshipsController < ApplicationController
   def create
     current_user.follow(params[:user_id])
     @user = User.find(params[:user_id])
+
     render "user/follow_relationships/follow_btn"
   end
 
@@ -17,13 +18,13 @@ class User::FollowRelationshipsController < ApplicationController
 
   # フォロー一覧
   def followings
-    user = User.find(params[:user_id])
-    @users = user.followings
+    @user = User.find(params[:user_id])
+    @users = @user.followings.order(created_at: :desc).page(params[:page]).per(15)
   end
   # フォロワー一覧
   def followers
-    user = User.find(params[:user_id])
-    @users = user.followers
+    @user = User.find(params[:user_id])
+    @users = @user.followers.order(created_at: :desc).page(params[:page]).per(15)
   end
 
 end
