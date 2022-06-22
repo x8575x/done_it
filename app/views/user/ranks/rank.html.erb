@@ -1,11 +1,23 @@
-  <div class="row justify-content-center mt-3"><h2>Book Rankings</h2></div>
-  <div class="row justify-content-center mt-1">
-    <%= link_to "レビュー数", rank_path(sort: 'review') %>
-    　|　<%= link_to "読みたい本", rank_path(sort: 'want') %>
-    　|　<%= link_to "読んでいる本", rank_path(sort: 'reading') %>
-    　|　<%= link_to "読んだ本", rank_path(sort: 'read') %>
-    　|　<%= link_to "積読本", rank_path(sort: 'get') %>
-  </div>
+<div class="center mt-3"><h2>Book Rankings</h2>
+  <h5>
+    <% if (params[:sort]) == "review" %>
+      レビュー数
+    <% elsif (params[:sort]) == "want" %>
+      読みたい本
+    <% elsif (params[:sort]) == "reading" %>
+      読んでいる本
+    <% elsif (params[:sort]) == "read" %>
+      読んだ本
+    <% else %>
+      積読本
+    <% end %>
+  </h5>
+  <%= link_to "レビュー数", rank_path(sort: 'review') %>
+  　|　<%= link_to "読みたい本", rank_path(sort: 'want') %>
+  　|　<%= link_to "読んでいる本", rank_path(sort: 'reading') %>
+  　|　<%= link_to "読んだ本", rank_path(sort: 'read') %>
+  　|　<%= link_to "積読本", rank_path(sort: 'get') %>
+</div>
 
 
   <div class="row justify-content-center">

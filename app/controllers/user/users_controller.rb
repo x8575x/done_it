@@ -4,7 +4,7 @@ class User::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @reviews = Review.where(user_id: params[:id]).page(params[:page]).per(10).reverse
+    @reviews = Review.where(user_id: params[:id]).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def edit

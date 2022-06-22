@@ -11,22 +11,26 @@
   <% end %>
 
   <div>
-    <i class="fas fa-book-reader"></i>
-    <% review.difficulties.each do |difficulty| %>
-      <%= difficulty.name %>
-     <% end %>
+    <% unless review.difficulties.empty? %>
+      <i class="fas fa-book-reader"></i>
+      <% review.difficulties.each do |difficulty| %>
+        <%= difficulty.name %>
+      <% end %>
+    <% end %>
   </div>
 
   <div>
-    <i class="fas fa-paperclip"></i>
-    <% review.tags.each do |tag| %>
-      <%= tag.name %>
-   <% end %>
+    <% unless review.tags.empty? %>
+      <i class="fas fa-paperclip"></i>
+      <% review.tags.each do |tag| %>
+        <%= tag.name %>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="body_warp">
-    <i class="fas fa-file-alt"></i>レビュー内容
     <% unless review.body.empty? %>
+      <i class="fas fa-file-alt"></i>レビュー内容
       <div><%= safe_join(review.body.split("\n"),tag(:br))%></div>
     <%end %>
 

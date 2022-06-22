@@ -212,6 +212,7 @@ h3 {
 }
 
 
+
 /*レビューいいね、コメントボタン文position*/
 .review{
   position: relative;
@@ -230,11 +231,21 @@ h3 {
   margin-right: 20px
 }
 
+/*userのbook一覧ボタン(白背景に青文字,hoverで配色変えなし)*/
+.book {
+  margin-bottom: 5px;
+  display: block;
+  color: #000055;
+  border: solid 1px #000055;
+  border-radius: 5px;/*角丸*/
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+}
 
-
-
-
-
+.book:hover {
+  text-decoration: none;
+}
 
 
 

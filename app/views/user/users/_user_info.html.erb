@@ -32,17 +32,17 @@
   </p>
 </div>
 
-<%= link_to  user_want_path(user), class: "edit" do %>
+<%= link_to  user_want_path(user), class: "book" do %>
   読みたい本一覧　　　<%= image_tag 'yomitai.png' %>
 <% end %>
-<%= link_to  user_reading_path(user), class: "edit" do %>
+<%= link_to  user_reading_path(user), class: "book" do %>
   読んでる本一覧　　　<%= image_tag 'yonderu.png' %>
 <% end %>
-<%= link_to user_read_path(user), class: "edit" do %>
+<%= link_to user_read_path(user), class: "book" do %>
   読んだ本一覧　　　　<%= image_tag 'yonda.png' %>
 <% end %>
-<%= link_to user_get_path(user), class: "edit" do %>
-  読んでる本一覧　　　<%= image_tag 'tundoku.png' %>
+<%= link_to user_get_path(user), class: "book" do %>
+  積読本一覧　　　　<%= image_tag 'tundoku.png' %>
 <% end %>
 
 <% if user == current_user && user.name != "guestuser" %>
