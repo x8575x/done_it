@@ -1,4 +1,5 @@
 class User::SearchsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
 
   def index
     if params[:title].present? && params[:author].present?

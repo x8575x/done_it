@@ -1,4 +1,5 @@
 class User::BooksController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
 
   def create
     book = Book.new(book_params)
