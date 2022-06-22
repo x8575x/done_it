@@ -9,7 +9,7 @@ class User::BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @reviews = Review.where(book_id: params[:id]).page(params[:page]).per(10)
+    @reviews = Review.where(book_id: params[:id]).order(created_at: :desc).page(params[:page]).per(15)
   end
 
 

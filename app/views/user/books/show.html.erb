@@ -1,61 +1,55 @@
+<div class="center mt-5">
+  <h2><%= @book.title %></h2>
+  <h4><%= @book.author %></h4>
+</div>
 
-  <div class="center mt-5">
-    <h1><%= @book.title %></h1>
+
+<div class="row text-center">
+  <div class="col-lg-2 mr-3">
+    <p><%= image_tag(@book.image) %></p>
+    <%= link_to @book.rakuten_url do %>
+      楽天ブックスへ
+    <% end %>
   </div>
 
+  <div class="col-lg-6 mb-5">
+    <p><%= @book.item_caption %>)</p>
+    <p>
+      <%= @book.publisher_name %>／
+      <%= @book.sales_date %>／
+      <%= @book.item_price %>円(税込み)
+    </p>
+  </div>
 
-  <div class="row text-center mt-3">
-    <div class="col-lg-2 mr-3">
-      <%= image_tag(@book.image) %>
-    </div>
+  <div class="col-lg-3 my- ml-5">
+    <div class="want_<%= @book.id %>"><%= render 'user/wants/want_btn', book: @book %></div>
+    <div class="reading_<%= @book.id %>"><%= render 'user/readings/reading_btn', book: @book %></div>
+    <div class="read_<%= @book.id %>"><%= render 'user/reads/read_btn', book: @book %></div>
+    <div class="get_<%= @book.id %>"><%= render 'user/gets/get_btn', book: @book %></div>
+  </div>
+</div>
 
-    <div class="col-lg-6 mb-5">
-      <p><h3><%= @book.author %></h3></p>
-      <p><%= @book.item_caption %>)</p>
-      <p>
-        <%= @book.publisher_name %>／
-        <%= @book.sales_date %>／
-        <%= @book.item_price %>円(税込み)
-      </p>
-    </div>
+<% if @reviews.exists? %>
+  <div class="row justify-content-center mt-5"><h3>みんなの感想</h3></div>
 
-    <div class="col-lg-3 my-3 ml-5">
-      <div class="want_<%= @book.id %>"><%= render 'user/wants/want_btn', book: @book %></div>
-      <div class="reading_<%= @book.id %>"><%= render 'user/readings/reading_btn', book: @book %></div>
-      <div class="read_<%= @book.id %>"><%= render 'user/reads/read_btn', book: @book %></div>
-      <div class="get_<%= @book.id %>"><%= render 'user/gets/get_btn', book: @book %></div>
-      <div>
-        <%= link_to @book.rakuten_url, class: "edit" do %>
-          楽天ブックス
+  <% @reviews.each do |review| %>
+    <div class="row border p-3 mt-3">
+      <div class="col-lg-3 center">
+        <%= link_to user_path(review.user_id) do %>
+          <%= image_tag review.user.get_profile_image(200,200) %>
+          <p><%= review.user.name %></p>
         <% end %>
       </div>
-    </div>
-  </div>
-
-  <% if @reviews.exists? %>
-    <div class="row justify-content-center mt-5"><h3>みんなの感想</h3></div>
-
-
-    <% @reviews.each do |review| %>
-      <div class="row border p-3 mt-3">
-        <div class="col-lg-3 center">
-          <%= link_to user_path(review.user_id) do %>
-            <%= image_tag review.user.get_profile_image(200,200) %>
-            <p><%= review.user.name %></p>
-          <% end %>
-        </div>
-        <div class="col-lg-9">
-          <%= render 'user/reviews/review', review: review %>
-        </div>
-        <div class="row justify-content-center mb-3"><%= paginate @reviews %></div>
+      <div class="col-lg-9">
+        <%= render 'user/reviews/review', review: review %>
       </div>
+    </div>
 
-
-    <% end %>
-  <% else %>
-    <div class="row justify-content-center mt-5"><h3>感想はまだありません</h3></div>
   <% end %>
-
+<% else %>
+  <div class="row justify-content-center mt-5"><h3>感想はまだありません</h3></div>
+<% end %>
+<div class="row justify-content-center my-3"><%= paginate @reviews %></div>
 
 
 
