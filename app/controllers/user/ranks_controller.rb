@@ -1,5 +1,4 @@
 class User::RanksController < ApplicationController
-  before_action :authenticate_user!
 
   def rank
     # 読みたい本ランキング

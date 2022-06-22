@@ -46,6 +46,7 @@
                   <%= link_to rank_path(sort: 'review'), class: 'nav-link text-white' do %>
                     <i class="fas fa-crown"></i> Book ranking
                   <% end %>
+                </li>
                 <li class="nav-item">
                   <%= link_to review_search_path, class: 'nav-link text-white' do %>
                     <i class="fas fa-search"></i> Review search
@@ -76,8 +77,8 @@
                   <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to searchs_path, class: 'nav-link text-white' do %>
-                    <i class="fas fa-book"></i> Seach
+                  <%= link_to rank_path(sort: 'review'), class: 'nav-link text-white' do %>
+                    <i class="fas fa-crown"></i> Book ranking
                   <% end %>
                 </li>
                 <li class="nav-item">
