@@ -10,13 +10,13 @@
 
       <!--Type選択セレクトボックス-->
       <div  id="form" class="row">
-        <%= f.label :type_id,"分類", class: "col-lg-4" %>
+        <%= f.label :type_id,"分類", class: "col-lg-4" %><div class="red">＊</div>
         <%= f.collection_select :type_id, Type.all, :id, :name, include_blank: "選択してください", class: "col-lg-6" %>
       </div>
 
       <!--Long選択セレクトボックス-->
       <div  id="form" class="row">
-        <%= f.label :long_id,"長さ", class: "col-lg-4" %>
+        <%= f.label :long_id,"長さ", class: "col-lg-4" %><div class="red">＊</div>
         <%= f.collection_select :long_id, Long.all, :id, :name, include_blank: "選択してください", class: "col-lg-6" %>
       </div>
 
@@ -59,6 +59,10 @@
       <!--ネタバレ含む感想入力フォーム-->
       <div  id="form" class="row">
         <%= f.label :netabare,"ネタバレ含む", class: "col-lg-4" %>
+        <div class="red col-lg-6">ネタバレを含む内容は<strong>必ず</strong>こちらに書いてください</div>
+      </div>
+      <div  id="form" class="row">
+        <div class="col-lg-4"></div>
         <%= f.text_area :netabare, class: "form-control col-lg-6", size: "30x10" %>
       </div>
 
