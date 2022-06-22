@@ -1,5 +1,4 @@
 class User::ReviewsController < ApplicationController
-  layout 'user/application'
 
   def new
     @review = Review.new

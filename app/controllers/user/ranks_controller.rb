@@ -1,5 +1,4 @@
 class User::RanksController < ApplicationController
-  layout 'user/application'
 
   def rank
     # 読みたい本ランキング

@@ -1,4 +1,4 @@
-class SearchsController < ApplicationController
+class User::SearchsController < ApplicationController
 
   def index
     if params[:title].present? && params[:author].present?

@@ -1,5 +1,4 @@
 class User::FollowRelationshipsController < ApplicationController
-  layout 'user/application'
 
   # フォローするとき
   def create

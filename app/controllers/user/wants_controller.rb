@@ -1,5 +1,4 @@
 class User::WantsController < ApplicationController
-  layout 'user/application'
 
   def create
     @book = Book.find(params[:book_id])

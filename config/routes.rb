@@ -18,15 +18,11 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-
-  # 共通routes
-  root to: "homes#top"
-  get "/about" => "homes#about"
-  resources :searchs, only: [:index]
-
-
   # user routes
   scope module: 'user' do
+    root to: "homes#top"
+    get "/about" => "homes#about"
+    resources :searchs, only: [:index]
     resources :users, only: [:show, :edit, :update] do
       get 'quit' => 'users#quit'
       patch 'withdraw' => 'users#withdraw'
@@ -42,11 +38,13 @@ Rails.application.routes.draw do
       get 'reads' => 'reads#index', as: 'read'
       get 'gets' => 'gets#index', as: 'get'
     end
+    
     resources :reviews, only: [:create, :new, :edit, :update, :show, :destroy] do
       # レビューコメント、いいね
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
+    
     # レビュー検索画面
     get 'review/search' => 'reviews#search'
     # ランキング画面
