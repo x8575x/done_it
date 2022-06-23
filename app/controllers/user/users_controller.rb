@@ -4,7 +4,13 @@ class User::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @reviews = Review.where(user_id: params[:id]).order(created_at: :desc).page(params[:page]).per(10)
+
+    reviews = Review.where(user_id: @user.id)
+    wants = Want.where(user_id: @user.id)
+    readings = Reading.where(user_id: @user.id)
+    reads = Read.where(user_id: @user.id)
+    gets = Get.where(user_id: @user.id)
+    @user_actions = (reviews + wants + readings + reads + gets).sort_by{|x| x.created_at}.last(30).reverse
   end
 
   def edit
@@ -34,7 +40,7 @@ class User::UsersController < ApplicationController
     readings = Reading.where(user_id: [current_user.following_ids])
     reads = Read.where(user_id: [current_user.following_ids])
     gets = Get.where(user_id: [current_user.following_ids])
-    @time_line = (reviews + wants + readings + reads + gets).sort_by{|x| x.created_at}.reverse.last(15)
+    @time_lines = (reviews + wants + readings + reads + gets).sort_by{|x| x.created_at}.last(30).reverse
   end
 
 

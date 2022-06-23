@@ -41,7 +41,7 @@
       </div>
 
       <!--タグ複数選択セレクトボックス-->
-       <div  id="form" class="row">
+      <div  id="form" class="row">
         <%= f.label :tag_id, "タグ", class: "col-lg-4" %>
         <div id="wrap" class="col-lg-6 text-left">
           <%= collection_check_boxes(:review, :tag_ids, Tag.all, :id, :name) do |b| %>
