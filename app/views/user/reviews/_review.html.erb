@@ -40,12 +40,12 @@
     <% unless review.body.empty? %>
       <i class="fas fa-file-alt"></i>レビュー内容
       <div><%= safe_join(review.body.split("\n"),tag(:br))%></div>
-    <%end %>
+    <% end %>
 
     <% unless review.netabare.empty? %>
       <i class="fas fa-exclamation-triangle"></i><span class="red">ネタバレを含む内容があります</span>
       <div class="netabare on">
-        <%= safe_join(review.netabare.split("\n"),tag(:br))%><br>
+        <%= safe_join(review.netabare.split("\n"),tag(:br))%>
       </div>
       <script>
         $(document).ready(function () {
@@ -54,7 +54,7 @@
           });
         });
       </script>
-    <%end %>
+    <% end %>
   </div>
   <p><i class="fas fa-clock"></i> <%= review.created_at.strftime('%Y/%m/%d %I:%M:%S') %></p>
 

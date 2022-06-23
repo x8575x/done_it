@@ -50,28 +50,27 @@
     </div>
 
   <% end %>
-
-
-  <% unless @search_params.blank? %>
-    <% if @reviews.exists? %>
-      <div class="row justify-content-center mt-5"><h3>みんなの感想</h3></div>
-
-
-      <% @reviews.each do |review| %>
-        <div class="row border p-3 mt-3 offset-1">
-          <div class="col-lg-3 center">
-            <%= link_to user_path(review.user_id) do %>
-              <%= image_tag review.user.get_profile_image(200,200) %>
-              <p><%= review.user.name %></p>
-            <% end %>
-          </div>
-          <div class="col-lg-8"><%= render 'user/reviews/review', review: review %></div>
-          <div class="row justify-content-center mb-3"><%= paginate @reviews %></div>
-        </div>
-      <% end %>
-    <% else %>
-      <div class="row justify-content-center mt-5"><h3>感想はまだありません</h3></div>
-    <% end %>
-  <% end %>
-
 </div>
+
+<% unless @search_params.blank? %>
+  <% if @reviews.exists? %>
+    <div class="row justify-content-center mt-5"><h3>みんなの感想</h3></div>
+
+    <% @reviews.each do |review| %>
+      <div class="row border p-3 mt-3">
+        <div class="col-lg-4 center">
+          <%= link_to user_path(review.user_id) do %>
+            <%= image_tag review.user.get_profile_image(200,200) %>
+            <p><%= review.user.name %></p>
+          <% end %>
+        </div>
+        <div class="col-lg-7">
+          <%= render 'user/reviews/review', review: review %>
+        </div>
+      </div>
+    <% end %>
+    <div class="row justify-content-center m-5"><%= paginate @reviews %></div>
+  <% else %>
+    <div class="row justify-content-center mt-5"><h3>感想はまだありません</h3></div>
+  <% end %>
+<% end %>
