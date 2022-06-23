@@ -13,6 +13,12 @@ class User::BooksController < ApplicationController
   end
 
 
+  def my_review
+    @book = Book.find(params[:book_id])
+    @my_review = Review.where(book_id: @book.id).where(user_id: current_user.id).order(created_at: :desc).page(params[:page]).per(10)
+  end
+
+
 
   private
   def book_params

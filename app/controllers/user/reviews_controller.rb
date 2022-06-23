@@ -49,6 +49,11 @@ class User::ReviewsController < ApplicationController
     end
   end
 
+  def index
+    @user = User.find(params[:user_id])
+    @reviews = Review.where(user_id: params[:user_id]).order(created_at: :desc).page(params[:page]).per(15)
+  end
+
   def search
     @search_params = review_search_params
     @reviews = Review.search(@search_params).page(params[:page]).per(10)

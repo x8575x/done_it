@@ -21,7 +21,7 @@
   <% else %>
     <div class="col-lg-7 mt-5">
   <% end %>
-    <p><%= @book.item_caption %>)</p>
+    <p><%= @book.item_caption %></p>
     <p>
       <%= @book.publisher_name %>／
       <%= @book.sales_date %>／
@@ -29,11 +29,12 @@
     </p>
   </div>
 
-  <div class="col-lg-3 my- ml-5">
+  <div class="col-lg-3 my- ml-5 center">
     <div class="want_<%= @book.id %>"><%= render 'user/wants/want_btn', book: @book %></div>
     <div class="reading_<%= @book.id %>"><%= render 'user/readings/reading_btn', book: @book %></div>
     <div class="read_<%= @book.id %>"><%= render 'user/reads/read_btn', book: @book %></div>
     <div class="get_<%= @book.id %>"><%= render 'user/gets/get_btn', book: @book %></div>
+    <%= link_to "自分の書いたレビュー", book_my_review_path(@book.isbn), class: "mt-5" %>
   </div>
 </div>
 

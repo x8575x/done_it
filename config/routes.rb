@@ -32,19 +32,20 @@ Rails.application.routes.draw do
       get 'followers' => 'follow_relationships#followers', as: 'followers'
       resource :follow_relationships, only: [:create, :destroy]
 
-      # 読みたい、読んでいる、読んだ、積読いいね一覧ページ
+      # レビュー、読みたい、読んでいる、読んだ、積読いいね一覧ページ
+      get 'reviews' => 'reviews#index', as: 'review'
       get 'wants' => 'wants#index', as: 'want'
       get 'reading' => 'readings#index', as: 'reading'
       get 'reads' => 'reads#index', as: 'read'
       get 'gets' => 'gets#index', as: 'get'
     end
-    
+
     resources :reviews, only: [:create, :new, :edit, :update, :show, :destroy] do
       # レビューコメント、いいね
       resources :comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
-    
+
     # レビュー検索画面
     get 'review/search' => 'reviews#search'
     # ランキング画面
@@ -56,6 +57,9 @@ Rails.application.routes.draw do
       resource :readings, only: [:create, :index, :destroy]
       resource :reads, only: [:create, :index]
       resource :gets, only: [:create, :index, :destroy]
+
+      get 'my_review' => 'books#my_review', as: 'my_review'
+
     end
 
     # 読んだ本は再読機能があるため、独立してread.idで個別に消せるように

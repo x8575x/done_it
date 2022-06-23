@@ -41,6 +41,9 @@
 <%= link_to user_read_path(user), class: "book" do %>
   読んだ本一覧　　　　<%= image_tag 'yonda.png' %>
 <% end %>
+<%= link_to user_review_path(user), class: "book" do %>
+  レビュー一覧　　　　<%= image_tag 'review.png' %>
+<% end %>
 <%= link_to user_get_path(user), class: "book" do %>
   積読本一覧　　　　<%= image_tag 'tundoku.png' %>
 <% end %>
