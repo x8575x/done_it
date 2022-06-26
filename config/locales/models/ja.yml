@@ -17,3 +17,9 @@ ja:
       review:
         type:  本の分類
         long:  本の長さ
+
+
+
+      user:
+        name:  名前
+        sex:  性別

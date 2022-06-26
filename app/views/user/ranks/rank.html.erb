@@ -20,44 +20,35 @@
 </div>
 
 
-  <div class="row justify-content-center">
-    <% @books.each.with_index(1) do |book, i| %>
+<div class="row">
+  <% @books.each.with_index(1) do |book, i| %>
 
-      <% if i == 1 %>
-        <div class="row">
-          <div class="text-warning"><h2><i class="fas fa-chess-king "></i> No.1</h2></div>
-          <%= render 'book', book: book %>
-        </div>
+    <% if i == 1 %>
+      <div class="text-warning"><h2><i class="fas fa-chess-king "></i> No.1</h2></div>
+      <%= render 'book', book: book %>
 
-      <% elsif i == 2 %>
-        <div class="row mt-3">
-          <div class="text-secondary"><h2><i class="fas fa-trophy"></i> No.2</h2></div>
-          <%= render 'book', book: book %>
-        </div>
+    <% elsif i == 2 %>
+      <div class="text-secondary"><h2><i class="fas fa-trophy"></i> No.2</h2></div>
+      <%= render 'book', book: book %>
 
-      <% elsif i == 3 %>
-        <div class="row mt-3">
-          <div class="text-danger"><h2><i class="fas fa-medal"></i> No.3</h2></div>
-          <%= render 'book', book: book %>
-        </div>
+    <% elsif i == 3 %>
+      <div class="text-danger"><h2><i class="fas fa-medal"></i> No.3</h2></div>
+      <%= render 'book', book: book %>
 
-      <% elsif i == 4 %>
-        <div class="row mt-3">
-          <h4>No.4</h4>
-          <%= render 'book', book: book %>
-        </div>
+    <% elsif i == 4 %>
+      <h4>No.4</h4>
+      <%= render 'book', book: book %>
 
-      <% elsif i == 5 %>
-        <div class="row mt-3">
-          <h4>No.5</h4>
-          <%= render 'book', book: book %>
-        </div>
+    <% elsif i == 5 %>
+      <h4>No.5</h4>
+      <%= render 'book', book: book %>
 
-      <% else %>
-        <div class="col-lg-4 mt-5">
-          <h5>No.<%= i %></h5>
-          <%= render 'book_down', book: book %>
-        </div>
-      <% end %>
+    <% else %>
+      <div class="col-lg-4 mt-5">
+        <h5>No.<%= i %></h5>
+        <%= render 'book_down', book: book %>
+      </div>
     <% end %>
-  </div>
+
+  <% end %>
+</div>
