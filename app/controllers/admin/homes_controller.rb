@@ -2,7 +2,7 @@ class Admin::HomesController < ApplicationController
   layout 'admin/application'
 
   def top
-    @reports = Report.all.order(created_at: :desc).page(params[:page]).per(15)
+    @reports = Report.where(is_active: params[:sort]).order(created_at: :desc).page(params[:page]).per(15)
   end
 
 end

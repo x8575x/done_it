@@ -28,7 +28,13 @@
           <ul class="navbar-nav ml-auto">
 
             <li class="nav-item">
-              <%= link_to admin_users_path, class: 'nav-link text-white' do %>
+              <%= link_to admin_top_path(sort: 'false'), class: 'nav-link text-white' do %>
+                <i class="fas fa-bullhorn"></i> Reports
+              <% end %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to admin_users_path(sort: 'false'), class: 'nav-link text-white' do %>
                 <i class="fas fa-users"></i> Users
               <% end %>
             </li>

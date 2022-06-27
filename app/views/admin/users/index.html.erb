@@ -1,5 +1,6 @@
 <h1>会員一覧</h1>
 
+<%= link_to "退会済み", admin_users_path(sort: 'true') %>　｜　<%= link_to "登録中", admin_users_path(sort: 'false') %>
 <table class="table table-bordered table-hover">
   <thead>
     <tr>

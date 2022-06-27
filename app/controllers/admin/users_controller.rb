@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
   layout 'admin/application'
 
   def index
-    @users = User.all.page(params[:page]).per(20)
+    @users = User.where(is_deleted: params[:sort]).order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def show
