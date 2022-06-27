@@ -42,7 +42,7 @@
   <div class="row justify-content-center mt-5"><h3>みんなの感想</h3></div>
 
   <% @reviews.each do |review| %>
-    <div class="row border p-3 mt-3" onclick="window.location.href='<%= review_path(review.id) %>'" role="link">
+    <div class="row border p-3 mt-3">
       <div class="col-lg-3 center">
         <%= link_to user_path(review.user_id) do %>
           <%= image_tag review.user.get_profile_image(200,200) %>

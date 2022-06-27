@@ -4,7 +4,7 @@
     <div class="col-lg-7">
       <% @time_lines.each do |obj| %>
         <% if obj.kind_of?(Review) %>
-          <div class="row border p-1 mb-3" onclick="window.location.href='<%= review_path(obj.id) %>'" role="link">
+          <div class="row border p-1 mb-3">
             <div class="center col-lg-2">
               <%= link_to user_path(obj.user.id) do %>
                 <%= image_tag obj.user.get_profile_image(80,80) %>
@@ -21,7 +21,7 @@
           </div>
 
         <% elsif obj.kind_of?(Want) %>
-          <div class="row border p-1 my-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link">
+          <div class="row border p-1 my-3">
             <div class="center col-lg-2">
               <%= link_to user_path(obj.user.id) do %>
                 <%= image_tag obj.user.get_profile_image(80,80) %>
@@ -29,11 +29,11 @@
               <% end %>
             </div>
             <%= render 'user/wants/action', obj: obj %>
-            <div class="col-lg-2"><%= image_tag(obj.book.image_m) %></div>
+            <div class="col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
           </div>
 
         <% elsif obj.kind_of?(Reading) %>
-          <div class="row border p-1 my-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link">
+          <div class="row border p-1 my-3">
             <div class="center col-lg-2">
               <%= link_to user_path(obj.user.id) do %>
                 <%= image_tag obj.user.get_profile_image(80,80) %>
@@ -41,11 +41,11 @@
               <% end %>
             </div>
             <%= render 'user/readings/action', obj: obj %>
-            <div class="col-lg-2"><%= image_tag(obj.book.image_m) %></div>
+            <div class="col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
           </div>
 
         <% elsif obj.kind_of?(Read) %>
-          <div class="row border p-1 my-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link">
+          <div class="row border p-1 my-3">
             <div class="center col-lg-2">
               <%= link_to user_path(obj.user.id) do %>
                 <%= image_tag obj.user.get_profile_image(80,80) %>
@@ -53,11 +53,11 @@
               <% end %>
             </div>
             <%= render 'user/reads/action', obj: obj %>
-            <div class="col-lg-2"><%= image_tag(obj.book.image_m) %></div>
+            <div class="col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
           </div>
 
         <% else %>
-          <div class="row border p-1 my-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link">
+          <div class="row border p-1 my-3">
             <div class="center col-lg-2">
               <%= link_to user_path(obj.user.id) do %>
                 <%= image_tag obj.user.get_profile_image(80,80) %>
@@ -65,7 +65,7 @@
               <% end %>
             </div>
             <%= render 'user/gets/action', obj: obj %>
-            <div class="col-lg-2"><%= image_tag(obj.book.image_m) %></div>
+            <div class="col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
           </div>
         <% end %>
       <% end %>

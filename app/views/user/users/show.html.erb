@@ -6,8 +6,8 @@
   <div class="col-lg-7">
     <% @user_actions.each do |obj| %>
       <% if obj.kind_of?(Review) %>
-        <div class="border p-3 mb-3" onclick="window.location.href='<%= review_path(obj.id) %>'" role="link">
-          <div class="center mb-2"><%= obj.book.title %></div>
+        <div class="border p-3 mb-3">
+          <div class="center mb-2"><%= image_tag 'review.png' %>　<strong><%= obj.book.title %></strong></div>
           <div class="row">
             <div class="col-lg-3"><%= image_tag(obj.book.image) %></div>
             <div class="col-lg-9"><%= render 'user/reviews/review', review: obj %></div>

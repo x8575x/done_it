@@ -1,11 +1,11 @@
 <!--ログインしていて、いいねがされている場合-->
 <% if user_signed_in? && review.favorit_by?(current_user) %>
-  <%= link_to review_favorites_path(review), method: :delete, remote: true do %>
+  <%= link_to review_favorites_path(review), method: :delete, remote: true, class: "review_link" do %>
     <i class="fas fa-heart"></i><%= review.favorites.count %>
   <% end %>
 <!--ログインしていて、いいねがされていない場合-->
 <% elsif user_signed_in? && !review.favorit_by?(current_user) %>
-  <%= link_to review_favorites_path(review), method: :post, remote: true do %>
+  <%= link_to review_favorites_path(review), method: :post, remote: true, class: "review_link" do %>
     <i class="far fa-heart"></i><%= review.favorites.count %>
   <% end %>
 <!--ログインしていない場合-->

@@ -247,8 +247,9 @@ h3 {
   text-decoration: none;
 }
 
-
-
+.review_link {
+  /*display: flex;*/
+}
 
 
 
