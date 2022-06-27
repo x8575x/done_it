@@ -3,6 +3,8 @@
 
 
   <%= form_with model: @report, url: reports_path, method: :post do |f| %>
+  
+    <%= f.hidden_field :review_id, :value => @review_id %>
 
     <div  id="form" class="row">
       <%= f.label :category,"通報分類", class: "col-lg-4" %><div class="red">＊</div>
