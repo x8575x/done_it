@@ -102,8 +102,8 @@
   <%= form_with model: @user, url: admin_user_path, methos: :patch do |f| %>
     <div class="custom-control custom-radio">
       <%= f.label :is_deleted, '会員ステータス', class: "mr-5" %>
-      <%= f.radio_button :is_deleted, false %> <%= f.label :is_active, "有効", class: "text-success mr-3" %>
-      <%= f.radio_button :is_deleted, true %> <%= f.label :is_active, "退会", class: "text-danger mr-3" %>
+      <%= f.radio_button :is_deleted, false %> <%= f.label :is_deleted, "有効", class: "text-success mr-3" %>
+      <%= f.radio_button :is_deleted, true %> <%= f.label :is_deleted, "退会", class: "text-danger mr-3" %>
       <%= f.submit "変更", class: "btn_submit" %>
     </div>
   <% end %>

@@ -1,0 +1,87 @@
+<div class="center">
+  <h2>内容詳細</h2>
+
+  <div class="show_table mt-5">
+    <table class="table table-bordered">
+      <tr>
+        <td class="tr">通報カテゴリー</td>
+        <td><%= @report.category? %></td>
+      </tr>
+
+      <tr>
+        <td class="tr">内容</td>
+        <% unless @report.comment.nil? %>
+          <td class="warp"><%= safe_join(@report.comment.split("\n"),tag(:br))%></td>
+        <%end %>
+      </tr>
+
+      <% unless @report.review.nil? %>
+        <tr>
+          <td class="tr">通報されたユーザー</td>
+          <td>
+            <p><%= @report.review.user.name %></p>
+            <%= image_tag @report.review.user.get_profile_image(100,100) %>
+            <%= link_to 'ユーザー詳細へ', admin_user_path(@report.review.user.id) %>
+          </td>
+        </tr>
+        <tr>
+          <td class="tr">このレビューが通報された回数</td>
+          <td>
+            <%= @report.review.reports.count %>
+          </td>
+        </tr>
+        <tr>
+          <td class="tr">該当レビュー</td>
+          <td class="warp"><%= safe_join(@report.review.body.split("\n"),tag(:br))%></td>
+        </tr>
+        <tr>
+          <td class="tr">該当レビューネタバレ</td>
+          <td class="warp"><%= safe_join(@report.review.netabare.split("\n"),tag(:br))%></td>
+        </tr>
+        <tr>
+          <td class="tr"></td>
+          <td>
+            <div class="row justify-content-center">
+              <%= link_to "編集", edit_admin_review_path(@report.review), class: "edit col-lg-3" %>
+              <%= link_to "削除", admin_review_path(@report.review), method: :delete, "data-confirm" => "本当に削除しますか？", class: "delete col-lg-3 offset-1" %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="tr">レビューされた本</td>
+          <td>
+            <p>『 <%= @report.review.book.title %> 』</p>
+            <p><%= image_tag(@report.review.book.image) %></p>
+            <p><%= @report.review.book.author %></p>
+            <p>出版：<%= @report.review.book.publisher_name %></p>
+            <p><%= @report.review.book.item_caption %></p>
+          </td>
+        </tr>
+      <%end %>
+
+      <tr>
+        <td class="tr">対応状況</td>
+        <% if @report.is_active == true %>
+          <td class="text-danger">対応済み</td>
+        <% else %>
+          <td class="text-success">対応前</td>
+        <% end %>
+      </tr>
+    </table>
+  </div><br>
+
+
+<div class="row justify-content-center">
+  <%= form_with model: @report, url: admin_report_path, methos: :patch do |f| %>
+    <div class="custom-control custom-radio">
+      <%= f.label :is_active, '対応状況', class: "mr-5" %>
+      <%= f.radio_button :is_active, false %> <%= f.label :is_active, "対応前", class: "text-success mr-3" %>
+      <%= f.radio_button :is_active, true %> <%= f.label :is_active, "対応済み", class: "text-danger mr-3" %>
+      <%= f.submit "変更", class: "btn_submit" %>
+    </div>
+  <% end %>
+</div>
+
+  <br><br><%= link_to "戻る", admin_top_path %><br><br>
+
+</div><br>

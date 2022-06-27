@@ -77,8 +77,8 @@
 
 
 <div class="row justify-content-center mt-5">
-  <div class="col-lg-3"><%= link_to "編集", edit_admin_review_path(@review), class: "edit" %></div>
-  <div class="col-lg-3"><%= link_to "削除", admin_review_path(@review), method: :delete, "data-confirm" => "本当に削除しますか？", class: "delete" %></div>
+  <%= link_to "編集", edit_admin_review_path(@review), class: "edit col-lg-3" %>
+  <%= link_to "削除", admin_review_path(@review), method: :delete, "data-confirm" => "本当に削除しますか？", class: "delete col-lg-3 offset-1" %>
 </div>
 
 <br><br><br>
