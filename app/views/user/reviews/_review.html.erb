@@ -67,7 +67,11 @@
   <span class="favorite_<%= review.id %>">
     <%= render 'user/favorites/favorite_btn' , review: review %>
   </span>
+  <%= link_to new_report_path do %>
+    <i class="fas fa-bullhorn"></i>
+  <% end %>
 </div>
+
 
 <div class="row mt-3 justify-content-center mb-3">
   <% if review.user == current_user %>

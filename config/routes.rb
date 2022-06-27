@@ -23,6 +23,10 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get "/about" => "homes#about"
     resources :searchs, only: [:index]
+
+    # 通報ページ
+    resources :reports, only: [:new, :create]
+
     resources :users, only: [:show, :edit, :update] do
       get 'quit' => 'users#quit'
       patch 'withdraw' => 'users#withdraw'
@@ -57,9 +61,8 @@ Rails.application.routes.draw do
       resource :readings, only: [:create, :index, :destroy]
       resource :reads, only: [:create, :index]
       resource :gets, only: [:create, :index, :destroy]
-
+      # 本に対する自分のレビュー表示画面
       get 'my_review' => 'books#my_review', as: 'my_review'
-
     end
 
     # 読んだ本は再読機能があるため、独立してread.idで個別に消せるように

@@ -4,65 +4,88 @@
     <div class="col-lg-7">
       <% @time_lines.each do |obj| %>
         <% if obj.kind_of?(Review) %>
-          <div class="row border p-1 justify-content-center mb-3">
-            <div class="col-lg-2">
-              <%= image_tag obj.user.get_profile_image(80,80) %></div>
+          <div class="row border p-1 mb-3">
+            <div class="center col-lg-2">
+              <%= link_to user_path(obj.user.id) do %>
+                <%= image_tag obj.user.get_profile_image(80,80) %>
+                <div><%= obj.user.name %></div>
+              <% end %>
+            </div>
             <div class="col-lg-9">
-              <div class="row">
-                <%= obj.user.name %>さんが『<%= obj.book.title %>』のレビューを投稿しました(<%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %>)
-              </div>
-              <div class="row">
-                <%= link_to "レビュー詳細へ", review_path(obj.id), class: "col-lg-4" %>
+              <div><%= obj.book.title %>のレビューを投稿しました</div>
+              <div>(<%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %>)</div>
+              <div>
                 <%= link_to "本の詳細へ", book_path(obj.book_id), class: "col-lg-4" %>
+                <%= link_to "レビュー詳細へ", review_path(obj.id), class: "col-lg-4" %>
               </div>
             </div>
           </div>
+
         <% elsif obj.kind_of?(Want) %>
-          <div class="row border p-1 justify-content-center my-3">
-            <div class="col-lg-2">
-              <%= image_tag obj.user.get_profile_image(80,80) %></div>
+          <div class="row border p-1 my-3">
+            <div class="center col-lg-2">
+              <%= link_to user_path(obj.user.id) do %>
+                <%= image_tag obj.user.get_profile_image(80,80) %>
+                <div><%= obj.user.name %></div>
+              <% end %>
+            </div>
             <div class="col-lg-9">
               <div class="row">
-                <%= obj.user.name %>さんが『<%= obj.book.title %>』を読みたい本に登録しました(<%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %>)
+                『<%= obj.book.title %>』を読みたい本に登録しました(<%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %>)
               </div>
               <div class="row">
                 <%= link_to "本の詳細へ", book_path(obj.book_id), class: "col-lg-6" %>
               </div>
             </div>
           </div>
+
         <% elsif obj.kind_of?(Reading) %>
-          <div class="row border p-1 justify-content-center my-3">
-            <div class="col-lg-2">
-              <%= image_tag obj.user.get_profile_image(80,80) %></div>
+          <div class="row border p-1 my-3">
+            <div class="center col-lg-2">
+              <%= link_to user_path(obj.user.id) do %>
+                <%= image_tag obj.user.get_profile_image(80,80) %>
+                <div><%= obj.user.name %></div>
+              <% end %>
+            </div>
             <div class="col-lg-9">
               <div class="row">
-                <%= obj.user.name %>さんが『<%= obj.book.title %>』を読んでいる本に登録しました(<%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %>)
+                『<%= obj.book.title %>』を読んでいる本に登録しました(<%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %>)
               </div>
               <div class="row">
                 <%= link_to "本の詳細へ", book_path(obj.book_id), class: "col-lg-6" %>
               </div>
             </div>
           </div>
+
         <% elsif obj.kind_of?(Read) %>
-          <div class="row border p-1 justify-content-center my-3">
-            <div class="col-lg-2">
-              <%= image_tag obj.user.get_profile_image(80,80) %></div>
+          <div class="row border p-1 my-3">
+            <div class="center col-lg-2">
+              <%= link_to user_path(obj.user.id) do %>
+                <%= image_tag obj.user.get_profile_image(80,80) %>
+                <div><%= obj.user.name %></div>
+              <% end %>
+            </div>
             <div class="col-lg-9">
               <div class="row">
-                <%= obj.user.name %>さんが『<%= obj.book.title %>』を読んだ本に登録しました(<%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %>)
+                『<%= obj.book.title %>』を読んだ本に登録しました(<%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %>)
               </div>
               <div class="row">
                 <%= link_to "本の詳細へ", book_path(obj.book_id), class: "col-lg-6" %>
               </div>
             </div>
           </div>
+
         <% else %>
-          <div class="row border p-1 justify-content-center my-3">
-            <div class="col-lg-2">
-              <%= image_tag obj.user.get_profile_image(80,80) %></div>
+          <div class="row border p-1 my-3">
+            <div class="center col-lg-2">
+              <%= link_to user_path(obj.user.id) do %>
+                <%= image_tag obj.user.get_profile_image(80,80) %>
+                <div><%= obj.user.name %></div>
+              <% end %>
+            </div>
             <div class="col-lg-9">
               <div class="row">
-                <%= obj.user.name %>さんが『<%= obj.book.title %>』を積読本に登録しました(<%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %>)
+                『<%= obj.book.title %>』を積読本に登録しました(<%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %>)
               </div>
               <div class="row">
                 <%= link_to "本の詳細へ", book_path(obj.book_id), class: "col-lg-6" %>
@@ -71,6 +94,7 @@
           </div>
         <% end %>
       <% end %>
+
       <div class="row justify-content-center offset-1 mt-5"><%= paginate @time_lines %></div>
     </div>
 

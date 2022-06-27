@@ -37,7 +37,6 @@ class User < ApplicationRecord
   # User登録時のバリデーション
   validates :name, presence: true
   validates :birthday, presence: true
-  validates :sex, inclusion: {in: [true, false]}
 
 
   # ユーザープロフィール画像に関する記述
