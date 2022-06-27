@@ -10,7 +10,8 @@ class User::UsersController < ApplicationController
     readings = Reading.where(user_id: @user.id)
     reads = Read.where(user_id: @user.id)
     gets = Get.where(user_id: @user.id)
-    @user_actions = (reviews + wants + readings + reads + gets).sort_by{|x| x.created_at}.last(15).reverse
+    user_actions = (reviews + wants + readings + reads + gets).sort_by{|x| x.created_at}.last(60).reverse
+    @user_actions = Kaminari.paginate_array(user_actions).page(params[:page]).per(15)
   end
 
   def edit
@@ -18,9 +19,10 @@ class User::UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
-    @user.update(user_params)
-    redirect_to user_path(current_user.id)
+    if @user = current_user
+      @user.update(user_params)
+      redirect_to user_path(current_user.id)
+    end
   end
 
   def quit
@@ -40,7 +42,8 @@ class User::UsersController < ApplicationController
     readings = Reading.where(user_id: [current_user.following_ids])
     reads = Read.where(user_id: [current_user.following_ids])
     gets = Get.where(user_id: [current_user.following_ids])
-    @time_lines = (reviews + wants + readings + reads + gets).sort_by{|x| x.created_at}.last(15).reverse
+    time_lines = (reviews + wants + readings + reads + gets).sort_by{|x| x.created_at}.last(60).reverse
+    @time_lines = Kaminari.paginate_array(time_lines).page(params[:page]).per(15)
   end
 
 

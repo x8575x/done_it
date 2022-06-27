@@ -36,11 +36,11 @@ class ApplicationController < ActionController::Base
     if resource_class == User
       devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :name, :birthday, :sex, :introduction, :profile_image, :mystery_active, :birthday_active, :sex_active])
       devise_parameter_sanitizer.permit(:sign_in,keys:[:email])
-      # devise_parameter_sanitizer.permit(:account_update,keys:[:email, :name, :birthday, :sex, :introduction, :profile_image, :mystery_active, :birthday_active, :sex_active])
+      devise_parameter_sanitizer.permit(:account_update,keys:[:email, :name, :birthday, :sex, :introduction, :profile_image, :mystery_active, :birthday_active, :sex_active])
     else #Adminの場合
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:email])
       devise_parameter_sanitizer.permit(:sign_in,keys:[:email])
-      # devise_parameter_sanitizer.permit(:account_update,keys:[:name,:email])
+      devise_parameter_sanitizer.permit(:account_update,keys:[:name,:email])
     end
   end
 
