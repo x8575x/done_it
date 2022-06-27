@@ -1,17 +1,12 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <h3>本当に退会しますか？</h3>
-    </div>
-     <div class="row justify-content-center">
-    <div class="row d-flex align-items-center">
-        <p class="text-center">退会すると、会員登録情報や<br>
-            これまでのレビューや登録した本が閲覧できなくなます。<br>
-            退会する場合は、「退会する」をクリックしてください</p>
-    </div>
-    </div>
+<div class="center">
+  <h2>本当に退会しますか？</h2><br>
 
-        <div class="row justify-content-center col-md">
-            <%= link_to "退会しない", user_path(current_user.id), class: 'btn btn-sm btn-success btn-lg mr-4' %>
-            <%= link_to "退会する", user_withdraw_path, method: :patch, class: 'btn btn-sm btn-danger btn-lg' %>
-        </div>
+  <p>退会すると、会員登録情報や</p>
+  <p>これまでのレビューや登録した本が閲覧できなくなます。</p>
+  <p>退会する場合は、「退会する」をクリックしてください。</p><br>
+
+  <div class="row justify-content-center">
+    <%= link_to "退会しない", user_path(current_user.id), class: 'edit col-lg-3 mr-5' %>
+    <%= link_to "退会する", user_withdraw_path, method: :patch, class: 'delete col-lg-3' %>
+  </div>
 </div>

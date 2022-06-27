@@ -48,7 +48,7 @@
       <tr>
         <td class="tr">自己紹介</td>
         <% unless @user.introduction.nil? %>
-          <td><%= safe_join(@user.introduction.split("\n"),tag(:br))%></td>
+          <td class="warp"><%= safe_join(@user.introduction.split("\n"),tag(:br))%></td>
         <%end %>
       </tr>
       <tr>
