@@ -18,12 +18,7 @@
         <div class="border p-3 mb-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link">
           <div class="row">
             <div class="col-lg-2"><%= image_tag(obj.book.image_m) %></div>
-            <div class="col-lg-8">
-              <div><strong><%= obj.book.title %></strong></div>
-              <div><%= obj.book.author %>/<%= obj.book.publisher_name %></div>
-              <div>を読みたい本に登録しました</div>
-              <div><%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %></div>
-            </div>
+            <%= render 'user/wants/action', obj: obj %>
           </div>
         </div>
 
@@ -31,12 +26,7 @@
         <div class="border p-3 mb-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link">
           <div class="row">
             <div class="col-lg-2"><%= image_tag(obj.book.image_m) %></div>
-            <div class="col-lg-8">
-              <div><strong><%= obj.book.title %></strong></div>
-              <div><%= obj.book.author %>/<%= obj.book.publisher_name %></div>
-              <div>を読んでいる本に登録しました</div>
-              <div><%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %></div>
-            </div>
+            <%= render 'user/readings/action', obj: obj %>
           </div>
         </div>
 
@@ -44,12 +34,7 @@
         <div class="border p-3 mb-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link">
           <div class="row">
             <div class="col-lg-2"><%= image_tag(obj.book.image_m) %></div>
-            <div class="col-lg-8">
-              <div><strong><%= obj.book.title %></strong></div>
-              <div><%= obj.book.author %>/<%= obj.book.publisher_name %></div>
-              <div>を読んだ本に登録しました</div>
-              <div><%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %></div>
-            </div>
+            <%= render 'user/reads/action', obj: obj %>
           </div>
         </div>
 
@@ -57,12 +42,7 @@
         <div class="border p-3 mb-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link">
           <div class="row">
             <div class="col-lg-2"><%= image_tag(obj.book.image_m) %></div>
-            <div class="col-lg-8">
-              <div><strong><%= obj.book.title %></strong></div>
-              <div><%= obj.book.author %>/<%= obj.book.publisher_name %></div>
-              <div>を積読本に登録しました</div>
-              <div><%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %></div>
-            </div>
+            <%= render 'user/gets/action', obj: obj %>
           </div>
         </div>
 

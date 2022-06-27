@@ -1,0 +1,6 @@
+<div class="col-lg-8">
+  <div><%= image_tag 'tundoku.png' %>　<strong><%= obj.book.title %></strong></div>
+  <div><%= obj.book.author %>(<%= obj.book.publisher_name %>)</div>
+  <div>を積読本に登録しました</div>
+  <div><%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %></div>
+</div>
