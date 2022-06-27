@@ -18,7 +18,8 @@ ja:
         type:  本の分類
         long:  本の長さ
 
-
-
       user:
         name:  名前
+
+      report:
+        comment:  詳細

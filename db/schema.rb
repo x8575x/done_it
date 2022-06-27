@@ -142,9 +142,9 @@ ActiveRecord::Schema.define(version: 2022_06_27_134959) do
   end
 
   create_table "reports", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.integer "review_id"
-    t.integer "category"
+    t.integer "category", null: false
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

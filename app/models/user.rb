@@ -23,6 +23,8 @@ class User < ApplicationRecord
   has_many :readings, dependent: :destroy
   has_many :gets, dependent: :destroy
 
+  has_many :reports
+
 
   # フォロー・フォロワーのアソシエーション
   has_many :follow_relationships, class_name: "FollowRelationship", foreign_key: "follower_id", dependent: :destroy

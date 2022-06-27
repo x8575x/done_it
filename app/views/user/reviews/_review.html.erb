@@ -67,8 +67,10 @@
   <span class="favorite_<%= review.id %>">
     <%= render 'user/favorites/favorite_btn' , review: review %>
   </span>
-  <%= link_to new_report_path(review_id: review.id) do %>
-    <i class="fas fa-bullhorn"></i>
+  <% if user_signed_in? %>
+    <%= link_to new_report_path(review_id: review.id) do %>
+      <i class="fas fa-bullhorn"></i>
+    <% end %>
   <% end %>
 </div>
 

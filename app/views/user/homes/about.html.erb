@@ -29,4 +29,9 @@
 
     <h3><i class="fas fa-paperclip"></i> タグについて</h3>
     <%= @tags.count %>種類のタグを用意しております。
+    タグの追加依頼は
+    <%= link_to new_tag_path do %>
+      こちら
+    <% end %>
+    へ
   </div>

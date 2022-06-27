@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
     # 通報ページ
     resources :reports, only: [:new, :create]
+    get "/new_tag" => "reports#new_tag"
+    post "/new_tag" => "reports#new_tag_create"
 
     resources :users, only: [:show, :edit, :update] do
       get 'quit' => 'users#quit'

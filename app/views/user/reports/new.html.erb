@@ -3,12 +3,13 @@
 
 
   <%= form_with model: @report, url: reports_path, method: :post do |f| %>
-  
+    <%= render "layouts/errors", obj: @report %>
+
     <%= f.hidden_field :review_id, :value => @review_id %>
 
     <div  id="form" class="row">
       <%= f.label :category,"通報分類", class: "col-lg-4" %><div class="red">＊</div>
-      <%= f.select :category, {'ネタバレを含む内容が通常の感想記入欄にある': 1, '攻撃的な内容が含まれる': 2, '差別的な内容が含まれている': 3, '不快な内容が含まれている': 4, '差別的な内容が含まれる': 5, 'その他': 6}, { include_blank: '選択してください'} %>
+      <%= f.select :category, {'ネタバレを含む内容が通常の感想記入欄にある': 2, '攻撃的な内容が含まれる': 3, '差別的な内容が含まれている': 4, '不快な内容が含まれている': 5, '差別的な内容が含まれる': 6, 'その他': 7}, { include_blank: '選択してください'} %>
     </div>
 
     <div  id="form" class="row">

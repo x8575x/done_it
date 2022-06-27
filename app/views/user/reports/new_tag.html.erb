@@ -1,0 +1,19 @@
+<div class="center">
+  <h2>タグの追加依頼</h2>
+
+
+  <%= form_with model: @report, url: new_tag_path, method: :post do |f| %>
+    <%= render "layouts/errors", obj: @report %>
+
+    <%= f.hidden_field :category, :value => 1 %>
+
+    <div  id="form" class="row">
+      <%= f.label :body,"タグ説明", class: "col-lg-4" %>
+      <%= f.text_area :comment, class: "form-control col-lg-6", size: "30x10" %>
+    </div>
+
+    <div class="row justify-content-center">
+      <%= f.submit "依頼する", class: "submit_create col-lg-3 m-5" %>
+    </div>
+  <% end %>
+</div>
