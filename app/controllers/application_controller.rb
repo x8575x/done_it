@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   # ログイン後のリダイレクト先
   def after_sign_in_path_for(resource_or_scope)
     if resource.is_a?(Admin)
-      admin_top_path
+      admin_top_path(sort: 'false')
     else
       user_path(current_user)
     end
