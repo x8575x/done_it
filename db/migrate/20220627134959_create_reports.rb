@@ -6,7 +6,8 @@ class CreateReports < ActiveRecord::Migration[6.1]
       t.integer :review_id
       t.integer :category, null: false
       t.text :comment
-
+      t.boolean :is_active, null: false, default: false
+      
       t.timestamps
     end
   end
