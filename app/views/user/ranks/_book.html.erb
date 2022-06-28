@@ -1,9 +1,9 @@
 <div class="row link border p-5" style="width: 100%;" onclick="window.location.href='<%= book_path(book.id) %>'" role="link">
-  <div class="col-lg-2 mr-5 center">
+  <div class="col-lg-2 center">
     <%= image_tag(book.image) %>
   </div>
 
-  <div class="col-lg-9">
+  <div class="col-lg-10">
     <div class="row"><h3>『 <%= book.title %> 』</h3></div>
     <div class="row"><h4><%= book.author %></h4><h5>　(出版：<%= book.publisher_name %>)</h5></div>
     <div class="row"><%= book.item_caption %></div>
