@@ -7,31 +7,122 @@
     こちらのページを参考にレビュー投稿の際はタグ付け頂ければ幸いです。<br><br><br>
 
     <h3><i class="fas fa-book"></i> 分類について</h3>
-    和書　／　邦書　／　洋書　の３種類用意しております。<br><br>
-    <i class="fas fa-check-square"></i> 和書　　日本語で書かれた小説です。　　　　　　　　　　<br>
-    <i class="fas fa-check-square"></i> 邦書　　外国語で書かれた小説を、翻訳したものです。　　<br>
-    <i class="fas fa-check-square"></i> 洋書　　外国語で書かれた小説です。　　　　　　　　　　<br><br><br>
+    和書　／　邦書　／　洋書　の３種類用意しております。<br>
+    <table class="table table-bordered mt-3">
+      <thead>
+        <tr>
+          <th>小説の分類</th>
+          <th>説明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>和書</d>
+          <td>日本語で書かれた小説です。</td>
+        </tr>
+        <tr>
+          <td>邦書</d>
+          <td>外国語で書かれた小説を、翻訳したものです。</td>
+        </tr>
+        <tr>
+          <td>洋書</d>
+          <td>外国語で書かれた小説です。</td>
+        </tr>
+      </tbody>
+    </table><br><br>
 
     <h3><i class="fas fa-ruler"></i> 長さについて</h3>
-    長編　／　中編　／　短編　の３種類用意しております。<br><br>
-    <i class="fas fa-check-square"></i> 長編　　　一冊全てが１つの物語の小説です。　　　　　　<br>
-    <i class="fas fa-check-square"></i> 中編　　　一冊が２～４話の物語に分かれている小説です。<br>
-    <i class="fas fa-check-square"></i> 短編　　　一冊が５話以上の物語に分かれている小説です。<br><br><br>
+    長編　／　中編　／　短編　の３種類用意しております。<br>
+    <table class="table table-bordered mt-3">
+      <thead>
+        <tr>
+          <th>小説の長さ</th>
+          <th>分類</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>短編</d>
+          <td>一冊が５話以上の物語に分かれている小説です。</td>
+        </tr>
+        <tr>
+          <td>中編</d>
+          <td>一冊が２～４話の物語に分かれている小説です。</td>
+        </tr>
+        <tr>
+          <td>長編</d>
+          <td>一冊全てが１つの物語の小説です。</td>
+        </tr>
+      </tbody>
+    </table><br><br>
+
+
 
     <h3><i class="fas fa-search"></i> 謎解き方法について</h3>
     Who done it?　／　Why done it?　／　How done it?　／　叙述トリック　／　倒叙ミステリー　の５種類用意しております。<br>
     <div class="red">※ こちらは小説の内容に大きく関わるため、個人による個別設定で表示するか選択可能です。</div>
-    <i class="fas fa-check-square"></i> Who done it?　　小説内で犯人が「どのように犯行に及んだのか？」を解くものです。　　　　　　　　　　　<br>
-    <i class="fas fa-check-square"></i> Why done it?　　小説内で犯人が「なぜ犯行に及んだのか？」を解くものです。　　　　　　　　　　　　　　<br>
-    <i class="fas fa-check-square"></i> How done it?　　小説内で犯人が「どのように犯行に及んだのか？」を解くものです。　　　　　　　　　　　<br>
-    <i class="fas fa-check-square"></i> 叙述トリック　　先入観などを利用し、文章で記述上の仕掛けによって誤った解釈に導くトリックです。　　　<br>
-    <i class="fas fa-check-square"></i> 倒叙トリック　　物語冒頭で犯人の視点で事件が発生し、犯人と犯行過程がわかった上で読み進める物語です。<br><br><br>
+
+    <table class="table table-bordered mt-3">
+      <thead>
+        <tr>
+          <th>謎解き方法</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Who done it?</d>
+          <td>小説内で犯人が「誰が犯行に及んだのか？」を解くものです。</td>
+        </tr>
+        <tr>
+          <td>Why done it?</d>
+          <td>小説内で犯人が「なぜ犯行に及んだのか？」を解くものです。</td>
+        </tr>
+        <tr>
+          <td>How done it?</d>
+          <td>小説内で犯人が「どのように犯行に及んだのか？」を解くものです。</td>
+        </tr>
+        <tr>
+          <td>叙述トリック</d>
+          <td>先入観などを利用し、文章で記述上の仕掛けによって誤った解釈に導くトリックです。</td>
+        </tr>
+        <tr>
+          <td>倒叙トリック</d>
+          <td>物語冒頭で犯人の視点で事件が発生し、犯人と犯行過程がわかった上で読み進める物語です。</td>
+        </tr>
+        <tr>
+          <td>どんでん返し</d>
+          <td>どんでん返しとは、話の展開や物事、立場や形成などが終盤で正反対に変わること。</td>
+        </tr>
+      </tbody>
+    </table><br><br>
+
+
+
+
 
     <h3><i class="fas fa-paperclip"></i> タグについて</h3>
     <%= @tags.count %>種類のタグを用意しております。
+
+    <table class="table table-bordered mt-3">
+      <thead>
+        <tr>
+          <th>タグ名</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tags.each do |tag| %>
+          <tr>
+            <td><%= tag.name %></td>
+            <td><%= tag.introduction %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table><br>
     タグの追加依頼は
     <%= link_to new_tag_path, class: "link" do %>
       こちら
     <% end %>
-    へ
+    <br><br>
   </div>

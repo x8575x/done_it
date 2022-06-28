@@ -8,7 +8,7 @@
     </div>
     <div class="col-lg-8">
       <div class="body_warp"><%= comment.comment %></div>
-      (<%= comment.created_at.strftime('%Y/%m/%d %I:%M:%S') %>)
+      (<%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>)
       <div class="row justify-content-center mt-2">
         <% if comment.user == current_user %>
           <%= link_to "削除", review_comment_path(comment.review, comment), method: :delete, remote: true, "data-confirm" => "本当に削除しますか？", class: "delete col-lg-2" %>

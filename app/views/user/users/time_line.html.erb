@@ -15,7 +15,7 @@
               <div><%= image_tag 'review.png' %>　<strong><%= obj.book.title %></strong></div>
               <div><%= obj.book.author %>(<%= obj.book.publisher_name %>)</div>
               <div>のレビューを投稿しました</div>
-              <div><%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %></div>
+              <div><%= obj.created_at.strftime('%Y/%m/%d  %H:%M:%S') %></div>
             </div>
             <div class="link col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
           </div>
