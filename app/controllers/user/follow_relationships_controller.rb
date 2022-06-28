@@ -18,13 +18,15 @@ class User::FollowRelationshipsController < ApplicationController
 
   # フォロー一覧
   def followings
-    @user = User.find(params[:user_id])
-    @users = @user.followings.order(created_at: :desc).page(params[:page]).per(15)
+    user = User.find(params[:user_id])
+    # 退会済みのユーザーはフォロー・フォロワーで数えない
+    @users = user.followings.where(is_deleted: false).order(created_at: :desc).page(params[:page]).per(15)
   end
   # フォロワー一覧
   def followers
-    @user = User.find(params[:user_id])
-    @users = @user.followers.order(created_at: :desc).page(params[:page]).per(15)
+    user = User.find(params[:user_id])
+    # 退会済みのユーザーはフォロー・フォロワーで数えない
+    @users = user.followers.where(is_deleted: false).order(created_at: :desc).page(params[:page]).per(15)
   end
 
 end

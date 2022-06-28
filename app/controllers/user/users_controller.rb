@@ -4,6 +4,9 @@ class User::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # 退会済みのユーザーはフォロー・フォロワーで数えない
+    @user_followings = @user.followings.where(is_deleted: false)
+    @user_followers = @user.followers.where(is_deleted: false)
     # ユーザーのアクションを探す
     reviews = Review.where(user_id: @user.id)
     wants = Want.where(user_id: @user.id)

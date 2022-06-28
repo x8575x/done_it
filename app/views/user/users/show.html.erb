@@ -1,7 +1,7 @@
 <!--ユーザー情報表示-->
 <div class="row mt-5">
 
-  <div class="col-lg-4 mr-5"><%= render 'user/users/user_info', user: @user %></div>
+  <div class="col-lg-4 mr-5"><%= render 'user/users/user_info', user: @user, user_followings: @user_followings, user_followers: @user_followers %></div>
 
   <div class="col-lg-7">
     <% @user_actions.each do |obj| %>
