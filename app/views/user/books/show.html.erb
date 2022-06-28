@@ -10,10 +10,12 @@
   <% else %>
     <div class="col-lg-2">
   <% end %>
-    <p><%= image_tag(@book.image) %></p>
-    <%= link_to @book.rakuten_url do %>
-      楽天ブックスへ
-    <% end %>
+    <p class="center">
+      <%= image_tag(@book.image) %><br>
+      <%= link_to @book.rakuten_url do %>
+        楽天ブックスへ
+      <% end %>
+    </p>
   </div>
 
   <% if user_signed_in? %>
@@ -29,7 +31,7 @@
     </p>
   </div>
 
-  <div class="col-lg-3 my- ml-5 center">
+  <div class="col-lg-3 my-3 ml-md-5 center">
     <div class="want_<%= @book.id %>"><%= render 'user/wants/want_btn', book: @book %></div>
     <div class="reading_<%= @book.id %>"><%= render 'user/readings/reading_btn', book: @book %></div>
     <div class="read_<%= @book.id %>"><%= render 'user/reads/read_btn', book: @book %></div>
