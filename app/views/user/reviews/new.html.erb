@@ -44,6 +44,12 @@
       <div  id="form" class="row">
         <%= f.label :tag_id, "タグ", class: "col-lg-4" %>
         <div id="wrap" class="col-lg-6 text-left">
+          タグ付けで迷ったら<%= link_to "about", about_path, target: :_blank, rel: "noopener noreferrer" %>を参考にして下さい
+        </div>
+      </div>
+      <div id="form" class="row">
+        <div class="col-lg-4"></div>
+        <div id="wrap" class="col-lg-6 text-left">
           <%= collection_check_boxes(:review, :tag_ids, Tag.all, :id, :name) do |b| %>
             <%= b.label { b.check_box + b.text } %>
           <% end %>
@@ -59,7 +65,7 @@
       <!--ネタバレ含む感想入力フォーム-->
       <div  id="form" class="row">
         <%= f.label :netabare,"ネタバレ含む", class: "col-lg-4" %>
-        <div class="red col-lg-7">ネタバレを含む内容は<strong>必ず</strong>こちらに書いてください</div>
+        <div class="red col-lg-7 text-left">ネタバレを含む内容は<strong>必ず</strong>こちらに書いてください</div>
       </div>
       <div  id="form" class="row">
         <div class="col-lg-4"></div>
