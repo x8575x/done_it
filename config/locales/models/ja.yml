@@ -17,7 +17,8 @@ ja:
       review:
         type:  本の分類
         long:  本の長さ
-
+      comment:
+        comment:  コメント
       user:
         name:  名前
 
