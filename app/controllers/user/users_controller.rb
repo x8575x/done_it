@@ -46,6 +46,9 @@ class User::UsersController < ApplicationController
   end
 
   def time_line
+    # 退会済みのユーザーはフォロー・フォロワーで数えない
+    @user_followings = current_user.followings.where(is_deleted: false)
+    @user_followers = current_user.followers.where(is_deleted: false)
     # フォローしているユーザーのアクションを探す
     reviews = Review.where(user_id: [current_user.following_ids])
     wants = Want.where(user_id: [current_user.following_ids])

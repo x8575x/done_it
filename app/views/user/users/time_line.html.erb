@@ -1,5 +1,5 @@
   <div class="row mt-5">
-    <div class="col-lg-4 mr-5"><%= render 'user/users/user_info', user: current_user %></div>
+    <div class="col-lg-4 mr-5"><%= render 'user/users/user_info', user: current_user, user_followings: @user_followings, user_followers: @user_followers %></div>
 
     <div class="col-lg-7">
       <% @time_lines.each do |obj| %>
