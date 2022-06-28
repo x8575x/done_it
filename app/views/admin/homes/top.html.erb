@@ -14,7 +14,7 @@
   </thead>
   <tbody>
     <% @reports.each do |report| %>
-      <tr onclick="window.location.href='<%= admin_report_path(report.id) %>'" role="link">
+      <tr class="link" onclick="window.location.href='<%= admin_report_path(report.id) %>'" role="link">
         <td><%= report.id %></td>
         <td><%= report.user.name %></td>
         <td><%= report.category? %></td>

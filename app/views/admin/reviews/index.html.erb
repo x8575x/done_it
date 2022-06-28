@@ -12,7 +12,7 @@
   </thead>
   <tbody>
     <% @reviews.each do |review| %>
-      <tr onclick="window.location.href='<%= admin_review_path(review.id) %>'" role="link">
+      <tr class="link" onclick="window.location.href='<%= admin_review_path(review.id) %>'" role="link">
         <td><%= review.id %></td>
         <td><%= review.user.name %></td>
         <td><%= image_tag review.user.get_profile_image(50,50) %></td>

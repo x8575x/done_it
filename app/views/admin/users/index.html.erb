@@ -13,7 +13,7 @@
   </thead>
   <tbody>
     <% @users.each do |user| %>
-      <tr onclick="window.location.href='<%= admin_user_path(user.id) %>'" role="link">
+      <tr class="link" onclick="window.location.href='<%= admin_user_path(user.id) %>'" role="link">
         <td><%= user.id %></td>
         <td><%= user.name %></td>
         <td><%= image_tag user.get_profile_image(50,50) %></td>
