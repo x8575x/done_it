@@ -28,7 +28,7 @@ class Admin::LongsController < ApplicationController
 
   def index
     @long = Long.new
-    @longs = Long.all
+    @longs = Long.all.page(params[:page]).per(30)
   end
 
   def destroy

@@ -18,7 +18,7 @@ class Admin::DifficultiesController < ApplicationController
   
   def index
     @difficulty = Difficulty.new
-    @difficulties = Difficulty.all
+    @difficulties = Difficulty.all.page(params[:page]).per(30)
   end
 
   def update

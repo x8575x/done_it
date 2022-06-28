@@ -7,8 +7,10 @@
     <div class="row"><h3>『 <%= book.title %> 』</h3></div>
     <div class="row"><h4><%= book.author %></h4><h5>　(出版：<%= book.publisher_name %>)</h5></div>
     <div class="row"><%= book.item_caption %></div>
-    <div class="row mt-1">( レビュー投稿数 <%= book.reviews.count %> | 読みたい本の登録数 <%= book.wants.count %> |
+    <div class="row mt-1">
+      ( レビュー投稿数 <%= book.reviews.count %> | 読みたい本の登録数 <%= book.wants.count %> |
       読んでいる本の登録数 <%= book.readings.count %> | 読んだ本の登録数 <%= book.reads.count %> |
-      積読本の登録数 <%= book.gets.count %> )</div>
+      積読本の登録数 <%= book.gets.count %> )
+    </div>
   </div>
 </div>

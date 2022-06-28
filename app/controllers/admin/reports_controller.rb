@@ -9,7 +9,7 @@ class Admin::ReportsController < ApplicationController
     @report = Report.find(params[:id])
     if @report.update(report_params)
       flash[:notice] = "編集に成功しました"
-      redirect_to admin_top_path(@report)
+      redirect_to admin_top_path(sort: 'false')
     else
       render :show
     end

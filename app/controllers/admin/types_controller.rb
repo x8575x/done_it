@@ -19,7 +19,7 @@ class Admin::TypesController < ApplicationController
 
   def index
     @type = Type.new
-    @types = Type.all
+    @types = Type.all.page(params[:page]).per(30)
   end
 
   def update

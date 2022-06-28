@@ -18,7 +18,7 @@ class Admin::TagsController < ApplicationController
 
   def index
     @tag = Tag.new
-    @tags = Tag.all
+    @tags = Tag.all.page(params[:page]).per(30)
   end
 
   def update

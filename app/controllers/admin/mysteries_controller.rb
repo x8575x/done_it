@@ -18,7 +18,7 @@ class Admin::MysteriesController < ApplicationController
   
   def index
     @mystery = Mystery.new
-    @mysteries = Mystery.all
+    @mysteries = Mystery.all.page(params[:page]).per(30)
   end
 
   def update
