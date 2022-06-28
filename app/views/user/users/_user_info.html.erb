@@ -49,7 +49,7 @@
 <% end %>
 
 <% if user == current_user && user.name != "guestuser" %>
-  <%= link_to edit_user_path(current_user.id), class: "btn btn-secondary btn-block mt-3" do %>
+  <%= link_to edit_user_path(current_user.id), class: "submit_create mt-3" do %>
     <i class="fas fa-user-cog"></i>
   <% end %>
 <% elsif user.name != "guestuser" %>

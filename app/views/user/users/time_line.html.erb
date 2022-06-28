@@ -11,13 +11,13 @@
                 <div><%= obj.user.name %></div>
               <% end %>
             </div>
-            <div class="col-lg-8">
+            <div class="link col-lg-8" onclick="window.location.href='<%= review_path(obj.id) %>'" role="link">
               <div><%= image_tag 'review.png' %>　<strong><%= obj.book.title %></strong></div>
               <div><%= obj.book.author %>(<%= obj.book.publisher_name %>)</div>
               <div>のレビューを投稿しました</div>
               <div><%= obj.created_at.strftime('%Y/%m/%d  %I:%M:%S') %></div>
             </div>
-            <div class="col-lg-2"><%= image_tag(obj.book.image_m) %></div>
+            <div class="link col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
           </div>
 
         <% elsif obj.kind_of?(Want) %>
@@ -29,7 +29,7 @@
               <% end %>
             </div>
             <%= render 'user/wants/action', obj: obj %>
-            <div class="col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
+            <div class="link col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
           </div>
 
         <% elsif obj.kind_of?(Reading) %>
@@ -41,7 +41,7 @@
               <% end %>
             </div>
             <%= render 'user/readings/action', obj: obj %>
-            <div class="col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
+            <div class="link col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
           </div>
 
         <% elsif obj.kind_of?(Read) %>
@@ -53,7 +53,7 @@
               <% end %>
             </div>
             <%= render 'user/reads/action', obj: obj %>
-            <div class="col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
+            <div class="link col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
           </div>
 
         <% else %>
@@ -65,7 +65,7 @@
               <% end %>
             </div>
             <%= render 'user/gets/action', obj: obj %>
-            <div class="col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
+            <div class="link col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
           </div>
         <% end %>
       <% end %>
