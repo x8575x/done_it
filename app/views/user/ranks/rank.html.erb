@@ -24,24 +24,33 @@
   <% @books.each.with_index(1) do |book, i| %>
 
     <% if i == 1 %>
-      <div class="text-warning"><h2><i class="fas fa-chess-king "></i> No.1</h2></div>
-      <%= render 'book', book: book %>
-
+      <div class="col-lg-12">
+        <div class="text-warning"><h2><i class="fas fa-chess-king "></i> No.1</h2></div>
+        <%= render 'book', book: book %>
+      </div>
     <% elsif i == 2 %>
-      <div class="text-secondary"><h2><i class="fas fa-trophy"></i> No.2</h2></div>
-      <%= render 'book', book: book %>
+      <div class="col-lg-12">
+        <div class="text-secondary"><h2><i class="fas fa-trophy"></i> No.2</h2></div>
+        <%= render 'book', book: book %>
+      </div>
 
     <% elsif i == 3 %>
-      <div class="text-danger"><h2><i class="fas fa-medal"></i> No.3</h2></div>
-      <%= render 'book', book: book %>
+      <div class="col-lg-12">
+        <div class="text-danger"><h2><i class="fas fa-medal"></i> No.3</h2></div>
+        <%= render 'book', book: book %>
+      </div>
 
     <% elsif i == 4 %>
-      <div><h4>No.4</h4></div>
-      <%= render 'book', book: book %>
+      <div class="col-lg-12">
+        <h4>No.4</h4>
+        <%= render 'book', book: book %>
+      </div>
 
     <% elsif i == 5 %>
-      <div><h4>No.5</h4></div>
-      <%= render 'book', book: book %>
+      <div class="col-lg-12">
+        <h4>No.5</h4>
+        <%= render 'book', book: book %>
+      </div>
 
     <% else %>
       <div class="col-lg-4 mt-5">
