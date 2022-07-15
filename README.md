@@ -69,7 +69,10 @@
 
 >  **設計書**
 
-作成中です
+- テーブル定義書  
+https://docs.google.com/spreadsheets/d/1uuu6hFT3xOUHY9X0rIAPd8n7k5YmRyl_J2OCiWwSsXw/edit?usp=sharing  
+- ER図  
+https://drive.google.com/file/d/1mjuvnCZDaLuh4vcFm4BZHG6s0D-r8X1i/view?usp=sharing  
 
 <br><br>
 
@@ -85,9 +88,10 @@
 
 > **使用素材**
 
-- 使用検討中です
+- https://icooon-mono.com/
+- https://fontawesome.com/
 
-
+<br><br>
 
 
 
