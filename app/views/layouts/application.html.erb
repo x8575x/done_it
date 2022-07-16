@@ -33,8 +33,8 @@
               <% if user_signed_in? %>
               <!--ログイン済みのヘッダー-->
                 <li class="nav-item">
-                  <%= link_to searchs_path, class: 'nav-link text-white' do %>
-                    <i class="fas fa-book"></i> Seach
+                  <%= link_to searches_path, class: 'nav-link text-white' do %>
+                    <i class="fas fa-book"></i> Book seach
                   <% end %>
                 </li>
                 <li class="nav-item">
@@ -49,7 +49,7 @@
                 </li>
                 <li class="nav-item">
                   <%= link_to review_search_path, class: 'nav-link text-white' do %>
-                    <i class="fas fa-search"></i> Review search
+                    <i class="fas fa-file-alt"></i> Review search
                   <% end %>
                 </li>
                 <li class="nav-item">

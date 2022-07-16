@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   scope module: 'user' do
     root to: "homes#top"
     get "/about" => "homes#about"
-    resources :searchs, only: [:index]
+    resources :searches, only: [:index]
 
     # 通報ページ
     resources :reports, only: [:new, :create]
