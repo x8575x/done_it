@@ -1,4 +1,0 @@
-  $(".want_<%= @book.id %>").html("<%= escape_javascript(render partial: 'user/wants/want_btn', locals: {book: @book}) %>");
-  $(".reading_<%= @book.id %>").html("<%= escape_javascript(render partial: 'user/readings/reading_btn', locals: {book: @book}) %>");
-  $(".read_<%= @book.id %>").html("<%= escape_javascript(render partial: 'user/reads/read_btn', locals: {book: @book}) %>");
-  $(".get_<%= @book.id %>").html("<%= escape_javascript(render partial: 'user/gets/get_btn', locals: {book: @book}) %>");

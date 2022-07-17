@@ -4,13 +4,13 @@ Rails.application.routes.draw do
 
   # ゲストログイン用
   devise_scope :user do
-    post 'user/guest_sign_in', to: 'user/sessions#guest_sign_in'
+    post 'user/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
 
   # 顧客用 URL /users/sign_in ...
   devise_for :user,skip: [:passwords], controllers: {
-    registrations: "user/registrations",
-    sessions: 'user/sessions'
+    registrations: "public/registrations",
+    sessions: 'public/sessions'
   }
 
   # 管理者用 URL /admin/sign_in ...
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   }
 
   # user routes
-  scope module: 'user' do
+  scope module: 'public' do
     root to: "homes#top"
     get "/about" => "homes#about"
     resources :searches, only: [:index]

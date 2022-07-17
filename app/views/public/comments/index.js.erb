@@ -1,0 +1,2 @@
+  $(".index_<%= @review.id %>").html("<%= escape_javascript(render partial: 'public/comments/comment_index', locals: {comments: @comments}) %>");
+  $('#review_comment').val("");
