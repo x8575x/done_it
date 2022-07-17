@@ -1,8 +1,8 @@
 <div class="center">
   <h2>ログイン</h2>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= render "public/shared/error_messages", resource: resource %>
+  <%= form_with model: @admin, url: admin_session_path do |f| %>
+    <%= render "admin/shared/error_messages", resource: resource %>
 
     <div id="form" class="row">
       <%= f.label :email, "メールアドレス", class: "col-lg-4" %>
