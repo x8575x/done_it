@@ -1,0 +1,82 @@
+  <div class="row mt-5">
+    <div class="col-lg-4 mr-5"><%= render 'public/users/user_info', user: current_user, user_followings: @user_followings, user_followers: @user_followers %></div>
+
+    <div class="col-lg-7">
+      <% @time_lines.each do |obj| %>
+
+        <!--レビューの表示-->
+        <% if obj.kind_of?(Review) %>
+          <div class="row border p-3 mb-3">
+            <div class="center col-lg-2">
+              <%= link_to user_path(obj.user.id) do %>
+                <%= image_tag obj.user.get_profile_image(80,80) %>
+                <div><%= obj.user.name %></div>
+              <% end %>
+            </div>
+            <div class="link col-lg-8" onclick="window.location.href='<%= review_path(obj.id) %>'" role="link">
+              <div><%= image_tag 'review.png' %>　<strong><%= obj.book.title %></strong></div>
+              <div><%= obj.book.author %>(<%= obj.book.publisher_name %>)</div>
+              <div>のレビューを投稿しました</div>
+              <div><%= obj.created_at.strftime('%Y/%m/%d  %H:%M:%S') %></div>
+            </div>
+            <div class="link col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
+          </div>
+
+        <!--読みたい本の表示-->
+        <% elsif obj.kind_of?(Want) %>
+          <div class="row border p-3 my-3">
+            <div class="center col-lg-2">
+              <%= link_to user_path(obj.user.id) do %>
+                <%= image_tag obj.user.get_profile_image(80,80) %>
+                <div><%= obj.user.name %></div>
+              <% end %>
+            </div>
+            <%= render 'public/wants/action', obj: obj %>
+            <div class="link col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
+          </div>
+
+        <!--読んでいる本の表示-->
+        <% elsif obj.kind_of?(Reading) %>
+          <div class="row border p-3 my-3">
+            <div class="center col-lg-2">
+              <%= link_to user_path(obj.user.id) do %>
+                <%= image_tag obj.user.get_profile_image(80,80) %>
+                <div><%= obj.user.name %></div>
+              <% end %>
+            </div>
+            <%= render 'public/readings/action', obj: obj %>
+            <div class="link col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
+          </div>
+
+        <!--読んだ本の表示-->
+        <% elsif obj.kind_of?(Read) %>
+          <div class="row border p-3 my-3">
+            <div class="center col-lg-2">
+              <%= link_to user_path(obj.user.id) do %>
+                <%= image_tag obj.user.get_profile_image(80,80) %>
+                <div><%= obj.user.name %></div>
+              <% end %>
+            </div>
+            <%= render 'public/reads/action', obj: obj %>
+            <div class="link col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
+          </div>
+
+        <!--積読本の表示-->
+        <% else %>
+          <div class="row border p-3 my-3">
+            <div class="center col-lg-2">
+              <%= link_to user_path(obj.user.id) do %>
+                <%= image_tag obj.user.get_profile_image(80,80) %>
+                <div><%= obj.user.name %></div>
+              <% end %>
+            </div>
+            <%= render 'public/gets/action', obj: obj %>
+            <div class="link col-lg-2" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image_m) %></div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <div class="row justify-content-center offset-1 mt-5"><%= paginate @time_lines %></div>
+    </div>
+
+  </div>

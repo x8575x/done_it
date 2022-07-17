@@ -1,0 +1,23 @@
+<div class="row justify-content-center mb-3">
+
+  <% if users.exists? %>
+    <% users.each do |user| %>
+        <div class="center col-lg-3 border p-3 mr-3">
+          <%= link_to user_path(user.id) do %>
+            <div><%= user.name %></div>
+            <%= image_tag user.get_profile_image(150,150) %>
+          <% end %>
+          <div>レビュー数：<%= user.reviews.count %>件</div>
+          <div>読みたい本：<%= user.wants.count %>冊</div>
+          <div>読んでる本：<%= user.readings.count %>冊</div>
+          <div>読んだ本：<%= user.reads.count %>冊</div>
+          <div>積読本：<%= user.gets.count %>冊</div>
+        <% unless  user == current_user %>
+          <div class="follow_btn_<%= user.id %>"><%= render 'public/follow_relationships/follow_btn', user: user %></div>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    ユーザーはいません
+  <% end %>
+</div>

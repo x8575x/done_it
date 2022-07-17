@@ -1,0 +1,62 @@
+<!--ユーザー情報表示-->
+<div class="row mt-5">
+
+  <div class="col-lg-4 mr-5"><%= render 'public/users/user_info', user: @user, user_followings: @user_followings, user_followers: @user_followers %></div>
+
+  <div class="col-lg-7">
+    <% @user_actions.each do |obj| %>
+    
+      <!--レビューの表示-->
+      <% if obj.kind_of?(Review) %>
+        <div class="border p-3 mb-3">
+          <div class="center mb-2"><%= image_tag 'review.png' %>　<strong><%= obj.book.title %></strong></div>
+          <div class="row">
+            <div class="link col-lg-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image) %></div>
+            <div class="col-lg-9"><%= render 'public/reviews/review', review: obj %></div>
+          </div>
+        </div>
+        
+      <!--読みたい本の表示-->
+      <% elsif obj.kind_of?(Want) %>
+        <div class="link border p-3 mb-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link">
+          <div class="row">
+            <div class="col-lg-2"><%= image_tag(obj.book.image_m) %></div>
+            <%= render 'public/wants/action', obj: obj %>
+          </div>
+        </div>
+        
+      <!--読んでいる本の表示-->
+      <% elsif obj.kind_of?(Reading) %>
+        <div class="link border p-3 mb-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link">
+          <div class="row">
+            <div class="col-lg-2"><%= image_tag(obj.book.image_m) %></div>
+            <%= render 'public/readings/action', obj: obj %>
+          </div>
+        </div>
+      
+      <!--読んだ本の表示-->
+      <% elsif obj.kind_of?(Read) %>
+        <div class="link border p-3 mb-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link">
+          <div class="row">
+            <div class="col-lg-2"><%= image_tag(obj.book.image_m) %></div>
+            <%= render 'public/reads/action', obj: obj %>
+          </div>
+        </div>
+        
+      <!--積読本の表示-->
+      <% else %>
+        <div class="link border p-3 mb-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link">
+          <div class="row">
+            <div class="col-lg-2"><%= image_tag(obj.book.image_m) %></div>
+            <%= render 'public/gets/action', obj: obj %>
+          </div>
+        </div>
+
+      <% end %>
+
+    <% end %>
+    <div class="row justify-content-center offset-1 mt-5"><%= paginate @user_actions %></div>
+
+
+  </div>
+</div>
