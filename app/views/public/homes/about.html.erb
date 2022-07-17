@@ -117,9 +117,9 @@
         <% end %>
       </tbody>
     </table><br>
-    タグの追加依頼は
-    <%= link_to new_tag_path, class: "link" do %>
-      こちら
+    <% if user_signed_in? %>
+      タグの追加依頼は
+      <%= link_to 'こちら', new_tag_path, class: "link" %>
     <% end %>
     <br><br>
   </div>
