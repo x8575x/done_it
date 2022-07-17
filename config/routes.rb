@@ -41,7 +41,7 @@ Rails.application.routes.draw do
       # レビュー、読みたい、読んでいる、読んだ、積読いいね一覧ページ
       get 'reviews' => 'reviews#index', as: 'review'
       get 'wants' => 'wants#index', as: 'want'
-      get 'reading' => 'readings#index', as: 'reading'
+      get 'readings' => 'readings#index', as: 'reading'
       get 'reads' => 'reads#index', as: 'read'
       get 'gets' => 'gets#index', as: 'get'
     end
