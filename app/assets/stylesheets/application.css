@@ -220,7 +220,7 @@ h4 {
 
 
 
-/*userページ*/
+/*publicページ*/
 
 /*文章改行設定*/
 .body_warp{
@@ -289,6 +289,13 @@ h4 {
 .book:hover {
   text-decoration: none;
   cursor: url(mouse.png), auto;
+}
+
+/*文字の…表示*/
+.text-overflow {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 

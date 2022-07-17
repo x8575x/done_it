@@ -1,11 +1,12 @@
-<div class="row justify-content-center offset-1 mt-5">
+<div class="row justify-content-center mb-5">
 
   <% wants.each do |want| %>
-    <div class="link col-lg-2 border p-3 m-3" onclick="window.location.href='<%= book_path(want.book.id) %>'" role="link">
-      <div class="row justify-content-center text-center mb-3"><%= want.book.title %></div>
-      <div class="row justify-content-center mb-3"><%= image_tag(want.book.image_m) %></div>
-      <div class="row justify-content-center mb-3"><%= want.book.author %></div>
-      <div class="row justify-content-center mb-3"><%= want.book.publisher_name %></div>
+    <div class="col-lg-2 center border pt-3 m-3" onclick="window.location.href='<%= book_path(want.book.id) %>'" role="link">
+      <p class="text-overflow"><strong><%= want.book.title %></strong></p>
+      <p><%= image_tag(want.book.image) %></p>
+      <p class="text-overflow"><%= want.book.author %></p>
+      <p class="text-overflow"><%= want.book.publisher_name %></p>
+      <p><%= want.created_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
     </div>
   <% end %>
 </div>

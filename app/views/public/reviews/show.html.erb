@@ -13,9 +13,7 @@
       <div class="get_<%= @review.book.id %>"><%= render 'public/gets/get_btn', book: @review.book %></div>
     </p>
     <p class="mt-36 text-center">
-      <%= link_to book_path(@review.book_id) do %>
-        本の詳細ページへ戻る
-      <% end %>
+      <%= link_to '本の詳細ページへ', book_path(@review.book_id) %>
     </p>
   </div>
 

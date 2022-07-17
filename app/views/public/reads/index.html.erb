@@ -7,10 +7,11 @@
   <% @reads.each do |read| %>
     <div class="col-lg-2 border pt-3 m-3">
       <div class="link center" onclick="window.location.href='<%= book_path(read.book.id) %>'" role="link">
-        <p><%= read.book.title %></p>
-        <p><%= image_tag(read.book.image_m) %></p>
-        <p><%= read.book.author %></p>
-        <p><%= read.book.publisher_name %></p>
+        <p class="text-overflow"><strong><%= read.book.title %></strong></p>
+        <p><%= image_tag(read.book.image) %></p>
+        <p class="text-overflow"><%= read.book.author %></p>
+        <p class="text-overflow"><%= read.book.publisher_name %></p>
+        <p><%= read.created_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
       </div>
       <% if user_signed_in? && read.user == current_user %>
         <%= link_to read_path(read.id), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
