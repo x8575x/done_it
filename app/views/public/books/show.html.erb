@@ -36,7 +36,7 @@
     <div class="reading_<%= @book.id %>"><%= render 'public/readings/reading_btn', book: @book %></div>
     <div class="read_<%= @book.id %>"><%= render 'public/reads/read_btn', book: @book %></div>
     <div class="get_<%= @book.id %>"><%= render 'public/gets/get_btn', book: @book %></div>
-    <% if user_signed_in? %>
+    <% if user_signed_in? && @my_review.exists? %>
       <%= link_to "自分の書いたレビュー", book_my_review_path(@book.isbn), class: "mt-5" %>
     <% end %>
   </div>

@@ -10,6 +10,7 @@ class Public::BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @reviews = Review.where(book_id: params[:id]).order(created_at: :desc).page(params[:page]).per(15)
+    @my_review = Review.where(book_id: @book.id).where(user_id: current_user.id)
   end
 
 
