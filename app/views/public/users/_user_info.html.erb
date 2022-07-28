@@ -55,3 +55,7 @@
 <% elsif user.name != "guestuser" %>
   <div class="follow_btn_<%= user.id %>"><%= render 'public/follow_relationships/follow_btn', user: user %></div>
 <% end %>
+
+<% if current_user != user && current_user.following?(user) && user.following?(current_user) %>
+  <%= link_to 'chatを始める', direct_message_path(user.id), class: "ml-3" %>
+<% end %>

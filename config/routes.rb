@@ -29,6 +29,9 @@ Rails.application.routes.draw do
     get "/new_tag" => "reports#new_tag"
     post "/new_tag" => "reports#new_tag_create"
 
+    # DM機能
+    resources :direct_messages, only: [:show, :create]
+
     resources :users, only: [:show, :edit, :update] do
       get 'quit' => 'users#quit'
       patch 'withdraw' => 'users#withdraw'
