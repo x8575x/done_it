@@ -25,6 +25,10 @@ class User < ApplicationRecord
 
   has_many :reports
 
+  has_many :dm_relationships
+  has_many :direct_massages
+  has_many :dm_rooms, through: :dm_relationships
+
 
   # フォロー・フォロワーのアソシエーション
   has_many :follow_relationships, class_name: "FollowRelationship", foreign_key: "follower_id", dependent: :destroy
