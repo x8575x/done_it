@@ -1,15 +1,25 @@
 <h1 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>">
-<%= @user.name %> さんとのチャット</h1>
+<%= @user.name %></h1>
 
-<div class="message" style="width: 400px;">
   <% @messages.each do |direct_message| %>
     <% if direct_message.user_id == current_user.id %>
-      <p style="text-align: right;"><%= direct_message.message %></p>
+      <div class="row justify-content-end">
+        <div class="col-md-6 text-right">
+          <div class="send text-left"><%= direct_message.message %></div>
+          <div><%= direct_message.created_at.strftime('%Y/%m/%d %H:%M:%S') %></div>
+        </div>
+      </div>
     <% else %>
-      <p style="text-align: left;"><%= direct_message.message %></p>
+      <div class="row justify-content-start">
+        <div class="receive col-md-6">
+          <%= image_tag direct_message.user.profile_image, class: "dm_image" %>
+          <%= direct_message.message %>
+          <div><%= direct_message.created_at.strftime('%Y/%m/%d %H:%M:%S') %></div>
+        </div>
+      </div>
     <% end %>
   <% end %>
-</div>
+
 
 <div class="errors">
   <%= render "layouts/errors", obj: @message %>
