@@ -1,20 +1,15 @@
 <div class="center">
-
-    <%= form_with url:searches_path, method: :get do |f| %>
-      <div class="form-group mt-5">
-        <%= f.text_field :title, placeholder: "タイトル" %>
-        <%= f.text_field :author, placeholder: "著者" %>
-        <%= f.submit "検索",class: "btn_submit" %>
-      </div>
-    <% end %>
-
+  <%= form_with url:searches_path, method: :get do |f| %>
+    <div class="form-group mt-5">
+      <%= f.text_field :title, placeholder: "タイトル" %>
+      <%= f.text_field :author, placeholder: "著者" %>
+      <%= f.submit "検索",class: "btn_submit" %>
+    </div>
+  <% end %>
 </div>
-
-
 
 <div class="center">
   <% if @searches.present? %>
-
     <h2>検索結果　(<%= @searches.response.count %>冊)</h2>
     <div class="row justify-content-center">
       <% @searches.each do |search| %>
@@ -23,7 +18,6 @@
           <p><%= image_tag(search.large_image_url) %></p>
           <p><%= search.author %></p>
           <p><%= search.publisher_name %></p>
-
           <%  unless Book.exists?(isbn: search.isbn) %>
             <%= form_with model: @book, url: books_path, method: :post do |f| %>
               <%= f.hidden_field :title, :value => search.title %>
@@ -36,7 +30,6 @@
               <%= f.hidden_field :image, :value => search.large_image_url %>
               <%= f.hidden_field :image_m, :value => search.medium_image_url %>
               <%= f.hidden_field :rakuten_url, :value => search.item_url %>
-
               <%= f.submit '詳細へ', class: "edit btn-block" %>
             <% end %>
           <% else %>
@@ -49,7 +42,3 @@
     <h2>検索結果 0件</h2>
   <% end %>
 </div>
-
-
-
-
