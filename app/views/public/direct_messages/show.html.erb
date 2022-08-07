@@ -26,7 +26,7 @@
 </div>
 
 <%= form_with model: @message do |f| %>
-  <%= f.text_field :message %>
+  <%= f.text_field :message, class: "col-md-11"  %>
   <%= f.hidden_field :dm_room_id %>
-  <%= f.submit '送信' %>
+  <%= f.submit '送信', class: "btn_submit" %>
 <% end %>

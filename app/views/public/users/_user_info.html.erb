@@ -48,6 +48,12 @@
   積読本一覧　　　　<%= image_tag 'tundoku.png' %>
 <% end %>
 
+<% if current_user != user && current_user.following?(user) && user.following?(current_user) %>
+  <%= link_to  direct_message_path(user.id), class: "submit_create mt-3" do %>
+    <i class="far fa-envelope"></i>　メッセージを送る
+  <% end %>
+<% end %>
+
 <% if user == current_user && user.name != "guestuser" %>
   <%= link_to edit_user_path(current_user.id), class: "submit_create mt-3" do %>
     <i class="fas fa-user-cog"></i>
@@ -56,6 +62,3 @@
   <div class="follow_btn_<%= user.id %>"><%= render 'public/follow_relationships/follow_btn', user: user %></div>
 <% end %>
 
-<% if current_user != user && current_user.following?(user) && user.following?(current_user) %>
-  <%= link_to 'chatを始める', direct_message_path(user.id), class: "ml-3" %>
-<% end %>
