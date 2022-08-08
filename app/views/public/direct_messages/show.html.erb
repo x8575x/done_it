@@ -1,6 +1,7 @@
 <h1 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>">
 <%= @user.name %></h1>
 
+<div class="message">
   <% @messages.each do |direct_message| %>
     <% if direct_message.user_id == current_user.id %>
       <div class="row justify-content-end">
@@ -19,13 +20,14 @@
       </div>
     <% end %>
   <% end %>
+</div>
 
 
 <div class="errors">
   <%= render "layouts/errors", obj: @message %>
 </div>
 
-<%= form_with model: @message do |f| %>
+<%= form_with model: @message, local: false do |f| %>
   <%= f.text_field :message, class: "col-md-11"  %>
   <%= f.hidden_field :dm_room_id %>
   <%= f.submit '送信', class: "btn_submit" %>
