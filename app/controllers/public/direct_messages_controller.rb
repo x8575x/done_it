@@ -14,7 +14,7 @@ class Public::DirectMessagesController < ApplicationController
       DmRelationship.create(user_id: current_user.id, dm_room_id: @room.id)
       DmRelationship.create(user_id: @user.id, dm_room_id: @room.id)
     end
-    @messages = @room.direct_messages
+    @direct_messages = @room.direct_messages
     @message = DirectMessage.new(dm_room_id: @room.id)
   end
   def create

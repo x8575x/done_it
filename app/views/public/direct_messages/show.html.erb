@@ -2,7 +2,7 @@
 <%= @user.name %></h1>
 
 <div class="message">
-  <% @messages.each do |direct_message| %>
+  <% @direct_messages.each do |direct_message| %>
     <% if direct_message.user_id == current_user.id %>
       <div class="row justify-content-end">
         <div class="col-md-6 text-right">
