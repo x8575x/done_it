@@ -6,8 +6,10 @@
     <% if direct_message.user_id == current_user.id %>
       <div class="row justify-content-end">
         <div class="col-md-6 text-right">
-          <div class="send text-left"><%= direct_message.message %></div>
-          <div><%= direct_message.created_at.strftime('%Y/%m/%d %H:%M:%S') %></div>
+          <div class="test">
+            <div class="send text-left"><%= direct_message.message %></div>
+            <div><%= direct_message.created_at.strftime('%Y/%m/%d %H:%M:%S') %></div>
+          </div>
         </div>
       </div>
     <% else %>

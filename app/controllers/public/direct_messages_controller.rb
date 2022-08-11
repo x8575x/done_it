@@ -21,11 +21,9 @@ class Public::DirectMessagesController < ApplicationController
   def create
     @message = DirectMessage.new(direct_message_params)
     @message.user_id = current_user.id
-    if @message.save
-      @room = DmRoom.find(params[:id])
-      @direct_messages = @room.direct_messages
-      render :create
-    end
+    @message.save
+    @room = DmRoom.find(params[:direct_message][:dm_room_id])
+    @direct_messages = @room.direct_messages
   end
 
   private
