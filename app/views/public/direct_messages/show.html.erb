@@ -2,26 +2,7 @@
 <%= @user.name %></h1>
 
 <div class="message">
-  <% @direct_messages.each do |direct_message| %>
-    <% if direct_message.user_id == current_user.id %>
-      <div class="row justify-content-end">
-        <div class="col-md-6 text-right">
-          <div class="test">
-            <div class="send text-left"><%= direct_message.message %></div>
-            <div><%= direct_message.created_at.strftime('%Y/%m/%d %H:%M:%S') %></div>
-          </div>
-        </div>
-      </div>
-    <% else %>
-      <div class="row justify-content-start">
-        <div class="receive col-md-6">
-          <%= image_tag direct_message.user.profile_image, class: "dm_image" %>
-          <%= direct_message.message %>
-          <div><%= direct_message.created_at.strftime('%Y/%m/%d %H:%M:%S') %></div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+ <%= render "message", direct_messages: @direct_messages %>
 </div>
 
 
