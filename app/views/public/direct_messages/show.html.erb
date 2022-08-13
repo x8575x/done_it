@@ -6,10 +6,6 @@
 </div>
 
 
-<div class="errors">
-  <%= render "layouts/errors", obj: @message %>
-</div>
-
 <%= form_with model: @message, local: false do |f| %>
   <%= f.text_field :message, class: "col-md-11"  %>
   <%= f.hidden_field :dm_room_id %>
