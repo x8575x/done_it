@@ -11,8 +11,8 @@
         <div class="border p-3 mb-3">
           <div class="center mb-2"><%= image_tag 'review.png' %>　<strong><%= obj.book.title %></strong></div>
           <div class="row">
-            <div class="link col-lg-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image) %></div>
-            <div class="col-lg-9"><%= render 'public/reviews/review', review: obj %></div>
+            <div class="link col-lg-4 text-center" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link"><%= image_tag(obj.book.image) %></div>
+            <div class="col-lg-8"><%= render 'public/reviews/review', review: obj %></div>
           </div>
         </div>
 
@@ -20,7 +20,7 @@
       <% elsif obj.kind_of?(Want) %>
         <div class="link border p-3 mb-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link">
           <div class="row">
-            <div class="col-md-3"><%= image_tag(obj.book.image_m) %></div>
+            <div class="col-md-3 text-center"><%= image_tag(obj.book.image_m) %></div>
             <%= render 'public/wants/action', obj: obj %>
           </div>
         </div>
@@ -29,7 +29,7 @@
       <% elsif obj.kind_of?(Reading) %>
         <div class="link border p-3 mb-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link">
           <div class="row">
-            <div class="col-md-3"><%= image_tag(obj.book.image_m) %></div>
+            <div class="col-md-3 text-center"><%= image_tag(obj.book.image_m) %></div>
             <%= render 'public/readings/action', obj: obj %>
           </div>
         </div>
@@ -38,7 +38,7 @@
       <% elsif obj.kind_of?(Read) %>
         <div class="link border p-3 mb-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link">
           <div class="row">
-            <div class="col-md-3"><%= image_tag(obj.book.image_m) %></div>
+            <div class="col-md-3 text-center"><%= image_tag(obj.book.image_m) %></div>
             <%= render 'public/reads/action', obj: obj %>
           </div>
         </div>
@@ -47,7 +47,7 @@
       <% else %>
         <div class="link border p-3 mb-3" onclick="window.location.href='<%= book_path(obj.book.id) %>'" role="link">
           <div class="row">
-            <div class="col-md-3"><%= image_tag(obj.book.image_m) %></div>
+            <div class="col-md-3 text-center"><%= image_tag(obj.book.image_m) %></div>
             <%= render 'public/gets/action', obj: obj %>
           </div>
         </div>
