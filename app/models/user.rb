@@ -34,6 +34,11 @@ class User < ApplicationRecord
   has_many :follow_relationships, class_name: "FollowRelationship", foreign_key: "follower_id", dependent: :destroy
   has_many :reverse_of_follow_relationships, class_name: "FollowRelationship", foreign_key: "followed_id", dependent: :destroy
 
+  # 通知機能のアソシエーション
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+
+
   # Viewで使用する参照カラム指定
   has_many :followings, through: :follow_relationships, source: :followed
   has_many :followers, through: :reverse_of_follow_relationships, source: :follower

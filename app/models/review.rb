@@ -20,8 +20,12 @@ class Review < ApplicationRecord
   # Review - Tag -TagRelationshipのアソシエーション
   has_many :tag_relationships
   has_many :tags, through: :tag_relationships
-
+  
+  # 新規作成依頼のアソシエーション
   has_many :reports
+  
+  # 通知機能のアソシエーション
+  has_many :notifications, dependent: :destroy
 
   # Viewで使用するメソッド
   def favorit_by?(user)
