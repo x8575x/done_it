@@ -47,6 +47,10 @@ Rails.application.routes.draw do
       get 'readings' => 'readings#index', as: 'reading'
       get 'reads' => 'reads#index', as: 'read'
       get 'gets' => 'gets#index', as: 'get'
+
+      # 通知画面
+      resources :notifications, only: [:index, :delete]
+      delete :notifications, to: 'notifications#destroy_all'
     end
 
     resources :reviews, only: [:create, :new, :edit, :update, :show, :destroy] do
