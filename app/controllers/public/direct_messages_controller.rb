@@ -11,6 +11,7 @@ class Public::DirectMessagesController < ApplicationController
     else
       @room = DmRoom.new
       @room.save
+      # create()はnewとsaveを同時にする
       DmRelationship.create(user_id: current_user.id, dm_room_id: @room.id)
       DmRelationship.create(user_id: @user.id, dm_room_id: @room.id)
     end
