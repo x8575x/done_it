@@ -9,7 +9,7 @@ class Public::CommentsController < ApplicationController
     if @comment.save
       @comments = @review.comments
       # 通知の作成
-      @comment_review.create_notification_comment!(current_user, @comment.id)
+      @review.create_notification_comment!(current_user, @comment.id)
       render :index
     else
       @comments = @review.comments
