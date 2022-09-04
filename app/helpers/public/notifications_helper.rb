@@ -15,7 +15,7 @@ module Public::NotificationsHelper
 	    	@comment = Comment.find_by(id: @visiter_comment)&.comment
 	    	tag.a(@visiter.name, href:user_path(@visiter), style:"font-weight: bold;")+"が"+tag.a('あなたの投稿', href:review_path(notification.review_id), style:"font-weight: bold;")+"にコメントしました"
 	    when "dm" then
-	    	tag.a(notification.visiter.name, href:user_path(@visiter))+"さんからメッセージが届いています"
+	    	tag.a(notification.visiter.name, href:user_path(@visiter))+"さんから"+tag.a('メッセージ', href:direct_message_path(@visiter))+"が届いています"
 	  end
   end
 

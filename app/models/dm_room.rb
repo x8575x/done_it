@@ -9,7 +9,7 @@ class DmRoom < ApplicationRecord
     @multiple_entry_records = DmRelationship.where(dm_room_id: id).where.not(user_id: current_user.id)
     @single_entry_record = @multiple_entry_records.find_by(dm_room_id: id)
     notification = current_user.active_notifications.build(
-      dm_room_id: id,
+      room_id: id,
       message_id: message_id,
       visited_id: @single_entry_record.user_id,
       action: 'dm'
