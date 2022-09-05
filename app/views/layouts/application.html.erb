@@ -69,6 +69,12 @@
                 </li>
 
                 <li class="nav-item">
+                  <%= link_to direct_messages_path, class: 'nav-link text-white' do %>
+                    <i class="far fa-envelope"></i>
+                  <% end %>
+                </li>
+
+                <li class="nav-item">
                   <%= link_to user_notifications_path(current_user), class: 'nav-link text-white' do %>
                     <i class="fas fa-bell"></i>
                   <% end %>

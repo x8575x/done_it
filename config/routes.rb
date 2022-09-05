@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     post "/new_tag" => "reports#new_tag_create"
 
     # DM機能
-    resources :direct_messages, only: [:show, :create]
+    resources :direct_messages, only: [:show, :create, :index]
 
     resources :users, only: [:show, :edit, :update] do
       get 'quit' => 'users#quit'
