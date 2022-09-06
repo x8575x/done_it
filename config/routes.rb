@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
     # DM機能
     resources :direct_messages, only: [:show, :create, :index]
+    resources :dm_rooms, only: [:index]
+
 
     resources :users, only: [:show, :edit, :update] do
       get 'quit' => 'users#quit'

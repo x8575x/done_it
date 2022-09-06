@@ -1,9 +1,6 @@
 class Public::DirectMessagesController < ApplicationController
   before_action :reject_non_related, only: [:show]
 
-  def index
-  end
-
   def show
     @user = User.find(params[:id])
     dm_rooms = current_user.dm_relationships.pluck(:dm_room_id)
