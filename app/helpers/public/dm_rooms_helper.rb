@@ -2,7 +2,7 @@ module Public::DmRoomsHelper
   # 最新メッセージのデータを取得して表示するメソッド
   def most_new_message_preview(dm_room)
     # 最新メッセージのデータを取得する
-    message = dm_room.messages.order(updated_at: :desc).limit(1)
+    message = dm_room.direct_messages.order(updated_at: :desc).limit(1)
     # 配列から取り出す
     message = message[0]
     # メッセージの有無を判定
@@ -16,9 +16,9 @@ module Public::DmRoomsHelper
   end
 
   # 相手ユーザー名を取得して表示するメソッド
-  def opponent_user(room)
+  def opponent_user(dm_room)
     # 中間テーブルから相手ユーザーのデータを取得
-    dm_relationship = room.dm_relationships.where.not(user_id: current_user)
+    dm_relationship = dm_room.dm_relationships.where.not(user_id: current_user)
     # 相手ユーザーの名前を取得
     name = dm_relationship[0].user.name
     # 名前を表示

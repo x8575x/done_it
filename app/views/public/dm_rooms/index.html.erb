@@ -1,5 +1,5 @@
-<%= @rooms.each do |room| %>
-  <%= link_to direct_message_path(room.id) do %>
-    test
+<% @dm_room.each do |room| %>
+  <%= link_to direct_message_path(room.user_id), class: "dm_list__content__link" do %>
+    testとのDM<br>
   <% end %>
 <% end %>
