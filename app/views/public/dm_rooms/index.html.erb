@@ -1,5 +1,15 @@
 <% @another_entries.each do |entry| %>
-  <%= link_to direct_message_path(entry.user_id) do %>
-    <%= entry.user.name %>
-  <% end %>
+  <div class="border m-3">
+    <%= image_tag entry.user.profile_image, size: "100x100" %>
+    <%= link_to direct_message_path(entry.user_id) do %>
+      <%= entry.user.name %>
+    <% end %>
+
+  </div>
+
 <% end %>
+<% @massege.each do |test| %>
+  <%= (test.message).last %>
+<% end %>
+
+
