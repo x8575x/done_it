@@ -32,11 +32,52 @@
 
               <% if user_signed_in? %>
               <!--ログイン済みのヘッダー-->
-                <li class="nav-item">
-                  <%= link_to searches_path, class: 'nav-link text-white' do %>
-                    <i class="fas fa-book"></i> Book seach
-                  <% end %>
-                </li>
+                <ul class="nav-item">
+                  <li class="dropdown-btn">
+                    <i class="fas fa-book"></i> Seach
+                    <ul class="dropdown">
+                      <li>
+                        <%= link_to searches_path, class: 'nav-link text-white' do %>
+                          <i class="fas fa-book"></i> Book seach
+                        <% end %>
+                      </li>
+                      <li>
+                        <%= link_to review_search_path, class: 'nav-link text-white' do %>
+                          <i class="fas fa-file-alt"></i> Review search
+                        <% end %>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <script>
+                  // ドロップダウンメニュー
+                  $('.dropdown-btn').hover(
+                    function() {
+                      //カーソルが重なった時
+                      $(this).children('.dropdown').addClass('open');
+                    }, function() {
+                      //カーソルが離れた時
+                      $(this).children('.dropdown').removeClass('open');
+                      }
+                    );
+
+                    // グローバルナビの開閉
+                    $(function() {
+                      $('.nav-button-wrap').on('click', function() {
+                        if ($(this).hasClass('active')) {
+                          // スマホ用メニューが表示されていたとき
+                          $(this).removeClass('active');
+                          $('.globalnav').addClass('close');
+                          $('.globalnav-wrap , body').removeClass('open');
+                        } else {
+                          // スマホ用メニューが非表示の時
+                          $(this).addClass('active');
+                          $('.globalnav').removeClass('close');
+                          $('.globalnav-wrap , body').addClass('open');
+                        }
+                      });
+                    });
+                </script>
                 <li class="nav-item">
                   <%= link_to about_path, class: 'nav-link text-white' do %>
                     <i class="fas fa-search"></i> About
@@ -45,11 +86,6 @@
                 <li class="nav-item">
                   <%= link_to rank_path(sort: 'review'), class: 'nav-link text-white' do %>
                     <i class="fas fa-crown"></i> Ranking
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to review_search_path, class: 'nav-link text-white' do %>
-                    <i class="fas fa-file-alt"></i> Review search
                   <% end %>
                 </li>
                 <li class="nav-item">
