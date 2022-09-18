@@ -32,10 +32,9 @@
 
               <% if user_signed_in? %>
               <!--ログイン済みのヘッダー-->
-                <ul class="nav-item">
-                  <li class="dropdown-btn">
-                    <i class="fas fa-book"></i> Seach
-                    <ul class="dropdown">
+                  <li class="nav-item">
+                    <span class="text-white"><i class="fas fa-book"></i> Seach</span>
+                    <ul class="hover_lists">
                       <li>
                         <%= link_to searches_path, class: 'nav-link text-white' do %>
                           <i class="fas fa-book"></i> Book seach
@@ -48,36 +47,7 @@
                       </li>
                     </ul>
                   </li>
-                </ul>
-                <script>
-                  // ドロップダウンメニュー
-                  $('.dropdown-btn').hover(
-                    function() {
-                      //カーソルが重なった時
-                      $(this).children('.dropdown').addClass('open');
-                    }, function() {
-                      //カーソルが離れた時
-                      $(this).children('.dropdown').removeClass('open');
-                      }
-                    );
 
-                    // グローバルナビの開閉
-                    $(function() {
-                      $('.nav-button-wrap').on('click', function() {
-                        if ($(this).hasClass('active')) {
-                          // スマホ用メニューが表示されていたとき
-                          $(this).removeClass('active');
-                          $('.globalnav').addClass('close');
-                          $('.globalnav-wrap , body').removeClass('open');
-                        } else {
-                          // スマホ用メニューが非表示の時
-                          $(this).addClass('active');
-                          $('.globalnav').removeClass('close');
-                          $('.globalnav-wrap , body').addClass('open');
-                        }
-                      });
-                    });
-                </script>
                 <li class="nav-item">
                   <%= link_to about_path, class: 'nav-link text-white' do %>
                     <i class="fas fa-search"></i> About
