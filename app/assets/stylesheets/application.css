@@ -25,10 +25,16 @@ header {
 /*.sample01 > li{*/
 /*    display: inline-block;*/
 /*}*/
-.hover_lists {
+.seach_lists {
     display: none;
 }
-.nav-item:hover .hover_lists {
+.nav-item:hover .seach_lists {
+    display: block;
+}
+.user_lists {
+    display: none;
+}
+.nav-item:hover .user_lists {
     display: block;
 }
 

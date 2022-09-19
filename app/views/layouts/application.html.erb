@@ -32,21 +32,21 @@
 
               <% if user_signed_in? %>
               <!--ログイン済みのヘッダー-->
-                  <li class="nav-item">
-                    <span class="text-white"><i class="fas fa-book"></i> Seach</span>
-                    <ul class="hover_lists">
-                      <li>
-                        <%= link_to searches_path, class: 'nav-link text-white' do %>
-                          <i class="fas fa-book"></i> Book seach
-                        <% end %>
-                      </li>
-                      <li>
-                        <%= link_to review_search_path, class: 'nav-link text-white' do %>
-                          <i class="fas fa-file-alt"></i> Review search
-                        <% end %>
-                      </li>
-                    </ul>
-                  </li>
+                <li class="nav-item">
+                  <span class="text-white"><i class="fas fa-book"></i> Seach</span>
+                  <ul class="seach_lists">
+                    <li>
+                      <%= link_to searches_path, class: 'nav-link text-white' do %>
+                        <i class="fas fa-book"></i> Book seach
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to review_search_path, class: 'nav-link text-white' do %>
+                        <i class="fas fa-file-alt"></i> Review search
+                      <% end %>
+                    </li>
+                  </ul>
+                </li>
 
                 <li class="nav-item">
                   <%= link_to about_path, class: 'nav-link text-white' do %>
@@ -59,33 +59,35 @@
                   <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to user_path(current_user.id), class: 'nav-link text-white' do %>
-                    <i class="fas fa-user"></i> My page
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to user_time_line_path(current_user.id), class: 'nav-link text-white' do %>
-                    <i class="fas fa-user"></i> Time line
-                  <% end %>
+                  <span class="text-white"><i class="fas fa-user"></i> User</span>
+                  <ul class="user_lists">
+                    <li>
+                      <%= link_to user_path(current_user.id), class: 'nav-link text-white' do %>
+                        <i class="fas fa-user"></i> My page
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to user_time_line_path(current_user.id), class: 'nav-link text-white' do %>
+                        <i class="fas fa-user"></i> Time line
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to user_notifications_path(current_user), class: 'nav-link text-white' do %>
+                        <i class="fas fa-bell"></i>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to dm_rooms_path, class: 'nav-link text-white' do %>
+                        <i class="far fa-envelope"></i>
+                      <% end %>
+                    </li>
+                  </ul>
                 </li>
                 <li class="nav-item">
                   <%= link_to destroy_user_session_path, class: 'nav-link text-white', method: :delete do %>
                     <i class="fas fa-sign-out-alt"></i> Log out
                   <% end %>
                 </li>
-
-                <li class="nav-item">
-                  <%= link_to dm_rooms_path, class: 'nav-link text-white' do %>
-                    <i class="far fa-envelope"></i>
-                  <% end %>
-                </li>
-
-                <li class="nav-item">
-                  <%= link_to user_notifications_path(current_user), class: 'nav-link text-white' do %>
-                    <i class="fas fa-bell"></i>
-                  <% end %>
-                </li>
-
 
               <% else %>
               <!--ログイン前のヘッダー-->
