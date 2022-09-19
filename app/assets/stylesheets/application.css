@@ -22,9 +22,8 @@ header {
   background-color: #000055;
 }
 
-/*.sample01 > li{*/
-/*    display: inline-block;*/
-/*}*/
+
+/*ヘッダー　ホバー表示*/
 .seach_lists {
     display: none;
 }
@@ -38,6 +37,9 @@ header {
     display: block;
 }
 
+.nav-link {
+  display: inline;
+}
 
 
 /*サイト全体の文字色*/
