@@ -24,6 +24,10 @@ header {
 
 
 /*ヘッダー　ホバー表示*/
+.seach_list {
+  position: absolute;
+}
+
 .seach_lists {
     display: none;
 }

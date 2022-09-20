@@ -4,19 +4,6 @@
     <%= link_to direct_message_path(entry.user_id) do %>
       <%= entry.user.name %>
     <% end %>
-
+    <%= DirectMessage.find_by(id: entry.dm_room.direct_message_ids.last)&.message %>
   </div>
-  <!--<= most_new_message_preview(entry) %>-->
-
 <% end %>
-
-
-
-
-
-<% @massege.each do |test| %>
-  <%= (test.message) %>
-<% end %>
-
-
-
