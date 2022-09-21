@@ -29,6 +29,10 @@ header {
 }
 
 .seach_lists {
+  position: relative;
+}
+
+.seach_lists {
     display: none;
 }
 .nav-item:hover .seach_lists {
