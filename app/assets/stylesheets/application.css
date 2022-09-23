@@ -37,6 +37,8 @@ header {
     background-color:white;
     border: 3px solid #000055;
     list-style: none;
+    top: 67px;
+    text-align: left;
 }
 .nav-item:hover .seach_lists a {
   color: #000055;
