@@ -24,14 +24,14 @@ header {
 
 
 /*ヘッダー　ホバー表示*/
-.seach_list {
+.header_list {
   position: relative;
 }
 
-.seach_lists {
+.header_lists {
     display: none;
 }
-.nav-item:hover .seach_lists {
+.nav-item:hover .header_lists {
     display: block;
     position: absolute;
     background-color:white;
@@ -40,14 +40,8 @@ header {
     top: 67px;
     text-align: left;
 }
-.nav-item:hover .seach_lists a {
+.nav-item:hover .header_lists a {
   color: #000055;
-}
-.user_lists {
-    display: none;
-}
-.nav-item:hover .user_lists {
-    display: block;
 }
 
 .nav-link {

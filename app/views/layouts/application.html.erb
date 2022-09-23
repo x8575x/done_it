@@ -33,8 +33,8 @@
               <% if user_signed_in? %>
               <!--ログイン済みのヘッダー-->
                 <li class="nav-item">
-                  <span class="seach_list text-white"><i class="fas fa-book"></i> Seach</span>
-                  <ul class="seach_lists">
+                  <span class="header_list text-white"><i class="fas fa-book"></i> Seach</span>
+                  <ul class="header_lists">
                     <li>
                       <%= link_to searches_path, class: 'nav-link' do %>
                         <i class="fas fa-book"></i> Book seach
@@ -58,25 +58,25 @@
                   <% end %>
                 </li>
                 <li class="nav-item">
-                  <span class="text-white"><i class="fas fa-user"></i> User</span>
-                  <ul class="user_lists">
+                  <span class="header_list text-white"><i class="fas fa-user"></i> User</span>
+                  <ul class="header_lists">
                     <li>
-                      <%= link_to user_path(current_user.id), class: 'nav-link text-white' do %>
+                      <%= link_to user_path(current_user.id), class: 'nav-link' do %>
                         <i class="fas fa-user"></i> My page
                       <% end %>
                     </li>
                     <li>
-                      <%= link_to user_time_line_path(current_user.id), class: 'nav-link text-white' do %>
+                      <%= link_to user_time_line_path(current_user.id), class: 'nav-link' do %>
                         <i class="fas fa-user"></i> Time line
                       <% end %>
                     </li>
                     <li>
-                      <%= link_to user_notifications_path(current_user), class: 'nav-link text-white' do %>
+                      <%= link_to user_notifications_path(current_user), class: 'nav-link' do %>
                         <i class="fas fa-bell"></i>
                       <% end %>
                     </li>
                     <li>
-                      <%= link_to dm_rooms_path, class: 'nav-link text-white' do %>
+                      <%= link_to dm_rooms_path, class: 'nav-link' do %>
                         <i class="far fa-envelope"></i>
                       <% end %>
                     </li>
