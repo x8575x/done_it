@@ -29,16 +29,16 @@ header {
 }
 
 .header_lists {
-    display: none;
+  display: none;
+  text-align: center;
 }
 .nav-item:hover .header_lists {
-    display: block;
-    position: absolute;
-    background-color:white;
-    border: 3px solid #000055;
-    list-style: none;
-    top: 67px;
-    text-align: left;
+  display: block;
+  position: absolute;
+  background-color:white;
+  border: 3px solid #000055;
+  list-style: none;
+  top: 50px;
 }
 .nav-item:hover .header_lists a {
   color: #000055;
