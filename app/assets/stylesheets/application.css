@@ -25,20 +25,21 @@ header {
 
 /*ヘッダー　ホバー表示*/
 .header_list {
-  position: relative;
 }
 
 .header_lists {
   display: none;
-  text-align: center;
+  /*position: relative;*/
 }
 .nav-item:hover .header_lists {
   display: block;
   position: absolute;
-  background-color:white;
+  background-color: white;
   border: 3px solid #000055;
   list-style: none;
-  top: 50px;
+  top: 25px;
+  padding: 8px;
+  width: 145px;
 }
 .nav-item:hover .header_lists a {
   color: #000055;
@@ -46,6 +47,9 @@ header {
 
 .nav-link {
   display: inline;
+}
+.nav-item {
+  position: relative;
 }
 
 
