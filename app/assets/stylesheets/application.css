@@ -39,7 +39,7 @@ header {
   list-style: none;
   top: 25px;
   padding: 8px;
-  width: 145px;
+  width: 250px;
 }
 .nav-item:hover .header_lists a {
   color: #000055;
@@ -51,7 +51,10 @@ header {
 .nav-item {
   position: relative;
 }
-
+.in-line {
+  display: inline;
+  word-wrap: break-word;
+}
 
 /*サイト全体の文字色*/
 body {
