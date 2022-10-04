@@ -1,9 +1,12 @@
 <% @another_entries.each do |entry| %>
-  <div class="border m-3">
-    <%= image_tag entry.user.profile_image, size: "100x100" %>
-    <%= link_to direct_message_path(entry.user_id) do %>
-      <%= entry.user.name %>
-    <% end %>
-    <%= DirectMessage.find_by(id: entry.dm_room.direct_message_ids.last)&.message %>
+  <div class="row border m-5 p-3">
+    <div class="col-md-2 pr-5"><%= image_tag entry.user.profile_image, size: "100x100" %></div>
+    <div class="col-md-10">
+      <%= link_to direct_message_path(entry.user_id) do %>
+        <i class="fas fa-user"></i> <%= entry.user.name %>
+      <% end %><br>
+      <p class="body_warp"><%= DirectMessage.find_by(id: entry.dm_room.direct_message_ids.last)&.message %></p>
+      <i class="fas fa-clock"></i> <%= DirectMessage.find_by(id: entry.dm_room.direct_message_ids.last)&.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+    </div>
   </div>
 <% end %>
