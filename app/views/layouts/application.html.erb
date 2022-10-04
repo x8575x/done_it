@@ -32,21 +32,20 @@
 
               <% if user_signed_in? %>
               <!--ログイン済みのヘッダー-->
-                <li class="nav-item">
-                  <span class="header_list text-white"><i class="fas fa-book"></i> Seach</span>
-                  <ul class="header_lists">
-                    <li class="in-line">
-                      <%= link_to searches_path, class: 'nav-link' do %>
-                        <i class="fas fa-book"></i> Book
-                      <% end %>
-                    </li>
-                    <li class="in-line">
-                      <%= link_to review_search_path, class: 'nav-link' do %>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-book"></i> Seach
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <%= link_to searches_path, class: 'nav-link' do %>
+                      <i class="fas fa-book"></i> Book
+                    <% end %><br>
+                    <%= link_to review_search_path, class: 'nav-link' do %>
                         <i class="fas fa-file-alt"></i> Review
                       <% end %>
-                    </li>
-                  </ul>
+                  </div>
                 </li>
+
                 <li class="nav-item">
                   <%= link_to about_path, class: 'nav-link text-white' do %>
                     <i class="fas fa-search"></i> About
@@ -57,30 +56,25 @@
                     <i class="fas fa-crown"></i> Ranking
                   <% end %>
                 </li>
-                <li class="nav-item">
-                  <span class="header_list text-white"><i class="fas fa-user"></i> User</span>
-                  <ul class="header_lists">
-                    <li class="in-line">
-                      <%= link_to user_path(current_user.id), class: 'nav-link' do %>
-                        <i class="fas fa-user"></i> My page
-                      <% end %>
-                    </li>
-                    <li class="in-line">
-                      <%= link_to user_time_line_path(current_user.id), class: 'nav-link' do %>
-                        <i class="fas fa-user"></i> Time line
-                      <% end %>
-                    </li><br>
-                    <li class="in-line">
-                      <%= link_to user_notifications_path(current_user), class: 'nav-link' do %>
-                        <i class="fas fa-bell"></i> Notification
-                      <% end %>
-                    </li>
-                    <li class="in-line">
-                      <%= link_to dm_rooms_path, class: 'nav-link' do %>
-                        <i class="far fa-envelope"></i> Mail
-                      <% end %>
-                    </li>
-                  </ul>
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user"></i> User
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <%= link_to user_path(current_user.id), class: 'nav-link' do %>
+                      <i class="fas fa-user"></i> My page
+                    <% end %><br>
+                    <%= link_to user_time_line_path(current_user.id), class: 'nav-link' do %>
+                      <i class="fas fa-clock"></i> Time line
+                    <% end %><br>
+                    <%= link_to user_notifications_path(current_user), class: 'nav-link' do %>
+                      <i class="fas fa-bell"></i> Notification
+                    <% end %><br>
+                    <%= link_to dm_rooms_path, class: 'nav-link' do %>
+                      <i class="fas fa-envelope"></i> Mail
+                    <% end %>
+                  </div>
                 </li>
                 <li class="nav-item">
                   <%= link_to destroy_user_session_path, class: 'nav-link text-white', method: :delete do %>

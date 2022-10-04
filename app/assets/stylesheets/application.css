@@ -22,39 +22,11 @@ header {
   background-color: #000055;
 }
 
-
-/*ヘッダー　ホバー表示*/
-.header_list {
-}
-
-.header_lists {
-  display: none;
-  /*position: relative;*/
-}
-.nav-item:hover .header_lists {
-  display: block;
-  position: absolute;
-  background-color: white;
-  border: 3px solid #000055;
-  list-style: none;
-  top: 25px;
-  padding: 8px;
-  width: 250px;
-}
-.nav-item:hover .header_lists a {
+.dropdown-menu {
   color: #000055;
+  background-color: #000055;
 }
 
-.nav-link {
-  display: inline;
-}
-.nav-item {
-  position: relative;
-}
-.in-line {
-  display: inline;
-  word-wrap: break-word;
-}
 
 /*サイト全体の文字色*/
 body {
