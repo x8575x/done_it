@@ -32,9 +32,15 @@
 
               <% if user_signed_in? %>
               <!--ログイン済みのヘッダー-->
+                <li class="nav-item">
+                  <%= link_to about_path, class: 'nav-link text-white' do %>
+                    <i class="fas fa-book"></i> About
+                  <% end %>
+                </li>
+
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-book"></i> Seach
+                  <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-search"></i> Seach
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <%= link_to searches_path, class: 'nav-link' do %>
@@ -47,18 +53,13 @@
                 </li>
 
                 <li class="nav-item">
-                  <%= link_to about_path, class: 'nav-link text-white' do %>
-                    <i class="fas fa-search"></i> About
-                  <% end %>
-                </li>
-                <li class="nav-item">
                   <%= link_to rank_path(sort: 'review'), class: 'nav-link text-white' do %>
                     <i class="fas fa-crown"></i> Ranking
                   <% end %>
                 </li>
 
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user"></i> User
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

@@ -27,6 +27,9 @@ header {
   background-color: #000055;
 }
 
+.nav-link {
+  display: inline-block;
+}
 
 /*サイト全体の文字色*/
 body {
