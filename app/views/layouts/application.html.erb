@@ -43,10 +43,10 @@
                     <i class="fas fa-search"></i> Seach
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <%= link_to searches_path, class: 'nav-link' do %>
+                    <%= link_to searches_path, class: 'nav' do %>
                       <i class="fas fa-book"></i> Book
                     <% end %><br>
-                    <%= link_to review_search_path, class: 'nav-link' do %>
+                    <%= link_to review_search_path, class: 'nav' do %>
                         <i class="fas fa-file-alt"></i> Review
                       <% end %>
                   </div>
@@ -63,16 +63,16 @@
                     <i class="fas fa-user"></i> User
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <%= link_to user_path(current_user.id), class: 'nav-link' do %>
+                    <%= link_to user_path(current_user.id), class: 'nav' do %>
                       <i class="fas fa-user"></i> My page
                     <% end %><br>
-                    <%= link_to user_time_line_path(current_user.id), class: 'nav-link' do %>
+                    <%= link_to user_time_line_path(current_user.id), class: 'nav' do %>
                       <i class="fas fa-clock"></i> Time line
                     <% end %><br>
-                    <%= link_to user_notifications_path(current_user), class: 'nav-link' do %>
+                    <%= link_to user_notifications_path(current_user), class: 'nav' do %>
                       <i class="fas fa-bell"></i> Notification
                     <% end %><br>
-                    <%= link_to dm_rooms_path, class: 'nav-link' do %>
+                    <%= link_to dm_rooms_path, class: 'nav' do %>
                       <i class="fas fa-envelope"></i> Mail
                     <% end %>
                   </div>

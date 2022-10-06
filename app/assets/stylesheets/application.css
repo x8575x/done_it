@@ -28,9 +28,10 @@ header {
   background-color: #000055;
 }
 
-.nav-link {
+.nav {
   display: inline-block;
-  /*width: 120px;*/
+  margin-left: 50px;
+  color: white;
 }
 
 .nav-item {
