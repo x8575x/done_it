@@ -22,6 +22,7 @@ header {
   background-color: #000055;
 }
 
+/*ヘッダードロップダウン*/
 .dropdown-menu {
   color: #000055;
   background-color: #000055;
@@ -29,7 +30,11 @@ header {
 
 .nav-link {
   display: inline-block;
-  width: 120px;
+  /*width: 120px;*/
+}
+
+.nav-item {
+  margin: 10px auto;
 }
 
 /*サイト全体の文字色*/
