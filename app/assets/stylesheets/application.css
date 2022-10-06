@@ -29,6 +29,7 @@ header {
 
 .nav-link {
   display: inline-block;
+  width: 120px;
 }
 
 /*サイト全体の文字色*/
