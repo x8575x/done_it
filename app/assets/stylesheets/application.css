@@ -30,8 +30,11 @@ header {
 
 .nav {
   display: inline-block;
-  margin-left: 50px;
   color: white;
+}
+
+.dropdown-menu.show {
+  text-align: center;
 }
 
 .nav-item {
