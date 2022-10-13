@@ -1,13 +1,53 @@
 <% visiter = notification.visiter %>
-<% review = notification.review %>
 
-<div class="user-view clearfix ">
-  <%= link_to user_path(notification.visiter) do %>
-    <%= image_tag visiter.get_profile_image(50,50) %>
-  <% end %>
-  <%= notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)} 前)" %></span>
-  <br>
-  <% if !@comment.nil? %>
-    <p class="moderate-font text-center" style="color: #C0C0C0;"><%= @comment %></p>
-  <% end %>
-</div>
+  <% case notification.action %>
+    <% when 'follow' %>
+      <div>
+        <%= image_tag notification.visiter.get_profile_image(100,100) %>
+        <%= link_to user_path(visiter) do %>
+          <%= notification.visiter.name %>
+        <% end %>
+        さんがあなたをフォローしました
+      </div>
+
+    <% when 'favorite' %>
+      <div>
+        <%= image_tag notification.visiter.get_profile_image(100,100) %>
+        <%= link_to user_path(visiter) do %>
+          <%= notification.visiter.name %>
+        <% end %>
+        さんが
+        <%= link_to review_path(notification.review_id) do %>
+          あなたの投稿
+        <% end %>
+        にいいねしました
+      </div>
+
+    <% when 'comment' %>
+      <div>
+        <%= image_tag notification.visiter.get_profile_image(100,100) %>
+        <%= Comment.find_by(id: @visiter_comment)&.comment %>
+        <%= link_to user_path(visiter) do %>
+          <%= notification.visiter.name %>
+        <% end %>
+        さんが
+        <%= link_to review_path(notification.review_id) do %>
+          あなたの投稿
+        <% end %>
+        にコメントしました
+      </div>
+
+    <% when 'dm' %>
+      <div>
+        <%= image_tag notification.visiter.get_profile_image(100,100) %>
+        <%= link_to user_path(visiter) do %>
+          <%= notification.visiter.name %>
+        <% end %>
+        さんから
+        <%= link_to direct_message_path(visiter) do %>
+          メッセージ
+        <% end %>
+        が届いています
+        <%= truncate(notification.message.content, length: 20, omission: '... (一部表示)') %>
+      </div>
+    <% end %>
