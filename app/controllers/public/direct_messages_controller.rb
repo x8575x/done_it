@@ -24,7 +24,7 @@ class Public::DirectMessagesController < ApplicationController
     @message.user_id = current_user.id
     @message.save
     @room = DmRoom.find(params[:direct_message][:dm_room_id])
-    @room.create_notification_dm(current_user, @message_id)
+    @room.create_notification_dm(current_user, @message.id)
     @direct_messages = @room.direct_messages
   end
 
