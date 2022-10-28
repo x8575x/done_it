@@ -5,6 +5,7 @@
  <%= render "message", direct_messages: @direct_messages %>
 </div>
 
+<div class="row justify-content-center my-3"><%= paginate @direct_messages %></div>
 
 <%= form_with model: @message, local: false do |f| %>
   <%= f.text_field :message, class: "col-md-11"  %>

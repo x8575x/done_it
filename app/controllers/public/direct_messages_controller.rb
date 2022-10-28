@@ -5,7 +5,6 @@ class Public::DirectMessagesController < ApplicationController
     @user = User.find(params[:id])
     dm_rooms = current_user.dm_relationships.pluck(:dm_room_id)
     user_rooms = DmRelationship.find_by(user_id: @user.id, dm_room_id: dm_rooms)
-
     unless user_rooms.nil?
       @room = user_rooms.dm_room
     else
@@ -15,7 +14,7 @@ class Public::DirectMessagesController < ApplicationController
       DmRelationship.create(user_id: current_user.id, dm_room_id: @room.id)
       DmRelationship.create(user_id: @user.id, dm_room_id: @room.id)
     end
-    @direct_messages = @room.direct_messages
+    @direct_messages = @room.direct_messages.page(params[:page]).per(30)
     @message = DirectMessage.new(dm_room_id: @room.id)
   end
 
